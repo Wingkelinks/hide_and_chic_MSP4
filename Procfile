@@ -1,0 +1,1 @@
+web: gunicorn hide_and_chic.wsgi:application
