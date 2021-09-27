@@ -20,6 +20,18 @@
 				integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 				crossorigin="anonymous"
 			/>
+			<link 
+				rel="preconnect" 
+				href="https://fonts.googleapis.com">
+			<link 
+				rel="preconnect" 
+				href="https://fonts.gstatic.com" 
+				crossorigin>
+			<link 
+				href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400&display=swap" 
+				rel="stylesheet">
+			<!-- Base CSS -->
+			<link rel="stylesheet" href="{% static 'css/base.css' %}">
 		{% endblock %}
 
 		{% block extra_css %}
@@ -44,15 +56,18 @@
 		<!-- Bootstrap Offcanvas Navbar -->
 		<nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="#">Hide & Chic</a>
+			  <a class="navbar-brand fs-2 text logo-font ms-4" href="#">Hide & Chic</a>
 			  <button class="navbar-toggler" 
 						type="button" 
 						data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
 						aria-controls="navbarOffcanvasLg">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
-			  <div class="offcanvas offcanvas-end" 
-			  	tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+			  <div 
+			  	class="offcanvas offcanvas-end" 
+			  	tabindex="-1" 
+				id="navbarOffcanvasLg" 
+				aria-labelledby="navbarOffcanvasLgLabel">
 				<div class="offcanvas-header">
 				  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hide & Chic</h5>
 				  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
