@@ -16,7 +16,7 @@ body {
     padding: 1em;
   }
 
-/* from Bulma */
+/* From Bulma - as shown in CI Boutique Ado walkthrough */
 .icon {
 	align-items: center;
 	display: inline-flex;
@@ -66,6 +66,45 @@ body {
     background: #222;
     color: white;
 }
+
+/* CART MODAL --------------------------------  */
+/* Code appropriated - Bootstrap Theme */
+/* https://themes.getbootstrap.com/preview/?theme_id=5824 */
+
+.navbar-cart-product-wrapper {
+    overflow-y: auto;
+    min-width: 270px;
+    max-height: 280px;
+}
+
+.navbar-cart-product {
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+.navbar-cart-product .navbar-cart-product-image {
+    max-width: 100px;
+}
+
+.navbar-cart-product .navbar-cart-product-close {
+    float: right;
+    margin-right: .5rem;
+    opacity: .5;
+    color: #343a40;
+    font-size: .7875rem;
+}
+
+.navbar-cart-total {
+    display: flex;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: 0.7rem 1rem;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    font-size: .7875rem;
+    justify-content: space-between;
+}
+/* -------------------------------- CART MODAL END */
 
 /* -------------------------------- Media Queries */
 /* Code Snippet - CI Boutique Ado Course Material */
