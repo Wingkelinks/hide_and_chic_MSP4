@@ -127,15 +127,13 @@
 				
 								<!-- Shop All Menu -->
 								<ul class="dropdown-menu" 			aria-labelledby="dropdownMenuLink">
-									<li><a class="dropdown-item" href="#">Footwear</a></li>
-									<li><a class="dropdown-item" href="#">Jackets</a></li>
-									<li><a class="dropdown-item" href="#">Bags</a></li>
-									<li><a class="dropdown-item" href="#">Accessories</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets">Jackets</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=bags">Bags</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">Accessories</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=sale">Sale</a></li>
+									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories">All Products</a></li>
 								</ul>
-							</li>
-							<!-- Sale -->
-							<li class="nav-item">
-								<a class="nav-link" href="html">Sale</a>
 							</li>
 							<!-- Leather Care Dropdown -->
 							<li class="nav-item dropdown">
