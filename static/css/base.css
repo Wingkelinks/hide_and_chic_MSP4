@@ -7,14 +7,14 @@ body {
 	background-size: cover;
 	height: calc(100vh - 164px);
 	color: #444;
-    font-family: Raleway', sans-serif;
+	font-family: "Raleway", sans-serif;
 }
 
 .banner {
-    background: rgba(200,200,200,0.8);
-    margin: 0;
-    padding: 1em;
-  }
+	background: rgba(200, 200, 200, 0.8);
+	margin: 0;
+	padding: 1em;
+}
 
 /* From Bulma - as shown in CI Boutique Ado walkthrough */
 .icon {
@@ -26,7 +26,7 @@ body {
 }
 
 .logo-font {
-    font-family: 'Abril Fatface', cursive;
+	font-family: "Abril Fatface", cursive;
 }
 
 .main-logo-link {
@@ -34,27 +34,27 @@ body {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
+	background: black;
+	color: white;
+	min-width: 260px;
 }
 
 .btn-black {
-    background: black;
-    color: white;
+	background: black;
+	color: white;
 }
 
 .btn-outline-black {
-    background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+	background: white;
+	color: black !important; /* use important to override link colors for <a> elements */
+	border: 1px solid black;
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
-    color: white !important;
+	background: black;
+	color: white !important;
 }
 
 .shop-now-button:hover,
@@ -63,8 +63,8 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+	background: #222;
+	color: white;
 }
 
 /* CART MODAL --------------------------------  */
@@ -72,54 +72,58 @@ body {
 /* https://themes.getbootstrap.com/preview/?theme_id=5824 */
 
 .navbar-cart-product-wrapper {
-    overflow-y: auto;
-    min-width: 270px;
-    max-height: 280px;
+	overflow-y: auto;
+	min-width: 270px;
+	max-height: 280px;
 }
 
 .navbar-cart-product {
-    padding-top: .6rem;
-    padding-bottom: .6rem;
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
 }
 
 .navbar-cart-product .navbar-cart-product-image {
-    max-width: 100px;
+	max-width: 100px;
 }
 
 .navbar-cart-product .navbar-cart-product-close {
-    float: right;
-    margin-right: .5rem;
-    opacity: .5;
-    color: #343a40;
-    font-size: .7875rem;
+	float: right;
+	margin-right: 0.5rem;
+	opacity: 0.5;
+	color: #343a40;
+	font-size: 0.7875rem;
 }
 
 .navbar-cart-total {
-    display: flex;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding: 0.7rem 1rem;
-    border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
-    font-size: .7875rem;
-    justify-content: space-between;
+	display: flex;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	padding: 0.7rem 1rem;
+	border-top: 1px solid #e9ecef;
+	border-bottom: 1px solid #e9ecef;
+	font-size: 0.7875rem;
+	justify-content: space-between;
 }
 /* -------------------------------- CART MODAL END */
 
 /* Overlay - cover base image */
 .overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: #fff;
-    z-index: -1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #fff;
+	z-index: -1;
 }
 
 /* -------------------------------- Products Page */
 
-
+.card-img-top {
+	width: 100%;
+	height: 20vw;
+	object-fit: cover;
+}
 
 /* -------------------------------- Media Queries */
 /* Code Snippet - CI Boutique Ado Course Material */
@@ -143,5 +147,14 @@ body {
 
 	.header-container {
 		padding-top: 164px;
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.card-img-top {
+		width: 100%;
+		height: 50vw;
+		object-fit: cover;
 	}
 }
