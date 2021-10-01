@@ -3,17 +3,126 @@ html {
 }
 
 body {
-	background: url("/media/shirt_shoes.jpg") no-repeat center center fixed;
+	background: linear-gradient(rgba(185, 118, 101, 0.3), rgba(0, 0, 0, 0.6)),
+		url("/media/duffel_bag.jpg") no-repeat center center fixed;
 	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	height: calc(100vh - 164px);
-	color: #444;
 	font-family: "Raleway", sans-serif;
 }
 
+/* Palette */
+/* Background colors */
+
+.platinum {
+	background-color: #e5e5e5;
+}
+
+.pure-white {
+	background-color: #ffffff;
+}
+
+.mindaro {
+	background-color: #e3f683;
+}
+
+.cream {
+	background-color: #fcfac9;
+}
+
+.tea-green {
+	background-color: #cbdfbd;
+}
+
+.granny-smith {
+	background-color: #c8f6a7;
+}
+
+.salmon {
+	background-color: #fb996f;
+}
+
+.orange-soda {
+	background-color: #f15c37;
+}
+.coral {
+	background-color: #f67b53;
+}
+
+.rosso {
+	background-color: #d42912;
+}
+
+.cyan {
+	background-color: #37ccf1;
+}
+
+.blue-black {
+	background-color: #011014;
+}
+
+/* Text Colors */
+
+.platinum-text {
+	color: #e5e5e5;
+}
+
+.pure-white-text {
+	color: #ffffff;
+}
+
+.mindaro-text {
+	color: #e3f683;
+}
+
+.cream-text {
+	color: #fcfac9;
+}
+
+.tea-green-text {
+	color: #cbdfbd;
+}
+
+.granny-smith-text {
+	color: #c8f6a7;
+}
+
+.salmon-text {
+	color: #fb996f;
+}
+
+.orange-soda-text {
+	color: #f15c37;
+}
+.coral-text {
+	color: #f67b53;
+}
+
+.rosso-text {
+	color: #d42912;
+}
+
+.cyan-text {
+	color: #37ccf1;
+}
+
+.blue-black-text {
+	color: #011014;
+}
+/* --------------------------------------- */
+
 .banner {
-	background: rgba(200, 200, 200, 0.8);
 	margin: 0;
-	padding: 1em;
+}
+
+.nav-link {
+	color: #e5e5e5 !important;
+}
+
+.slogan {
+	text-shadow: 2px 2px 6px #011014;
 }
 
 /* From Bulma - as shown in CI Boutique Ado walkthrough */
@@ -29,24 +138,14 @@ body {
 	font-family: "Abril Fatface", cursive;
 }
 
-.main-logo-link {
-	width: fit-content;
-}
-
-.shop-now-button {
-	background: black;
-	color: white;
-	min-width: 260px;
-}
-
-.btn-black {
+/* .btn-black {
 	background: black;
 	color: white;
 }
 
 .btn-outline-black {
 	background: white;
-	color: black !important; /* use important to override link colors for <a> elements */
+	color: black !important;
 	border: 1px solid black;
 }
 
@@ -65,7 +164,7 @@ body {
 .btn-black:focus {
 	background: #222;
 	color: white;
-}
+} */
 
 /* CART MODAL --------------------------------  */
 /* Code appropriated - Bootstrap Theme */
