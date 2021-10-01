@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h1 class="logo-font mb-4">Your Cart</h1>
+        <hr class="w-25 mx-auto mb-4">
+      </div> 
+    </div>
+</div>
+
+<div class="container">
+    <div class="row gutter-2 gutter-lg-4 justify-content-end">
+        <!-- Cart Item -->
+        {% if cart_items %}
+            <!-- <table class="table-responsive"></table> -->
+            <div class="col-lg-8">
+                <div class="border-top">
+                    <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="">
+                        <a href="#!"><img class="img-fluid" src="" alt=""></a>
+                        <div class="">
+                            <h5 class=""></h5>
+                            <span class="small"></span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-2 text-center">
+                        <span class=""></span>
+                    </div>
+                    <div class="col-4 col-lg-2 text-center">
+                        <div class="">
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-2 text-center">
+                        <span class=""></span>
+                    </div>
+                    <a href="#!" class=""><i class=""></i></a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col text-center">
+                <p class="lead mb-5">Your Cart is Empty.</p>
+                <a href="{% url 'products' %}" class="coral blue-black-text fw-bold btn btn-lg text-uppercase py-3">Keep Shopping
+                </a>
+            </div>
+        {% endif %}
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+        <div class="card bg-light">
+            <div class="card-header py-2 px-3">
+            <div class="row align-items-center">
+                <div class="col">
+                <h3 class="fs-18 mb-0">Order Summary</h3>
+                </div>
+            </div>
+            </div>
+            <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Subtotal
+                <span></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Shipping
+                <span></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="" class="text-primary action underline">Add coupon code</a>
+                </li>
+            </ul>
+            </div>
+            <div class="card-footer py-2">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center text-dark fs-18">
+                Total
+                <span></span>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <a href="" class="btn btn-lg btn-block mt-1">Checkout</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
