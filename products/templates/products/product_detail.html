@@ -58,27 +58,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                        <!-- Buttons -->
+                        <div class="vstack gap-4 mt-5 w-75">
+                            <button
+                                type="hidden" name="redirect_url" value="{{ request.path }}"                            
+                                class="btn btn-lg text-uppercase coral"
+                                value="submit">Add to Cart
+                                <i class="align-middle material-icons">
+                                    add_shopping_cart
+                                </i>
+                            </button>
+                            <a
+                                href="{% url 'products' %}" 
+                                class="btn btn-lg text-uppercase granny-smith">Keep Shopping
+                                <i class="icon material-icons">
+                                store
+                                </i>
+                            </a>
                         </div>
                     </form>
-                    <!-- Buttons -->
-                    <div class="vstack gap-4 mt-5 w-75">
-                        <button 
-                            type="button" 
-                            class="btn btn-lg text-uppercase coral"
-                            value="submit">Add to Cart
-                            <i class="align-middle material-icons">
-                                add_shopping_cart
-                            </i>
-                        </button>
-                        <a 
-                            href="{% url 'products' %}" 
-                            class="btn btn-lg text-uppercase granny-smith">Keep Shopping
-                            <i class="icon material-icons">
-                            store
-                            </i>
-                        </a>
-                    </div>
                     <hr class="w-75 my-4">
                 </div>
             </div>
