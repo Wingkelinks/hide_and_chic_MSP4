@@ -219,8 +219,13 @@
 							<a
 								class="nav-link" 
 								data-bs-toggle="modal" data-bs-target="#cartModal">
-								<span data-cart-items="2">
+								<span>
 								<i class="fas fa-shopping-cart"></i>
+								</span>
+								<span>
+									{% if cart_items %}
+										{{ product_count }}
+									{% endif %}
 								</span>
 							</a>
 							</li>

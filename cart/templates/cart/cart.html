@@ -25,7 +25,9 @@
     <div class="row gutter-2 gutter-lg-4 justify-content-end">
         <!-- Cart Item -->
         {% if cart_items %}
-            <!-- <table class="table-responsive"></table> -->
+            <table class="table-responsive">
+                {{ cart_items }}
+            </table>
             <div class="col-lg-8">
                 <div class="border-top">
                     <div class="row align-items-center">
