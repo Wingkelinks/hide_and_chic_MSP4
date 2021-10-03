@@ -16,88 +16,123 @@
     <div class="row">
       <div class="col text-center">
         <h1 class="logo-font mb-4">Your Cart</h1>
-        <hr class="w-25 mx-auto mb-4">
+        <hr class="w-25 mx-auto mb-5">
       </div> 
     </div>
-</div>
 
-<div class="container">
-    <div class="row gutter-2 gutter-lg-4 justify-content-end">
-        <!-- Cart Item -->
-        {% if cart_items %}
-            <table class="table-responsive">
-                {{ cart_items }}
-            </table>
-            <div class="col-lg-8">
-                <div class="border-top">
-                    <div class="row align-items-center">
-                    <div class="col-12 col-lg-6">
-                        <div class="">
-                        <a href="#!"><img class="img-fluid" src="" alt=""></a>
-                        <div class="">
-                            <h5 class=""></h5>
-                            <span class="small"></span>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-lg-2 text-center">
-                        <span class=""></span>
-                    </div>
-                    <div class="col-4 col-lg-2 text-center">
-                        <div class="">
-                        </div>
-                    </div>
-                    <div class="col-4 col-lg-2 text-center">
-                        <span class=""></span>
-                    </div>
-                    <a href="#!" class=""><i class=""></i></a>
-                    </div>
+    <div class="row">
+        <div class="col">
+            {% if cart_items %}
+                <div class="table-responsive rounded p-3">
+                    <table class="table table-sm">
+                        <thead class="blue-black platinum-text h4">
+                            <tr>
+                                <th scope="col">Product Info</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+
+                        {% for item in cart_items %}
+                            <tr>
+                                <td class="p-3 w-25">
+                                    <img class="img-fluid rounded product-img-cart" src="{{ item.product.image.url }}">
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">${{ item.product.price }}</p>
+                                </td>
+                                <td class="py-3 w-25">
+                                    <p class="my-0">{{ item.quantity }}</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">${{ item.product.price }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="py-3"><h6><strong>Cart Total:</strong></h6>
+                            </td>
+                            <td class="py-3">${{ total|floatformat:2 }}</td>
+                        </tr>
+                    </table>
                 </div>
-            </div>
-        {% else %}
-            <div class="col text-center">
-                <p class="lead mb-5">Your Cart is Empty.</p>
-                <a href="{% url 'products' %}" class="coral blue-black-text fw-bold btn btn-lg text-uppercase py-3">Keep Shopping
-                </a>
-            </div>
-        {% endif %}
-        <!-- Order Summary -->
-        <div class="col-lg-4">
-        <div class="card bg-light">
-            <div class="card-header py-2 px-3">
-            <div class="row align-items-center">
-                <div class="col">
-                <h3 class="fs-18 mb-0">Order Summary</h3>
-                </div>
-            </div>
-            </div>
-            <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                Subtotal
-                <span></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                Shipping
-                <span></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                <a href="" class="text-primary action underline">Add coupon code</a>
-                </li>
-            </ul>
-            </div>
-            <div class="card-footer py-2">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center text-dark fs-18">
-                Total
-                <span></span>
-                </li>
-            </ul>
-            </div>
         </div>
-        <a href="" class="btn btn-lg btn-block mt-1">Checkout</a>
+        <!-- Order Summary -->
+        <div class="col">
+            <div class="table-responsive rounded p-3">
+                <table class="table table-sm">
+                    <thead class="blue-black platinum-text h4">
+                        <tr>
+                            <th scope="col">Order Summary</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th scope="row" class="py-3"><h6><strong>Cart Total:</strong></h6></th>
+                        <td></td>
+                        <td class="text-end">${{ total|floatformat:2 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="py-3"><h6><strong>Delivery:</strong></h6></th>
+                        <td></td>
+                        <td class="text-end">${{ delivery|floatformat:2 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="py-3"><h4 class=""><strong>Grand Total:</strong></h4></th>
+                        <td></td>
+                        <td class="text-end">${{ grand_total|floatformat:2 }}</td>
+                    </tr>
+                    {% if free_delivery_delta > 0 %}
+                        <tr>
+                            <td colspan="5" class="py-3">
+                                <p class="mb-1 text-danger">
+                                    Spend <strong>${{ free_delivery_delta }}</strong> more to qualify for free delivery!
+                                </p>  
+                            </td>
+                        </tr>
+                    {% endif %} 
+                    <tr>
+                        <td class="py-3 text-end">
+                            <a href="{% url 'products' %}" class="btn coral rounded-3 btn-lg">
+                                <i class="material-icons">arrow_back_ios_new</i>
+                                <span class="text-uppercase">Continue Shopping</span>
+                            </a>
+                        </td>
+                        <td></td>
+                        <td class="py-3">
+                            <a href="" class="btn cyan rounded-3 btn-lg">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <i class="material-icons">
+                                enhanced_encryption<i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+    {% else %}
+        <div class="card text-center w-50 mx-auto">
+            <div class="card-body">
+                <p class="card-title">Your cart is empty!</p>
+                <a href="{% url 'products' %}" class="btn coral rounded-3 btn-lg">
+                <i class="material-icons">
+                    arrow_back_ios_new
+                </i>
+                <span class="text-uppercase">Continue Shopping</span>
+                </a>
+            </div>
+        </div>
+    {% endif %}
 </div>
-
 {% endblock %}
