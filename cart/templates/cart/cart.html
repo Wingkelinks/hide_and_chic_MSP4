@@ -49,7 +49,31 @@
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <p class="my-0">{{ item.quantity }}</p>
+                                    <form action="" method="POST" class="form update-form">
+                                        {% csrf_token %}
+                                        <div class="">
+                                            <div class="input-group-sm">
+                                                <button 
+                                                    class="input-group-text decrement-qty granny-smith btn btn-sm p-1"
+                                                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                    <i class="material-icons cart-qty-icon">remove</i>
+                                                </button>
+                                                <input 
+                                                    class="form-control-sm qty_input border-light"
+                                                    type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                <button 
+                                                    class="input-group-text increment-qty granny-smith btn btn-sm p-1"
+                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}"> 
+                                                    <i class="material-icons cart-qty-icon">add</i>
+                                                </button>
+                                                {% if item.product.has_sizes %}
+                                                    <input 
+                                                        type="hidden" name="product_size"
+                                                        value="{{ item.size }}">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </form>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.product.price }}</p>
@@ -136,4 +160,9 @@
         </div>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/qty_input_script.html' %}
 {% endblock %}
