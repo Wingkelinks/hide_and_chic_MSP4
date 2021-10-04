@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load cart_tools %}
+<!-- cart_tools used for subtotal calculation -->
 
 {% block page_header %}
     <div class="container header-container">
@@ -51,9 +52,12 @@
                                     <p class="my-0">${{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <form action="{% url 'refresh_cart' item.item_id %}" method="POST" class="form refresh-form">
+                                    <form 
+                                        class="form refresh-form"
+                                        method="POST"
+                                        action="{% url 'refresh_cart' item.item_id %}">
                                         {% csrf_token %}
-                                        <div class="">
+                                        <div class="input-group">
                                             <!-- Increment / Decrement Product Quantity -->
                                             <div class="input-group-sm input-group-qty">
                                                 <button 
@@ -81,21 +85,18 @@
                                             </div>
                                         </div>
                                     </form>
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity}}</p>
-                                </td>
-                                <!-- Refresh / Clear Cart Actions -->
-                                <td class="py-3">
+                                    <!-- Refresh / Clear Cart Actions -->
                                     <a href="#"
-                                        class="refresh link-info ">
-                                        <i class="material-icons">refresh</i>
+                                        class="text-decoration-none refresh-link link-info"><i class="material-icons">refresh</i>
                                     </a>
                                     <a href="#"
-                                        class="remove-item link-danger"
-                                        id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><i class="material-icons">clear</i>
+                                        class="text-decoration-none remove-item link-danger float-right" 
+                                        id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><i class="material-icons ">clear</i>
                                     </a>
-                                </td>
+                                    <td class="py-3">
+                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity}}</p>
+                                    </td>
+                                </td> 
                             </tr>
                         {% endfor %}
                         <tr>
@@ -190,7 +191,7 @@
 <!-- Refresh / Clear Cart Logic -->
 <script type="text/javascript">
     // Refresh quantity on click
-    $('.refresh').click(function(e) {
+    $('.refresh-link').click(function(e) {
         var form = $(this).prev('.refresh-form');
         form.submit();
     })
