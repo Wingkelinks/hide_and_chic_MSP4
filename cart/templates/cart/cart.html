@@ -54,7 +54,8 @@
                                     <form action="{% url 'refresh_cart' item.item_id %}" method="POST" class="form refresh-form">
                                         {% csrf_token %}
                                         <div class="">
-                                            <div class="input-group-sm">
+                                            <!-- Increment / Decrement Product Quantity -->
+                                            <div class="input-group-sm input-group-qty">
                                                 <button 
                                                     class="input-group-text decrement-qty granny-smith btn btn-sm p-1"
                                                     data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -62,7 +63,11 @@
                                                 </button>
                                                 <input 
                                                     class="form-control-sm qty_input border-light"
-                                                    type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                    type="number" name="quantity" 
+                                                    value="{{ item.quantity }}" 
+                                                    min="1" max="99"
+                                                    data-item_id="{{ item.item_id }}"
+                                                    id="id_qty_{{ item.item_id }}">
                                                 <button 
                                                     class="input-group-text increment-qty granny-smith btn btn-sm p-1"
                                                     data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}"> 
@@ -161,6 +166,7 @@
         </div>
     </div>
     {% else %}
+    <!-- Display if Cart is Empty -->
         <div class="card text-center w-50 mx-auto">
             <div class="card-body">
                 <p class="card-title">Your cart is empty!</p>
@@ -181,8 +187,9 @@
 {% include 'products/includes/qty_input_script.html' %}
 
 <!-- Code obtained from CI Boutique Ado Walkthrough Project -->
+<!-- Refresh / Clear Cart Logic -->
 <script type="text/javascript">
-    // Update quantity on click
+    // Refresh quantity on click
     $('.refresh').click(function(e) {
         var form = $(this).prev('.refresh-form');
         form.submit();
