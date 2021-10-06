@@ -172,6 +172,24 @@ body {
 	color: white;
 } */
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+	position: fixed;
+	top: 72px;
+	right: 15px;
+	z-index: 99999999999;
+}
+
+.custom-toast {
+	overflow: visible;
+	border: 4px solid #e3f683 !important;
+}
+
+.toast-capper {
+	height: 2px;
+}
+
 /* CART MODAL --------------------------------  */
 /* Code appropriated - Bootstrap Theme */
 /* https://themes.getbootstrap.com/preview/?theme_id=5824 */

@@ -236,8 +236,22 @@
 		</nav>
 
 		{% if messages %}
-			<div class="message-container"></div>
-		{% endif %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/error_toast.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/warning_toast.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/success_toast.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/info_toast.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
 
 		{% block page_header %}
 		{% endblock %}
@@ -246,6 +260,7 @@
 		{% endblock %}
 
 		{% block postloadjs %}
+		{{ block.super }}
 		<!-- Code Snippet for bootstrap banner above fixed-top nav - 
 			https://stackoverflow.com/questions/44526926/show-bootstrap-banner-at-the-top-before-navbar/44530320 -->
 			<script type="text/javascript">
@@ -256,6 +271,12 @@
 					 $(".navbar").addClass("fixed-top");
 				  }
 				 });
+			</script>
+			<!-- Toasts -->
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.toast').toast('show');
+				});
 			</script>
 		{% endblock %}
 	</body>
