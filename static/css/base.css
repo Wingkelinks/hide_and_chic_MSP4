@@ -172,7 +172,7 @@ body {
 	color: white;
 } */
 
-/* ------------------------------- bootstrap toasts */
+/* ------------------------------- TOASTS */
 
 .message-container {
 	position: fixed;
@@ -183,11 +183,13 @@ body {
 
 .custom-toast {
 	overflow: visible;
-	border: 4px solid #e3f683 !important;
+	border: 4px solid #fb996f !important;
 }
 
-.toast-capper {
-	height: 2px;
+.cart-notification-wrapper {
+	height: 100px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 /* CART MODAL --------------------------------  */
