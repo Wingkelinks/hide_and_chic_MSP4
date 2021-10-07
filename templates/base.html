@@ -63,10 +63,7 @@
 	</head>
 	<body>
 		
-		<!-- SALE BANNER -->
-		<!-- <div class="banner my-0 py-1 orange-soda">
-			<p class="text-center text-uppercase blue-black-text">20% Savings during Summer Sale! Enter code 'SUM20' at Checkout</p>
-		</div> -->
+		<!-- SALE / FREE DELIVERY BANNER -->
 		<div class="row text-center">
 			<div class="col-6 cyan py-1">
 				<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
@@ -81,7 +78,7 @@
 
 		<!-- NAVBAR -->
 		<!-- Bootstrap Offcanvas Navbar -->
-		<nav id="navbar" class="navbar navbar-expand-lg blue-black">
+		<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
 			<div class="container-fluid">
 				<!-- Left Aligned Mobile Brand -->
 				<a class="navbar-brand logo-font fs-2 text ps-4 text-white" href="{% url 'home' %}">
@@ -90,13 +87,13 @@
 	  
 				<!-- Offcanvas Mobile Toggler -->
 				<button 
-						class="navbar-toggler" 
+						class="navbar-toggler pe-auto"
 						type="button" 
 						data-bs-toggle="offcanvas" 
 						data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg"
 						aria-expanded="false"
 						aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<span class="blue-black-text platinum fas fa-bars fa-lg custom-toggler p-2"></span>
 				</button>
 				<!-- Offcanvas Mobile SideNav -->
 				<div 
@@ -108,7 +105,7 @@
 					<!-- Offcanvas Sidenav Content -->
 					<div class="offcanvas-header">
 						<h5 
-							class="offcanvas-title logo-font" 
+							class="offcanvas-title logo-font blue-black-text"
 							id="offcanvasNavbarLabel">Hide & Chic
 						</h5>
 						<button 
@@ -117,17 +114,17 @@
 							aria-label="Close">
 						</button>
 					</div>
-					<div class="offcanvas-body">
+					<div class="offcanvas-body blue-black">
 						<!-- Nav -->
 						<ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-							<li class="nav-item">
+							<li class="nav-item blue-black-text">
 								<a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
 							</li>
 							<!-- Shop All Dropdown -->
 							<li class="nav-item dropdown">
 				
 								<!-- Shop All Toggle -->
-								<a class="nav-link dropdown-toggle" 
+								<a class="nav-link dropdown-toggle blue-black" 
 									href="{% url 'products' %}" role="button" 
 									id="dropdownMenuLink" 
 									data-bs-toggle="dropdown" aria-expanded="false">Shop All
@@ -162,7 +159,7 @@
 						</ul>
 
 						<!-- Nav 2 -->
-						<ul class="navbar-nav nav-divided">
+						<ul class="navbar-nav nav-divided blue-black">
 							<!-- Product Management -->	
                 			{% if request.user.is_superuser %}
 							<li class="nav-item dropdown">
@@ -196,8 +193,10 @@
 						<!-- Nav With Icons -->
 						<ul class="navbar-nav flex-row">
 							<!-- Search with Modal Trigger -->
-							<li class="nav-item">
-							<a class="nav-link"
+							<li class="nav-item pe-auto">
+							<a 
+								href="#"
+								class="nav-link"
 								data-bs-toggle="modal" data-bs-target="#searchModal">
 								<i class="fas fa-search"></i>
 							</a>
@@ -215,10 +214,11 @@
 							</a>
 							</li>
 							<!-- Cart with Modal Trigger -->
-							<li class="nav-item ml-lg-n4">
-							<a
+							<li class="nav-item ml-lg-n4 pe-auto">
+							<a	href="#"
 								class="nav-link" 
-								data-bs-toggle="modal" data-bs-target="#cartModal">
+								data-bs-toggle="modal"
+								data-bs-target="#cartModal">
 								<span>
 								<i class="fas fa-shopping-cart"></i>
 								</span>
