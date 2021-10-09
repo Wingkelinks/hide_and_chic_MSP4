@@ -1,5 +1,8 @@
+/* CORE CLASSES ------------------------------ */
+
 html {
 	height: 100%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -13,15 +16,32 @@ body {
 	font-family: "Raleway", sans-serif;
 }
 
-/* Palette */
+/* Main logo font */
+.logo-font {
+	font-family: "Abril Fatface", cursive;
+}
+
+/* Overlay - cover base image */
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #fff;
+	z-index: -1;
+}
+/* Custom Dropdown */
+#navbarOffcanvasLg .dropdown-menu .dropdown-item {
+	color: #011014;
+	font-weight: 800;
+}
+
+/* PALETTE ------------------------------ */
 /* Background colors */
 
 .platinum {
 	background-color: #e5e5e5;
-}
-
-.pure-white {
-	background-color: #ffffff;
 }
 
 .mindaro {
@@ -69,10 +89,6 @@ body {
 	color: #e5e5e5;
 }
 
-.pure-white-text {
-	color: #ffffff;
-}
-
 .mindaro-text {
 	color: #e3f683;
 }
@@ -111,7 +127,9 @@ body {
 .blue-black-text {
 	color: #011014;
 }
-/* --------------------------------------- */
+/* ---------------------------- PALETTE END*/
+
+/* HOME PAGE ----------------------------  */
 
 .banner {
 	margin: 0;
@@ -125,8 +143,8 @@ body {
 	text-shadow: 2px 2px 6px #011014;
 }
 
-/* From Bulma - as shown in CI Boutique Ado walkthrough */
-/* Centering Mat Icon in it's div -  seen at https://newbedev.com/mat-icon-does-not-center-in-its-div */
+/* Centering Mat Icon in div: */
+/* https://newbedev.com/mat-icon-does-not-center-in-its-div */
 .icon,
 .material-icons {
 	vertical-align: middle;
@@ -134,76 +152,48 @@ body {
 	width: 1.5rem;
 }
 
+/* Nav Icons */
+.nav-icons i:hover:not(.heart) {
+	color: #37ccf1 !important;
+}
+
+.nav-icons .heart:hover {
+	color: #f15c37 !important;
+}
+
+/* Cart Icons */
 .cart-qty-icon {
 	font-size: 18px !important;
 	height: 1.2rem;
 	width: 1.2rem;
 }
 
-.logo-font {
-	font-family: "Abril Fatface", cursive;
+/* Call To Action Btns */
+.btn-hmm:hover,
+.btn-hmm:active,
+.btn-hmm:focus {
+	background: rgb(1, 16, 20, 0.5);
+	color: #37ccf1;
 }
 
-/* ------------------------ Custom Toggler */
+.btn-yes:hover,
+.btn-yes:active,
+.btn-yes:focus {
+	background-color: #e5e5e5;
+	color: #f15c37;
+}
 
+/* Custom Toggler */
 .custom-toggler {
 	border: 1px solid #e5e5e5 !important;
 	border-radius: 5px;
 	/* color: #011014; */
 }
+/* -------------------------- HOME PAGE END */
 
-/* --------------------------------------- */
+/*  CART MODAL ---------------------------  */
 
-/* .btn-black {
-	background: black;
-	color: white;
-}
-
-.btn-outline-black {
-	background: white;
-	color: black !important;
-	border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-	background: black;
-	color: white !important;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-	background: #222;
-	color: white;
-} */
-
-/* ------------------------------- TOASTS */
-
-.message-container {
-	position: fixed;
-	top: 72px;
-	right: 15px;
-	z-index: 99999999999;
-}
-
-.custom-toast {
-	overflow: visible;
-	border: 4px solid #fb996f !important;
-}
-
-.cart-notification-wrapper {
-	height: 100px;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-/* CART MODAL --------------------------------  */
-/* Code appropriated - Bootstrap Theme */
+/* Appropriated Bootstrap Theme */
 /* https://themes.getbootstrap.com/preview/?theme_id=5824 */
 
 .navbar-cart-product-wrapper {
@@ -240,18 +230,7 @@ body {
 }
 /* -------------------------------- CART MODAL END */
 
-/* Overlay - cover base image */
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: #fff;
-	z-index: -1;
-}
-
-/* -------------------------------- Products Page */
+/* PRODUCTS PAGE -------------------------------- */
 
 .product-img {
 	width: 100%;
@@ -264,8 +243,30 @@ body {
 	height: 50%;
 	object-fit: cover;
 }
+/* ------------------------------- PRODUCTS PAGE END*/
 
-/* -------------------------------- Media Queries */
+/* TOASTS ------------------------------- */
+
+.message-container {
+	position: fixed;
+	top: 72px;
+	right: 15px;
+	z-index: 99999999999;
+}
+
+.custom-toast {
+	overflow: visible;
+	border: 4px solid #fb996f !important;
+}
+
+.cart-notification-wrapper {
+	height: 100px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+/*  ---------------------------- TOASTS END */
+
+/* MEDIA QUERIES -------------------------------  */
 /* Code Snippet - CI Boutique Ado Course Material */
 
 /* Slightly larger container on xl screens */
@@ -276,7 +277,7 @@ body {
 }
 
 /* Medium and up */
-@media (min-width: 800px) {
+@media (min-width: 600px) {
 	.header-container {
 		padding-top: 164px;
 	}
@@ -287,7 +288,7 @@ body {
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 600px) {
 	.header-container {
 		padding-top: 116px;
 	}
@@ -295,6 +296,13 @@ body {
 	body {
 		height: calc(100vh - 116px);
 	}
+
+	.call-to-action-btns {
+		width: 80%;
+		height: auto;
+		font-size: 1rem !important;
+	}
+
 	.card-img-top {
 		width: 100%;
 		height: 50vw;

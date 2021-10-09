@@ -11,14 +11,17 @@
 
 {% block content %}
     <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto platinum-text">
-                <h1 class="slogan display-3 logo-font fst-italic">Serving your leather obsession...</h1>
+        <div class="row h-50 justify-content-start my-5">
+            <div class="col-7 col-md-6 platinum-text">
+                <h1 class="slogan display-3 logo-font fst-italic lh-base">Serving your leather obsession...</h1>
             </div>
-            <div class=my-5>
-                <h4>
-                    <a href="{% url 'products' %}" class="coral blue-black-text fw-bold btn btn-lg text-uppercase py-3">Shop The Entire Collection Now</a>
-                </h4>
+        </div>
+        <!-- Call To Action Buttons -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end d-lg-flex justify-content-lg-end mt-lg-5 pt-lg-5">
+            <button 
+                type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns">Yes - Take Me There!</button>
+            <button 
+                type="button" class="btn-hmm rounded-3 platinum fw-bold btn btn-lg border-1 border-dark blue-black-text text-uppercase fs-5 call-to-action-btns">Hmm... Find Out More</button>
         </div>
     </div>
 {% endblock %}

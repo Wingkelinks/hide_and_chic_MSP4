@@ -65,11 +65,12 @@
 		
 		<!-- SALE / FREE DELIVERY BANNER -->
 		<div class="row text-center">
-			<div class="col-6 cyan py-1">
+			<div class="col-lg-6 cyan py-lg-1">
 				<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
 			</div>
-			<div class="col-6 orange-soda py-1">
-				<span class="text-uppercase platinum-text fw-bold">20% off during Summer Sale! Enter 'SUM20' at Checkout</span>
+			<!-- Hidden on small devices -->
+			<div class="col-lg-6 orange-soda py-lg-1 d-none d-sm-block">
+				<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
 			</div>
 		</div>
 
@@ -81,7 +82,7 @@
 		<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
 			<div class="container-fluid">
 				<!-- Left Aligned Mobile Brand -->
-				<a class="navbar-brand logo-font fs-2 text ps-4 text-white" href="{% url 'home' %}">
+				<a class="navbar-brand logo-font fs-1 text-white ps-2 py-0" href="{% url 'home' %}">
 					Hide & Chic
 				</a>
 	  
@@ -116,8 +117,8 @@
 					</div>
 					<div class="offcanvas-body blue-black">
 						<!-- Nav -->
-						<ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-							<li class="nav-item blue-black-text">
+						<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold">
+							<li class="nav-item blue-black-text ">
 								<a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
 							</li>
 							<!-- Shop All Dropdown -->
@@ -131,7 +132,7 @@
 								</a>
 				
 								<!-- Shop All Menu -->
-								<ul class="dropdown-menu" 			aria-labelledby="dropdownMenuLink">
+								<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
 									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
 									<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets">Jackets</a></li>
 									<li><a class="dropdown-item" href="{% url 'products' %}?category=bags">Bags</a></li>
@@ -151,7 +152,7 @@
 								</a>
 				
 								<!-- Leather Care Menu -->
-								<ul class="dropdown-menu" 			aria-labelledby="dropdownMenuLink">
+								<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
 									<li><a class="dropdown-item" href="#">Prodcuts</a></li>
 									<li><a class="dropdown-item" href="#">FAQ</a></li>
 								</ul>
@@ -159,7 +160,7 @@
 						</ul>
 
 						<!-- Nav 2 -->
-						<ul class="navbar-nav nav-divided blue-black">
+						<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase">
 							<!-- Product Management -->	
                 			{% if request.user.is_superuser %}
 							<li class="nav-item dropdown">
@@ -169,48 +170,34 @@
 									data-bs-toggle="dropdown" aria-expanded="false">Product Management
 								</a>
 								<!-- Product Management Menu -->
-								<ul class="dropdown-menu" 			aria-labelledby="dropdownMenuLink">
+								<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
 									<li><a class="dropdown-item" href="#">Add New</a></li>
 									<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
 								</ul>
 							</li>
 							{% endif %}
-							<!-- Currency Toggle -->
-							<li class="nav-item dropdown">
-								
-								<a class="nav-link dropdown-toggle" 
-									href="#" role="button" 
-									id="dropdownMenuLink" 
-									data-bs-toggle="dropdown" aria-expanded="false">AUD
-								</a>
-								<!-- Leather Care Menu -->
-								<ul class="dropdown-menu" 			aria-labelledby="dropdownMenuLink">
-									<li><a class="dropdown-item" href="#">AUD</a></li>
-									<li><a class="dropdown-item" href="#">GBP</a></li>
-								</ul>
-							</li>
 						</ul>
 						<!-- Nav With Icons -->
-						<ul class="navbar-nav flex-row">
+						<ul class="navbar-nav flex-row nav-icons">
 							<!-- Search with Modal Trigger -->
 							<li class="nav-item pe-auto">
 							<a 
 								href="#"
 								class="nav-link"
 								data-bs-toggle="modal" data-bs-target="#searchModal">
-								<i class="fas fa-search"></i>
+								<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
 							</a>
 							</li>
 							<!-- User -->
 							<li class="nav-item ml-lg-n4">
 							<a class="nav-link" href="">
-								<i class="fas fa-user-circle"></i>
+								<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
 							</a>
 							</li>
 							<!-- Heart -->
 							<li class="nav-item ml-lg-n4">
 							<a class="nav-link" href="">
-								<i class="fas fa-heart"></i>
+								<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
 							</a>
 							</li>
 							<!-- Cart with Modal Trigger -->
@@ -220,7 +207,7 @@
 								data-bs-toggle="modal"
 								data-bs-target="#cartModal">
 								<span>
-								<i class="fas fa-shopping-cart"></i>
+								<i class="fas fa-shopping-cart fa-lg"></i>
 								</span>
 								<span>
 									{% if cart_items %}
@@ -266,9 +253,9 @@
 			<script type="text/javascript">
 				$(window).scroll(function(){
 					if ($(window).scrollTop() == 0) {
-					 $(".navbar").removeClass("fixed-top");
+					 $("#navbar").removeClass("fixed-top");
 				  } else {
-					 $(".navbar").addClass("fixed-top");
+					 $("#navbar").addClass("fixed-top");
 				  }
 				 });
 			</script>
