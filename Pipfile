@@ -12,6 +12,7 @@ boto3 = "*"
 django-storages = "*"
 django-allauth = "*"
 pillow = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
