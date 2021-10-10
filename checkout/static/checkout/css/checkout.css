@@ -1,0 +1,15 @@
+#payment-form .form-control,
+#card-element {
+	color: #011014;
+	margin: 1rem;
+}
+
+.fieldset-label {
+	position: relative;
+	color: #011014;
+}
+
+#div_id_country > label {
+	margin-left: 0.5rem;
+	font-size: 14px;
+}
