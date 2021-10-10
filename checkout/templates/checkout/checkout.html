@@ -109,7 +109,11 @@
             <!-- Form -->
             <div class="col-12 col-lg-8">
                 <p class="p-2 text-center h5 text-muted text-uppercase mb-3">Please fill out the form below to complete your order</p>
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="px-lg-5"> 
+                <form 
+                    action="{% url 'checkout' %}" 
+                    method="POST" 
+                    id="payment-form" 
+                    class="px-lg-5"> 
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small px-2 w-auto">Details</legend>
@@ -153,11 +157,15 @@
                     </p>
 
                     <div class="submit-button mt-5 mb-2 position-relative">              
-                        <a href="{% url 'view_cart' %}" class="btn coral rounded-3 btn-lg position-absolute position-absolute top-0 end-50 mx-2">
+                        <a 
+                            href="{% url 'view_cart' %}" 
+                            class="btn coral rounded-3 btn-lg position-absolute position-absolute top-0 end-50 mx-2">
                             <i class="material-icons">arrow_back_ios_new</i>
                             <span class="text-uppercase">Adjust Cart</span>
                         </a>
-                        <button id="submit-button" class="btn cyan rounded-3 btn-lg position-absolute position-absolute top-0 start-50 mx-2">
+                        <button 
+                            id="submit-button" 
+                            class="btn cyan rounded-3 btn-lg position-absolute position-absolute top-0 start-50 mx-2">
                             <span class="text-uppercase">Complete Order</span>
                                 <i class="material-icons">
                                     enhanced_encryption<i>
