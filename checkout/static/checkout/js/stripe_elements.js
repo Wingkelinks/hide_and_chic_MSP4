@@ -1,5 +1,13 @@
+/*
+    Core logic/payment flow for this comes from here:
+    https://stripe.com/docs/payments/accept-a-payment
+
+    CSS from here: 
+    https://stripe.com/docs/js
+*/
+
 var stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1);
-var client_secret = $("#id_client_secret").text().slice(1, -1);
+var clientSecret = $("#id_client_secret").text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
@@ -58,7 +66,7 @@ form.addEventListener("submit", function (ev) {
                     <span class="material-icons" role="alert">
                         error_outline
                     </span> 
-                    <span>${event.error.message}</span>`;
+                    <span>${result.error.message}</span>`;
 				$(errorDiv).html(html);
 				card.update({ disabled: false });
 				$("#submit-button").attr("disabled", false);
@@ -71,14 +79,14 @@ form.addEventListener("submit", function (ev) {
 });
 
 // Shows a success message when the payment is complete
-var orderComplete = function (paymentIntentId) {
-	loading(false);
-	document
-		.querySelector(".result-message a")
-		.setAttribute(
-			"href",
-			"https://dashboard.stripe.com/test/payments/" + paymentIntentId
-		);
-	document.querySelector(".result-message").classList.remove("hidden");
-	document.querySelector("button").disabled = true;
-};
+// var orderComplete = function (paymentIntentId) {
+// 	loading(false);
+// 	document
+// 		.querySelector(".result-message a")
+// 		.setAttribute(
+// 			"href",
+// 			"https://dashboard.stripe.com/test/payments/" + paymentIntentId
+// 		);
+// 	document.querySelector(".result-message").classList.remove("hidden");
+// 	document.querySelector("button").disabled = true;
+// };
