@@ -111,13 +111,13 @@
                     </div>
                     {% endif %}
 
-                    {% if order.county %}
+                    {% if order.state_or_county %}
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="mb-0 blue-black-text fw-bold">County</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.county }}</p>
+                            <p class="mb-0">{{ order.state_orcounty }}</p>
                         </div>
                     </div>
                     {% endif %}
@@ -194,21 +194,18 @@
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.grand_total }}</p>
                         
-                        </div>
-                        
+                        </div> 
                     </div>
                 </div>
             </div>
         </div>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-12 m-5">
-                <p class="blue-black-text">Forgot something? Head back to our products page!</p>
-                <a 
-                    class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="% url 'products' %}?category=footwear,jackets,bags,accessories,sale">Yes - take me there!
-                </a>
-            </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12 m-5">
+            <p class="blue-black-text">Forgot something? Head back to our products page!</p>
+            <a 
+                class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">Yes - take me there!
+            </a>
         </div>
     </div>
 {% endblock %}
