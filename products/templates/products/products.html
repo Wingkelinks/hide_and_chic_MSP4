@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center">
-            <h2 class="logo-font p-2">Products</h2>
+            <h1 class="logo-font p-1h1">Products</h1>
             <hr class="w-25 mx-auto mb-4">
             {% for c in current_categories %}
                 <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
@@ -51,9 +51,9 @@
                                 <strong>"{{ search_term }}" </strong>
                             {% endif %}
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small return-product-link"> |
-                                    <a class="text-decoration-none " href="{% url 'products' %}">Return to All Products
-                                    </a> 
+                                <span class="small"> |
+                                    <a class="return-product-link text-decoration-none text-uppercase coral-text" href="{% url 'products' %}">Return to All Products
+                                    </a>
                                 </span>
                             {% endif %}
                         </p>
