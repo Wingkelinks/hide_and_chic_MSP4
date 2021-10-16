@@ -67,6 +67,9 @@
 	</head>
 	<body>
 		
+		<!-- MODALS -->
+		{% include 'includes/nav_modals.html' %}
+
 		<!-- SALE / FREE DELIVERY BANNER -->
 		<div class="row text-center">
 			<div class="col-lg-6 cyan py-lg-1">
@@ -77,9 +80,6 @@
 				<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
 			</div>
 		</div>
-
-		<!-- MODALS -->
-		{% include 'includes/nav_modals.html' %}
 
 		<!-- NAVBAR -->
 		<!-- Bootstrap Offcanvas Navbar -->
@@ -125,9 +125,9 @@
 							<li class="nav-item blue-black-text">
 								<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
 							</li>
+							
 							<!-- Shop All Dropdown -->
 							<li class="nav-item dropdown">
-				
 								<!-- Shop All Toggle -->
 								<a class="nav-link dropdown-toggle blue-black" 
 									href="{% url 'products' %}" role="button" 
@@ -145,9 +145,9 @@
 									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
 								</ul>
 							</li>
+
 							<!-- Leather Care Dropdown -->
 							<li class="nav-item dropdown">
-				
 								<!-- Leather Care Toggle -->
 								<a class="nav-link dropdown-toggle" 
 									href="#" role="button" 
@@ -165,6 +165,7 @@
 
 						<!-- Nav 2 -->
 						<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase">
+
 							<!-- Product Management -->	
                 			{% if request.user.is_superuser %}
 							<li class="nav-item dropdown">
@@ -181,7 +182,8 @@
 							</li>
 							{% endif %}
 						</ul>
-						<!-- Nav With Icons -->
+
+						<!-- Nav With Icons -->	
 						<ul class="navbar-nav flex-row nav-icons">
 							<!-- Search with Modal Trigger -->
 							<li class="nav-item pe-auto">
@@ -242,7 +244,7 @@
                 {% endwith %}
             {% endfor %}
         </div>
-    {% endif %}
+    	{% endif %}
 
 		{% block page_header %}
 		{% endblock %}
