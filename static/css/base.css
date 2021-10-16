@@ -211,38 +211,6 @@ body {
 /* Appropriated Bootstrap Theme */
 /* https://themes.getbootstrap.com/preview/?theme_id=5824 */
 
-.navbar-cart-product-wrapper {
-	overflow-y: auto;
-	min-width: 270px;
-	max-height: 280px;
-}
-
-.navbar-cart-product {
-	padding: 0.6rem 0.6rem 0 0;
-}
-
-.navbar-cart-product .navbar-cart-product-image {
-	max-width: 100px;
-}
-
-.navbar-cart-product .navbar-cart-product-close {
-	float: right;
-	margin-right: 0.5rem;
-	opacity: 0.5;
-	color: #343a40;
-	font-size: 0.7875rem;
-}
-
-.navbar-cart-total {
-	display: flex;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-	padding: 0.7rem 1rem;
-	border-top: 1px solid #e9ecef;
-	border-bottom: 1px solid #e9ecef;
-	font-size: 0.7875rem;
-	justify-content: space-between;
-}
 /* -------------------------------- CART MODAL END */
 
 /* PRODUCTS PAGE -------------------------------- */
