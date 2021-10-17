@@ -12,27 +12,24 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
 	base: {
-		iconColor: "#c4f0ff",
-		color: "#fff",
+		iconColor: "#000",
+		color: "#000",
 		fontWeight: "500",
-		fontFamily: "Josefin Sans, Open Sans, Segoe UI, sans-serif",
-		fontSize: "16px",
+		fontFamily: '"Roboto", Open Sans, Segoe UI, sans-serif',
 		fontSmoothing: "antialiased",
-		":-webkit-autofill": {
-			color: "#fce883",
-		},
+		fontSize: "16px",
 		"::placeholder": {
-			color: "#87BBFD",
+			color: "#aab7c4",
 		},
 	},
 	invalid: {
-		iconColor: "#FFC7EE",
-		color: "#FFC7EE",
+		color: "#ff2fc0",
+		iconColor: "#ff2fc0",
 	},
 };
 // Stripe injects an iframe into the DOM
-var card = elements.create("card", { style: style });
-card.mount("#card-element");
+var cardElement = elements.create("card", { style: style });
+cardElement.mount("#card-element");
 
 // Handle realtime validation errors on the card element
 card.addEventListener("change", function (event) {
