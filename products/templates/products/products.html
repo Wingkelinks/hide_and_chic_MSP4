@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center">
-            <h1 class="logo-font p-1h1">Products</h1>
+            <h1 class="logo-font p-1">Products</h1>
             <hr class="w-25 mx-auto mb-4">
             {% for c in current_categories %}
                 <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
@@ -64,10 +64,10 @@
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 g-4">
                         <!-- Card Top - product image -->
-                        <div class="card h-100 border-light text-center position-relative bg-light">
+                        <div class="card h-100 border-light position-relative">
                             <!-- If product on sale render badge -->
                             {% if product.on_sale %}
-                                <span class="position-absolute top-0 end-0 p-2 m-3 bg-danger text-light rounded-circle">Sale</span>
+                                <span id="sale-badge" class="position-absolute top-0 end-0 py-2 px-1 m-3 rosso platinum-text rounded-circle">Sale</span>
                             {% endif %}
                             <!-- If image exists render img url -->
                             {% if product.image %}
@@ -77,32 +77,42 @@
                             <!-- Otherwise, render default img from media folder -->
                             {% else %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top product-img img-fluid " src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                <img class="card-img-top product-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
                             <!-- Card Body - product name -->
-                            <div class="card-body">
-                                <p class="fw-bold fs-5 text mb-0">{{ product.name }}</p>
-                            </div>
-                            <!-- Card Footer - product price, category & rating -->
-                            <div class="card-footer border-0">
+                            <div class="card-body pb-0">
                                 <div class="row">
-                                    <div class="col">
-                                        <p class="font-weight-bold">${{ product.price }}</p>
-                                        {% if product.category %}
-                                        <p class="small">
-                                            <a class="text-muted nav-link text-uppercase" href="{% url 'products' %}?category={{ product.category.name }}">
-                                                <i class="material-icons">tag</i>{{ product.category.friendly_name }}
-                                            </a>
-                                        </p>
-                                        {% endif %}
+                                    <div class="col text-center">
+                                        <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>
+                                        <!-- Rating -->
                                         {% if product.rating %}
-                                            <small class="text-muted"><i class="material-icons">star_border</i>{{ product.rating }} / 5</small>
+                                            <small class="blue-black-text"><i class="far fa-star fa-sm"></i>{{ product.rating }} / 5</small>
                                         {% else %}
-                                            <small class="text-muted">No Rating</small>
-                                        {% endif %}
+                                            <small class="blue-black-text">No Rating</small>
+                                        {% endif %}                          
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-6 text-end">
+                                        <p class="font-weight-bold fs-5">${{ product.price }}</p>   
+                                    </div>
+                                    <!-- Add to wishlist -->
+                                    <div class="col-4 text-start p-1">
+                                        <small>
+                                            <a id="wishlist" class="cyan-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                                <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                            </a>
+                                        </small>
+                                    </div>
+                                </div>                   
+                            </div>
+                            <!-- Card Footer - add to cart -->
+                            <div class="card-footer border-0 bg-transparent ">
+                                <div class="row">
+                                    <div class="col text-center">
                                         <small class="product-action">
-                                            <a class="text-muted nav-link text-uppercase" href="#!"><i class="material-icons">add_shopping_cart</i>Add to Cart</a>
+                                            <a class="blue-black-text text-decoration-none link-secondary text-uppercase" href="#!"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                                         </small>
                                         {% if request.user.is_superuser %}
                                             <small class="mx-auto">
@@ -153,5 +163,12 @@
                 window.location.replace(currentUrl);
             }
         })
+    </script>
+    <!-- Tooltips -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+        
     </script>
 {% endblock %}
