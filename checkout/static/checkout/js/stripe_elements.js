@@ -12,18 +12,22 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
 	base: {
-		color: "#32325d",
-		fontFamily: "Arial, sans-serif",
-		fontSmoothing: "antialiased",
+		iconColor: "#c4f0ff",
+		color: "#fff",
+		fontWeight: "500",
+		fontFamily: "Josefin Sans, Open Sans, Segoe UI, sans-serif",
 		fontSize: "16px",
+		fontSmoothing: "antialiased",
+		":-webkit-autofill": {
+			color: "#fce883",
+		},
 		"::placeholder": {
-			color: "#32325d",
+			color: "#87BBFD",
 		},
 	},
 	invalid: {
-		fontFamily: "Arial, sans-serif",
-		color: "#fa755a",
-		iconColor: "#fa755a",
+		iconColor: "#FFC7EE",
+		color: "#FFC7EE",
 	},
 };
 // Stripe injects an iframe into the DOM
@@ -50,47 +54,88 @@ card.addEventListener("change", function (event) {
 var form = document.getElementById("payment-form");
 
 form.addEventListener("submit", function (ev) {
+	// Prevent form from submitting, disable card element &
+	// trigger loading overlay
 	ev.preventDefault();
 	card.update({ disabled: true });
 	$("#submit-button").attr("disabled", true);
 	$("#payment-form").fadeToggle(100);
 	$("#loading-overlay").fadeToggle(100);
-	stripe
-		.confirmCardPayment(clientSecret, {
-			payment_method: {
-				card: card,
-			},
+
+	// Capture form data
+	var saveInfo = Boolean($("#id-save-info").attr("checked"));
+	var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+	var postData = {
+		csrfmiddlewaretoken: csrfToken,
+		client_secret: clientSecret,
+		save_info: saveInfo,
+	};
+	var url = "/checkout/cache_checkout_data/";
+
+	// Post to cache_checkout_data view
+	// View updates PaymentIntent  returns 200 response
+	// Call confirmCardPayment from Stripe
+	// Store billing and shipping details
+	$.post(url, postData)
+		.done(function () {
+			stripe
+				.confirmCardPayment(clientSecret, {
+					payment_method: {
+						card: card,
+						billing_details: {
+							name: $.trim(form.full_name.value),
+							phone: $.trim(form.phone_number.value),
+							email: $.trim(form.email.value),
+							address: {
+								line1: $.trim(form.street_address1.value),
+								line2: $.trim(form.street_address2.value),
+								city: $.trim(form.town_or_city.value),
+								country: $.trim(form.country.value),
+								state: $.trim(form.state_or_county.value),
+							},
+						},
+					},
+					shipping: {
+						name: $.trim(form.full_name.value),
+						phone: $.trim(form.phone_number.value),
+						address: {
+							line1: $.trim(form.street_address1.value),
+							line2: $.trim(form.street_address2.value),
+							city: $.trim(form.town_or_city.value),
+							country: $.trim(form.country.value),
+							postal_code: $.trim(form.postcode.value),
+							state: $.trim(form.state_or_county.value),
+						},
+					},
+				})
+				.then(function (result) {
+					// Handle any errors
+					if (result.error) {
+						var errorDiv = document.getElementById("card-errors");
+						var html = `
+							<span class="material-icons" role="alert">
+								error_outline
+							</span> 
+							<span>${result.error.message}</span>`;
+						// Display error message
+						$(errorDiv).html(html);
+						$("#payment-form").fadeToggle(100);
+						$("#loading-overlay").fadeToggle(100);
+						// Overlay hidden and card element re-enabled
+						card.update({ disabled: false });
+						$("#submit-button").attr("disabled", false);
+
+						// Submit form
+					} else {
+						if (result.paymentIntent.status === "succeeded") {
+							form.submit();
+						}
+					}
+				});
+			// If data not posted to view, reload the page
+			// & display error message
 		})
-		.then(function (result) {
-			if (result.error) {
-				var errorDiv = document.getElementById("card-errors");
-				var html = `
-                    <span class="material-icons" role="alert">
-                        error_outline
-                    </span> 
-                    <span>${result.error.message}</span>`;
-				$(errorDiv).html(html);
-				$("#payment-form").fadeToggle(100);
-				$("#loading-overlay").fadeToggle(100);
-				card.update({ disabled: false });
-				$("#submit-button").attr("disabled", false);
-			} else {
-				if (result.paymentIntent.status === "succeeded") {
-					form.submit();
-				}
-			}
+		.fail(function () {
+			location.reload();
 		});
 });
-
-// Shows a success message when the payment is complete
-// var orderComplete = function (paymentIntentId) {
-// 	loading(false);
-// 	document
-// 		.querySelector(".result-message a")
-// 		.setAttribute(
-// 			"href",
-// 			"https://dashboard.stripe.com/test/payments/" + paymentIntentId
-// 		);
-// 	document.querySelector(".result-message").classList.remove("hidden");
-// 	document.querySelector("button").disabled = true;
-// };
