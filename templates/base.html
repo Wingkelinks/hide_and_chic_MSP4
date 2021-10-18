@@ -168,41 +168,48 @@
 
 							<!-- Product Management -->	
                 			{% if request.user.is_superuser %}
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" 
-									href="#" role="button" 
-									id="dropdownMenuLink" 
-									data-bs-toggle="dropdown" aria-expanded="false">Product Management
-								</a>
-								<!-- Product Management Menu -->
-								<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
-									<li><a class="dropdown-item" href="#">Add New</a></li>
-									<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
-								</ul>
-							</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" 
+										href="#" role="button" 
+										id="dropdownMenuLink" 
+										data-bs-toggle="dropdown" aria-expanded="false">Product Management
+									</a>
+									<!-- Product Management Menu -->
+									<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
+										<li><a class="dropdown-item" href="#">Add New</a></li>
+										<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
+									</ul>
+								</li>
 							{% endif %}
 						</ul>
 
 						<!-- Nav With Icons -->	
 						<ul class="navbar-nav flex-row nav-icons">
-							<!-- Search with Modal Trigger -->
-							<li class="nav-item pe-auto">
-							<a 
-								href="#"
-								class="nav-link"
-								data-bs-toggle="modal" data-bs-target="#searchModal">
-								<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
-							</a>
-							</li>
 							<!-- User -->
-							<li class="nav-item ml-lg-n4">
-							<a class="nav-link" href="">
-								<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
-							</a>
+							<li class="nav-item ml-lg-n4 dropstart">
+								<a class="nav-link dropdown-toggle"
+									data-bs-toggle="dropdown"
+									role="button" aria-expanded="false"
+									href="#">
+									<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
+								</a>
+								<ul class="dropdown-menu">
+									{% if request.user.is_authenticated %}
+										<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+										<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+									{% else %}
+										<li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+										<li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+									{% endif %}
+								</ul>
 							</li>
 							<!-- Heart -->
 							<li class="nav-item ml-lg-n4">
-							<a class="nav-link" href="">
+								<a id="wishlist" 
+								class="nav-link nav-icons heart"
+								href="#" 
+								data-bs-toggle="tooltip" data-bs-placement="bottom" 
+								title="View Wishlist">
 								<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
 							</a>
 							</li>
@@ -221,6 +228,15 @@
 									{% endif %}
 								</span>
 							</a>
+							</li>
+							<!-- Search with Modal Trigger -->
+							<li class="nav-item pe-auto">
+								<a 
+									href="#"
+									class="nav-link"
+									data-bs-toggle="modal" data-bs-target="#searchModal">
+									<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -270,6 +286,12 @@
 				$(document).ready(function(){
 					$('.toast').toast('show');
 				});
+			</script>
+			<!-- Tooltips -->
+			<script type="text/javascript">
+				$(document).ready(function(){
+				   $('[data-bs-toggle="tooltip"]').tooltip();
+				});       
 			</script>
 		{% endblock %}
 	</body>

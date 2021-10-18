@@ -149,6 +149,11 @@ body {
 	text-shadow: 2px 2px 6px #011014;
 }
 
+.heart-tooltip {
+	background-color: #e5e5e5 !important;
+	color: #011014 !important;
+}
+
 /* Centering Mat Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
 .icon,
