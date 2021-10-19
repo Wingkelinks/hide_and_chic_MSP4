@@ -6,13 +6,11 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block inner_content %}
-
-
 <div class="container">
   <div class="row">
-    <div class="col align-self-center">
+    <div class="col-lg-12 offset-lg-8">
       <h1 class="logo-font p-1">{% trans "Sign In" %}</h1>
-      <hr class="w-25 mx-auto mb-4">
+      <hr class="w-25 mb-4">
 
       {% get_providers as socialaccount_providers %}
 
@@ -35,7 +33,7 @@
 
       {% else %}
       <p>{% blocktrans %}If you have not created an account yet, then please
-      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      <a class="text-decoration-none coral-text" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
       {% endif %}
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -45,15 +43,15 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
 
-        <a href="{% url 'home' %}" class="btn coral rounded-3 btn-lg">
+        <a href="{% url 'home' %}" class="btn coral rounded-3 btn-lg btn-yes">
           <i class="material-icons">arrow_back_ios_new</i>
           <span class="text-uppercase">Home</span>
         </a>
         
 
-        <button class="primaryAction btn cyan rounded-3 btn-lg text-uppercase" type="submit">{% trans "Sign In" %}</button>
+        <button class="primaryAction btn cyan rounded-3 btn-lg text-uppercase btn-hmm" type="submit">{% trans "Sign In" %}</button>
         <p class="mt-2">
-          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          <a class="button secondaryAction text-decoration-none cyan-text" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </p>
       </form>
     </div>
