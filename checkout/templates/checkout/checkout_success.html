@@ -202,10 +202,16 @@
     </div>
     <div class="row text-center">
         <div class="col-12 m-5">
-            <p class="blue-black-text">Forgot something? Head back to our products page!</p>
-            <a 
-                class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">Yes - take me there!
-            </a>
+            {% if from_profile %}
+                <a 
+                    class="btn-hmm rounded-3 platinum blue-black-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'profile' %}">Back to Profile
+                </a>
+            {% else %}
+                <p class="blue-black-text">Forgot something? Head back to our products page!</p>
+                <a 
+                    class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">Yes - take me there!
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
