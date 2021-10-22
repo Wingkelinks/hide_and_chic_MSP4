@@ -268,6 +268,70 @@
 		{% block content %}
 		{% endblock %}
 
+		<!-- Footer -->
+
+		<div class="container">
+			<footer class="py-5 blue-black-text">
+			  <div class="row">
+				<h5 class="logo-font">Hide & Chic</h5>
+				<div class="col-2">
+				  <ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-muted">Home</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shop All</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Featured Collections</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"></a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Leather Care</a></li>
+				  </ul>
+				</div>
+		  
+				<div class="col-2">
+				  
+				  <ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Profile</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Log In</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Log Out</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Register</a></li>
+				  </ul>
+				</div>
+		  
+				<div class="col-2">
+				  
+				  <ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cart</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Product Management</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+				  </ul>
+				</div>
+		  
+				<div class="col-4 offset-1">
+				  <form method="GET" action="{% url 'products' %}">
+					<h5>Search for a product</h5>
+					<div class="input-group w-100">
+						<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
+						<div class="input-group-append">
+							<button class="form-control btn-yes blue-black platinum-text rounded-3" type="submit">
+								<span class="icon">
+									<i class="fas fa-search"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+				  </form>
+				</div>
+			  </div>
+		  
+			  <div class="d-flex justify-content-between py-4 my-4 border-top">
+				<p>© 2021 Hide & Chic, Inc. All rights reserved.</p>
+				<ul class="list-unstyled d-flex">
+				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-facebook"></i></a></li>
+				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-instagram"></i></a></li>
+				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-youtube"></i></a></li>
+				</ul>
+			  </div>
+			</footer>
+		  </div>
+
 		{% block postloadjs %}
 		{{ block.super }}
 		<!-- Code Snippet for bootstrap banner above fixed-top nav - 
