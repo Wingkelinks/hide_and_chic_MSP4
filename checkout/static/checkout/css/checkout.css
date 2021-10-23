@@ -5,7 +5,7 @@
 
 .fieldset-label {
 	position: relative;
-	color: #011014;
+	color: var(--text-color-blue-black);
 }
 
 #div_id_country > label {
@@ -15,12 +15,12 @@
 
 select,
 select option {
-	color: #000000;
+	color: var(--text-color-blue-black);
 }
 
 select:invalid,
 select option[value=""] {
-	color: #aab7c4 !important;
+	color: var(--text-color-muted) !important;
 }
 
 .StripeElement,
@@ -29,8 +29,8 @@ select option[value=""] {
 	height: 40px;
 	padding: 10px 12px;
 	border: 1px solid transparent;
-	background-color: white;
-	box-shadow: 0 1px 3px 0 #e6ebf1;
+	background-color: #fff;
+	box-shadow: 0 1px 3px 0 var(--color-platinum);
 	-webkit-transition: box-shadow 150ms ease;
 	transition: box-shadow 150ms ease;
 }
@@ -42,11 +42,11 @@ select option[value=""] {
 }
 
 .StripeElement--webkit-autofill {
-	background-color: #fefde5 !important;
+	background-color: var(--color-platinum) !important;
 }
 
 .stripe-style-input::placeholder {
-	color: #aab7c4;
+	color: var(--text-color-muted);
 }
 
 /* -------------- LOADING SPINNER */

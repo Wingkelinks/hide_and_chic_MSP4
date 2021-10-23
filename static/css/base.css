@@ -1,7 +1,24 @@
 /* CORE CLASSES ------------------------------ */
 
 :root {
-	--font-body: "Josefin Sans", sans-serif;
+	--body-font: "Josefin Sans", sans-serif;
+	--logo-font: "IM Fell Great Primer SC", serif;
+	--color-platinum: #e5e5e5;
+	--text-color-platinum: #e5e5e5;
+	--color-blue-black: #011014;
+	--text-color-blue-black: #011014;
+	--color-orange-soda: #f15c37;
+	--text-color-orange-soda: #f15c37;
+	--color-coral: #f67b53;
+	--text-color-coral: #f67b53;
+	--color-salmon: #fb996f;
+	--text-color-salmon: #fb996f;
+	--color-rosso: #d42912;
+	--text-color-rosso: #d42912;
+	--color-cyan: #37ccf1;
+	--text-color-cyan: #37ccf1;
+	--color-granny-smith: #c8f6a7;
+	--text-color-muted: #6c757d;
 }
 
 html {
@@ -11,12 +28,12 @@ html {
 
 body {
 	height: calc(100vh - 164px);
-	font-family: var(--font-body);
+	font-family: var(--body-font);
 }
 
 /* Main logo font */
 .logo-font {
-	font-family: "IM Fell Great Primer SC", serif;
+	font-family: var(--logo-font);
 }
 
 .logo {
@@ -36,7 +53,7 @@ body {
 }
 /* Custom Dropdown */
 #navbarOffcanvasLg .dropdown-menu .dropdown-item {
-	color: #011014;
+	color: var(--text-color-blue-black);
 	font-weight: 800;
 }
 
@@ -46,90 +63,58 @@ body {
 }
 
 /* PALETTE ------------------------------ */
-/* Background colors */
 
 .platinum {
-	background-color: #e5e5e5;
+	background-color: var(--color-platinum);
 }
-
-.mindaro {
-	background-color: #e3f683;
-}
-
-.tea-green {
-	background-color: #cbdfbd;
-}
-
-.granny-smith {
-	background-color: #c8f6a7;
-}
-
-.salmon {
-	background-color: #fb996f;
-}
-
-.orange-soda {
-	background-color: #f15c37;
-}
-.coral {
-	background-color: #f67b53;
-}
-
-.rosso {
-	background-color: #d42912;
-}
-
-.cyan {
-	background-color: #37ccf1;
+.platinum-text {
+	color: var(--text-color-platinum);
 }
 
 .blue-black {
-	background-color: #011014;
+	background-color: var(--color-blue-black);
+}
+.blue-black-text {
+	color: var(--text-color-blue-black);
 }
 
-/* Text Colors */
-
-.platinum-text {
-	color: #e5e5e5;
+.granny-smith {
+	background-color: var(--color-granny-smith);
 }
 
-.mindaro-text {
-	color: #e3f683;
+.salmon {
+	background-color: var(--color-salmon);
 }
-
-.cream-text {
-	color: #fcfac9;
-}
-
-.tea-green-text {
-	color: #cbdfbd;
-}
-
-.granny-smith-text {
-	color: #c8f6a7;
-}
-
 .salmon-text {
-	color: #fb996f;
+	color: var(--text-color-salmon);
 }
 
+.orange-soda {
+	background-color: var(--color-orange-soda);
+}
 .orange-soda-text {
-	color: #f15c37;
+	color: var(--text-color-orange-soda);
+}
+
+.coral {
+	background-color: var(--color-coral);
 }
 .coral-text {
-	color: #f67b53;
+	color: var(--text-color-coral);
 }
 
+.rosso {
+	background-color: var(--color-rosso);
+}
 .rosso-text {
-	color: #d42912;
+	color: var(--text-color-rosso);
 }
 
+.cyan {
+	background-color: var(--color-cyan);
+}
 .cyan-text {
-	color: #37ccf1;
-}
-
-.blue-black-text {
-	color: #011014;
+	color: var(--text-color-cyan);
 }
 /* ---------------------------- PALETTE END*/
 
@@ -149,12 +134,12 @@ body {
 }
 
 .nav-link {
-	color: #e5e5e5 !important;
+	color: var(--text-color-platinum) !important;
 }
 
 .slogan {
 	font-family: var(--font-body);
-	text-shadow: 2px 2px 6px #011014;
+	text-shadow: 2px 2px 6px var(--color-blue-black);
 }
 
 /* Scroll down button animation */
@@ -197,11 +182,11 @@ body {
 
 /* Nav Icons */
 .nav-icons i:hover:not(.heart) {
-	color: #37ccf1 !important;
+	color: var(--text-color-cyan) !important;
 }
 
 .nav-icons .heart:hover {
-	color: #f15c37 !important;
+	color: var(--text-color-orange-soda) !important;
 }
 
 /* Cart Icons */
@@ -216,19 +201,19 @@ body {
 .btn-hmm:active,
 .btn-hmm:focus {
 	background: rgb(1, 16, 20, 0.5);
-	color: #37ccf1;
+	color: var(--text-color-cyan);
 }
 
 .btn-yes:hover,
 .btn-yes:active,
 .btn-yes:focus {
-	background-color: #e5e5e5;
-	color: #f15c37;
+	background-color: var(--color-platinum);
+	color: var(--color-orange-soda);
 }
 
 /* Custom Toggler */
 .custom-toggler {
-	border: 1px solid #e5e5e5 !important;
+	border: 1px solid var(--color-platinum) !important;
 	border-radius: 5px;
 	/* color: #011014; */
 }
@@ -237,7 +222,7 @@ body {
 .dropdown-item:active,
 .dropdown-item:hover,
 .dropdown-item:focus {
-	background-color: #f67b53;
+	background-color: var(--color-coral);
 	color: #ffffff !important;
 }
 
@@ -246,13 +231,13 @@ body {
 footer ul li .nav-link:hover,
 footer ul li .nav-link:focus,
 footer ul li .nav-link:active {
-	color: #f67b53 !important;
+	color: var(--text-color-coral) !important;
 }
 
 footer .socials ul li a:hover,
 footer .socials ul li a:focus,
 footer .socials ul li a:active {
-	color: #37ccf1 !important;
+	color: var(--text-color-cyan) !important;
 }
 /* -------------------------- HOME PAGE END */
 
@@ -261,7 +246,7 @@ footer .socials ul li a:active {
 .return-product-link:focus,
 .return-product-link:active,
 .return-product-link:hover {
-	color: #37ccf1 !important;
+	color: var(--text-color-cyan) !important;
 }
 
 .product-img {
@@ -289,7 +274,7 @@ footer .socials ul li a:active {
 
 .custom-toast {
 	overflow: visible;
-	border: 4px solid #fb996f !important;
+	border: 4px solid var(--color-salmon) !important;
 }
 
 .cart-notification-wrapper {
@@ -320,7 +305,7 @@ footer .socials ul li a:active {
 }
 
 .allauth-form-inner-content input::placeholder {
-	color: #6c757d;
+	color: var(--text-color-muted);
 }
 
 .allauth-form-inner-content button,
@@ -339,7 +324,7 @@ footer .socials ul li a:active {
 }
 
 .allauth-form-inner-content a:hover {
-	color: #d42912; /* text-info */
+	color: var(--text-color-rosso); /* text-info */
 }
 
 /* MEDIA QUERIES -------------------------------  */
