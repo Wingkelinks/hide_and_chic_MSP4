@@ -2,79 +2,96 @@
 {% load static %}
 
 {% block content %}
-    <div id="hero-image" class="container-fluid h-100">
-        <div class="row h-50 justify-content-start">
-            <div class="col-7 col-md-6 platinum-text my-auto">
-                <h2 class="slogan display-4 text-center logo-font lh-base">Serving your leather obsession...</h2>
-            </div>
-        </div>
-        <!-- Call To Action Buttons -->
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end d-lg-flex justify-content-lg-end mt-lg-5 pt-lg-5">
-            <a 
-                href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns">Yes - Take Me There!
-            </a>
-            <a 
-                href="#" type="button" class="btn-hmm rounded-3 platinum fw-bold btn btn-lg border-1 border-dark blue-black-text text-uppercase fs-5 call-to-action-btns">Hmm... Find Out More
-            </a>
+<div id="hero-image" class="container-fluid h-100">
+    <div class="row h-50 justify-content-start">
+        <div class="col-7 col-md-6 platinum-text my-auto">
+            <h2 class="slogan display-4 text-center logo-font lh-base">Serving your leather obsession...</h2>
         </div>
     </div>
+    <!-- Call To Action Buttons -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end d-lg-flex justify-content-lg-end mt-lg-5 pt-lg-5">
+        <a 
+            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns">Yes - Take Me There!
+        </a>
+        <a 
+            href="#" type="button" class="btn-hmm rounded-3 platinum fw-bold btn btn-lg border-1 border-dark blue-black-text text-uppercase fs-5 call-to-action-btns">Hmm... Find Out More
+        </a>
+    </div>
+</div>
 
-    <!-- FEATURE SECTION -->
-	<section class="my-5">
-        <div class="container">
-          <div class="row text-white">
-            <div class="col-lg-5">
-              <h2 class="blue-black-text">Featured Collections</h2>
-            </div>
-            <div class="col-lg-7">
-              <p class="blue-black-text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis, magnam rerum. Similique ratione explicabo odit obcaecati suscipit architecto exercitationem iusto, consequuntur eos magnam. Nobis adipisci magnam vel repellendus sed! Corporis et, dicta laborum a autem minus hic accusantium. Nulla perspiciatis officia facilis dolores numquam rerum temporibus praesentium sequi, sunt omnis.
-              </p>
-            </div>
+<!-- COLLECTIONS & FEATURE SECTION -->
+<section class="my-5 collections">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <h2 class="blue-black-text">A collection of the very best</h2>
+        <hr class="w-25 mx-auto my-5">
+        <p class="text-muted mb-5 fs-5">
+          A carefully curated selection of the finest leather goods for the discerning shopper.
+        </p>
+      </div>
+    </div>    
+    <!-- Collection Cards -->
+    <div class="collection-cards">
+      <div class="row g-2 mb-2">
+          <div class="col-sm">
+              <a href="{% url 'products' %}?category=footwear" class="card">
+                <img src="/media/leather_shoe_detail.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+                <div class="card-footer border-bottom border-2bg-transparent text-uppercase">
+                  <span class="btn">Footwear</span>
+                </div>
+              </a>
           </div>
-          
-           <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-            <div class="row g-2 mb-2">
-                <div class="col-sm-8">
-                    <a href="#" class="card">
-                        <img src="/media/leather_satchel.jpg" class="img-fluid" alt="Watch with leather strap">
-                        <div class="card-footer text-white">
-                          <span class="btn">Watches</span>
-                        </div>
-                      </a>
-                </div>
-                <div class="col-sm-4 ">
-                  <a href="#" class="card">
-                    <img src="/media/smartwatch_strap.jpg" class="img-fluid" alt="Watch with leather strap">
-                    <div class="card-footer text-white">
-                      <span class="btn">Footwear</span>
-                    </div>
-                  </a>
-                  <a href="#" class="card">
-                    <img src="/media/smartwatch_strap.jpg" class="img-fluid" alt="Watch with leather strap">
-                    <div class="card-footer text-white">
-                      <span class="btn">Footwear</span>
-                    </div>
-                  </a>
-                </div>
-            </div>
-            <div class="row g-2">
-              <div class="col-sm">
-                <a href="#" class="card">
-                  <img src="/media/smartwatch_strap.jpg" class="img-fluid" alt="Watch with leather strap">
-                  <div class="card-footer text-white">
-                    <span class="btn">Watches</span>
-                  </div>
-                </a>
+          <div class="col-sm">
+            <a href="{% url 'products' %}?category=jackets" class="card">
+              <img src="/media/zara_black_jacket.jpg " class="img-fluid rounded" alt="Watch with leather strap">
+              <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
+                <span class="btn">Jackets</span>
               </div>
-              <div class="col-sm">
-                <a href="#" class="card">
-                  <img src="/media/smartwatch_strap.jpg" class="img-fluid" alt="Watch with leather strap">
-                  <div class="card-footer text-white">
-                    <span class="btn">Watches</span>
-                  </div>
-                </a>
-              </div>
+            </a>
+          </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-sm">
+          <a href="{% url 'products' %}?category=bags" class="card">
+            <img src="/media/two_leather_bags.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+            <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
+              <span class="btn">Bags</span>
             </div>
-      </section>
+          </a>
+        </div>
+        <div class="col-sm">
+          <a href="{% url 'products' %}?category=accessories" class="card">
+            <img src="/media/smartwatch_strap.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+            <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
+              <span class="btn">Accessories</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Collection -->
+<section class="salmon py-5">
+  <div class="container featured-collection">
+    <div class="card my-5 border-0">
+      <div class="row g-0">
+        <div class="col-md-7">
+          <img src="/media/shirt_shoes.jpg" class="img-fluid rounded-start" alt="Shirt and Shoes">
+        </div>
+        <div class="col-md-5 d-flex flex-row align-items-end">
+          <div class="card-body">
+            <h5 class="card-subtitle">Our Latest Collection</h5>
+            <h4 class="card-title text-uppercase mt-3">Winter</h4>
+            <hr class="text-secondary w-25 pt-1">
+            <p class="card-text mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nam odit recusandae iure totam quia quasi excepturi quam distinctio voluptate? Perferendis cum delectus deserunt praesentium.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

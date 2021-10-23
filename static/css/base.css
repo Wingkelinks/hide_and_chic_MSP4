@@ -156,10 +156,14 @@ body {
 	text-shadow: 2px 2px 6px #011014;
 }
 
-/* .heart-tooltip {
-	background-color: #e5e5e5 !important;
-	color: #011014 !important;
-} */
+/* Make images in collection cards same height */
+.collection-cards img {
+	width: 100%;
+	height: 30vw;
+	object-fit: cover;
+}
+
+
 
 /* Centering Mat Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
