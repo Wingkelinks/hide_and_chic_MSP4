@@ -70,17 +70,21 @@
 		<!-- MODALS -->
 		{% include 'includes/nav_modals.html' %}
 
-		<!-- SALE / FREE DELIVERY BANNER -->
-		<div class="row text-center">
-			<div class="col-lg-6 cyan py-lg-1">
-				<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
+		<!-- SALE / FREE DELIVERY CAROUSEL BANNER -->
+		<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<div class="carousel-inner text-center">
+			  <div class="carousel-item active">
+				<div class="col cyan py-lg-1">
+					<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
+				</div>
+			  </div>
+			  <div class="carousel-item">
+				<div class="col orange-soda py-lg-1 d-none d-sm-block">
+					<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
+				</div>
+			  </div>
 			</div>
-			<!-- Hidden on small devices -->
-			<div class="col-lg-6 orange-soda py-lg-1 d-none d-sm-block">
-				<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
-			</div>
-		</div>
-
+		  </div>
 		<!-- NAVBAR -->
 		<!-- Bootstrap Offcanvas Navbar -->
 		<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
@@ -270,10 +274,10 @@
 
 		<!-- Footer -->
 
-		<div class="container">
-			<footer class="py-5 blue-black-text">
+		<div class="container-fluid blue-black">
+			<footer class="py-5 platinum-text mx-4">
 			  <div class="row">
-				<h5 class="logo-font">Hide & Chic</h5>
+				<h5 class="logo-font mb-2">Hide & Chic</h5>
 				<div class="col-2">
 				  <ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-muted">Home</a></li>
@@ -285,7 +289,6 @@
 				</div>
 		  
 				<div class="col-2">
-				  
 				  <ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Profile</a></li>
 					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Log In</a></li>
@@ -295,7 +298,6 @@
 				</div>
 		  
 				<div class="col-2">
-				  
 				  <ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cart</a></li>
 					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Product Management</a></li>
@@ -321,12 +323,12 @@
 				</div>
 			  </div>
 		  
-			  <div class="d-flex justify-content-between py-4 my-4 border-top">
+			  <div class="d-flex justify-content-between py-3 my-3 border-top">
 				<p>© 2021 Hide & Chic, Inc. All rights reserved.</p>
 				<ul class="list-unstyled d-flex">
-				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-facebook"></i></a></li>
-				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-instagram"></i></a></li>
-				  <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-youtube"></i></a></li>
+				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-youtube-square fa-lg"></i></a></li>
 				</ul>
 			  </div>
 			</footer>
