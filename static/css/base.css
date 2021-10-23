@@ -40,6 +40,11 @@ body {
 	font-weight: 800;
 }
 
+.container-fluid {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
 /* PALETTE ------------------------------ */
 /* Background colors */
 
@@ -226,6 +231,19 @@ body {
 	color: #ffffff !important;
 }
 
+/* Footer links */
+
+footer ul li .nav-link:hover,
+footer ul li .nav-link:focus,
+footer ul li .nav-link:active {
+	color: #f67b53 !important;
+}
+
+footer .socials ul li a:hover,
+footer .socials ul li a:focus,
+footer .socials ul li a:active {
+	color: #37ccf1 !important;
+}
 /* -------------------------- HOME PAGE END */
 
 /* PRODUCTS PAGE -------------------------------- */

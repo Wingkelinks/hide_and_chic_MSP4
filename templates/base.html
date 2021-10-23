@@ -274,35 +274,35 @@
 
 		<!-- Footer -->
 
-		<div class="container-fluid blue-black">
-			<footer class="py-5 platinum-text mx-4">
+		<div id="footer" class="container-fluid blue-black">
+			<footer class="py-5 mx-5 platinum-text">
 			  <div class="row">
-				<h5 class="logo-font mb-2">Hide & Chic</h5>
+				<h4 class="logo-font mb-3">Hide & Chic</h4>
 				<div class="col-2">
 				  <ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-muted">Home</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shop All</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Featured Collections</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"></a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Leather Care</a></li>
+					<li class="mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
+					<li class="mb-2"><a href="#" class="nav-link p-0">Shop All</a></li>
+					<li class="mb-2"><a href="#" class="nav-link p-0">Featured Collections</a></li>
+					<li class="mb-2"><a href="#" class="nav-link p-0"></a></li>
+					<li class="mb-2"><a href="#" class="nav-link p-0">Leather Care</a></li>
 				  </ul>
 				</div>
 		  
 				<div class="col-2">
 				  <ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">My Profile</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Log In</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Log Out</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Register</a></li>
+					<li class="mb-2"><a href="#" class="nav-link p-0">My Profile</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log In</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log Out</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Register</a></li>
 				  </ul>
 				</div>
 		  
 				<div class="col-2">
 				  <ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cart</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Product Management</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Cart</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Product Management</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
+					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
 				  </ul>
 				</div>
 		  
@@ -312,7 +312,7 @@
 					<div class="input-group w-100">
 						<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
 						<div class="input-group-append">
-							<button class="form-control btn-yes blue-black platinum-text rounded-3" type="submit">
+							<button class="form-control btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
 								<span class="icon">
 									<i class="fas fa-search"></i>
 								</span>
@@ -323,8 +323,8 @@
 				</div>
 			  </div>
 		  
-			  <div class="d-flex justify-content-between py-3 my-3 border-top">
-				<p>© 2021 Hide & Chic, Inc. All rights reserved.</p>
+			  <div class="d-flex justify-content-between border-top border-secondary border-3 py-3 my-3 socials">
+				<p>&copy; <span id="copyright"></span> Hide & Chic, Inc. All rights reserved.</p>
 				<ul class="list-unstyled d-flex">
 				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
 				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
@@ -358,6 +358,10 @@
 				$(document).ready(function(){
 				   $('[data-bs-toggle="tooltip"]').tooltip();
 				});       
+			</script>
+			<!-- Render Current Date Function - code snippet from Code Institute Flask Framework Walkthrough Project -->
+			<script>
+				$("#copyright").text(new Date().getFullYear());
 			</script>
 		{% endblock %}
 	</body>
