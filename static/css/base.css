@@ -163,7 +163,13 @@ body {
 	object-fit: cover;
 }
 
+/* #carouselExampleIndicators > div.carousel-indicators > button.active {
+	color: #011014 !important;
+}
 
+#carouselExampleIndicators > div.carousel-indicators > button {
+	color: #444 !important;
+} */
 
 /* Centering Mat Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
