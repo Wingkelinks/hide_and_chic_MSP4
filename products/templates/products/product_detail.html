@@ -32,7 +32,14 @@
                 <hr class="w-75 my-4">
                 <div class="">
                     <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
-                    <p class="lead mb-0 fw-bold">${{ product.price }}</p>
+
+                    {% if product.on_sale %}
+                        <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
+                        <p class="lead mb-0 fw-bold rosso-text">${{ product.sale_price }}</p>  
+                    {% else %}
+                        <p class="lead mb-0 fw-bold">${{ product.price }}</p>
+                    {% endif %}
+
                     {% if product.category %}
                     <a 
                         class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
