@@ -11,107 +11,107 @@
 
 {% block content %}
 <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <!-- Product Details -->
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="image-container p-4">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="img-fluid h-25 rounded-3" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                    {% endif %}
-                </div>
-            </div> 
-            <div class="col-sm-12 col-md-6 col-lg-4 align-self-center">
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <!-- Product Details -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="image-container p-4">
+                {% if product.image %}
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img class="img-fluid h-25 rounded-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div> 
+        <div class="col-sm-12 col-md-6 col-lg-4 align-self-center">
+            <div class="">
+                <hr class="w-75 my-4">
                 <div class="">
-                    <hr class="w-75 my-4">
+                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
+                    <p class="lead mb-0 fw-bold">${{ product.price }}</p>
+                    {% if product.category %}
+                    <a 
+                        class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <p class="small mt-3 orange-soda-text">  
+                        {{ product.category.friendly_name }}   
+                        </p>
+                    </a>
+                    {% endif %}
+                    {% if product.rating %}
+                        <small class="text-muted"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
+                    {% else %}
+                        <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    <p class="mt-3"><strong class="fw-bold">Colour:</strong> {{ product.color }}</p>
+                    <p class="mt-3 blue-black-text w-75">{{ product.description }}</p>
+                </div>
+                <!-- Add to Cart Form -->
+                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
                     <div class="">
-                        <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
-                        <p class="lead mb-0 fw-bold">${{ product.price }}</p>
-                        {% if product.category %}
-                        <a 
-                            class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
-                            <p class="small mt-3 orange-soda-text">  
-                            {{ product.category.friendly_name }}   
-                            </p>
-                        </a>
-                        {% endif %}
-                        {% if product.rating %}
-                            <small class="text-muted"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
-                        {% else %}
-                            <small class="text-muted">No Rating</small>
-                        {% endif %}
-                        <p class="mt-3"><strong class="fw-bold">Colour:</strong> {{ product.color }}</p>
-                        <p class="mt-3 blue-black-text w-75">{{ product.description }}</p>
-                    </div>
-                    <!-- Add to Cart Form -->
-                    <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="">
-                            {% with product.has_sizes as s %}
-                            {% if s %}
-                                <div class="">
-                                    <p><strong class="fw-bold">Size:</strong></p>
-                                    <select class="form-select w-50" name="product_size" id='id_product_size'>
-                                        <option value="xs">XS</option>
-                                        <option value="s">S</option>
-                                        <option value="m" selected>M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                    </select>
-                                </div>
-                            {% endif %}
+                        {% with product.has_sizes as s %}
+                        {% if s %}
                             <div class="">
-                                <p class="mt-3"><strong class="fw-bold">Quantity:</strong></p>
-                                <div class="w-50 d-flex justify-content-center">
-                                    <!-- Increment / Decrement Product Quantity -->
-                                    <div class="input-group input-group-qty">
-                                        <button 
-                                            class="input-group-text decrement-qty"
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <i class="material-icons">remove</i>
-                                        </button>
-                                        <input 
-                                            class="form-control qty_input"   type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                        <button 
-                                            class="input-group-text increment-qty"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}"> 
-                                            <i class="material-icons">add</i>
-                                        </button>
-                                    </div>
+                                <p><strong class="fw-bold">Size:</strong></p>
+                                <select class="form-select w-50" name="product_size" id='id_product_size'>
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m" selected>M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                </select>
+                            </div>
+                        {% endif %}
+                        <div class="">
+                            <p class="mt-3"><strong class="fw-bold">Quantity:</strong></p>
+                            <div class="w-50 d-flex justify-content-center">
+                                <!-- Increment / Decrement Product Quantity -->
+                                <div class="input-group input-group-qty">
+                                    <button 
+                                        class="input-group-text decrement-qty"
+                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                        <i class="material-icons">remove</i>
+                                    </button>
+                                    <input 
+                                        class="form-control qty_input"   type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    <button 
+                                        class="input-group-text increment-qty"
+                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}"> 
+                                        <i class="material-icons">add</i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Add to Cart / Continue Shopping Buttons -->
-                        <div class="vstack gap-4 mt-5 w-50">
-                            <button
-                                type="hidden" name="redirect_url" value="{{ request.path }}"                            
-                                class="btn btn-lg text-uppercase coral"
-                                value="submit">Add to Cart
-                                <i class="align-middle material-icons">
-                                    add_shopping_cart
-                                </i>
-                            </button>
-                            <a
-                                href="{% url 'products' %}" 
-                                class="btn btn-lg text-uppercase granny-smith">Continue Shopping
-                                <i class="icon material-icons">
-                                store
-                                </i>
-                            </a>
-                            {% endwith %}
-                        </div>
-                    </form>
-                    <hr class="w-75 my-4">
-                </div>
+                    </div>
+                    <!-- Add to Cart / Continue Shopping Buttons -->
+                    <div class="vstack gap-4 mt-5 w-50">
+                        <button
+                            type="hidden" name="redirect_url" value="{{ request.path }}"                            
+                            class="btn btn-lg text-uppercase coral"
+                            value="submit">Add to Cart
+                            <i class="align-middle material-icons">
+                                add_shopping_cart
+                            </i>
+                        </button>
+                        <a
+                            href="{% url 'products' %}" 
+                            class="btn btn-lg text-uppercase granny-smith">Continue Shopping
+                            <i class="icon material-icons">
+                            store
+                            </i>
+                        </a>
+                        {% endwith %}
+                    </div>
+                </form>
+                <hr class="w-75 my-4">
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}

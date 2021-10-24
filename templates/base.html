@@ -2,367 +2,367 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		{% block meta %}
-			<meta charset="UTF-8" />
-			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		{% endblock %}
+<head>
+	{% block meta %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	{% endblock %}
 
-		{% block extra_meta %}
-		{% endblock %}
+	{% block extra_meta %}
+	{% endblock %}
 
-		{% block corecss %}
-			<!-- Bootstrap CSS -->
-			<link
-				href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-				rel="stylesheet"
-				integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-				crossorigin="anonymous"
-			/>
-			<link 
-				rel="preconnect" 
-				href="https://fonts.googleapis.com">
-			<link 
-				rel="preconnect" 
-				href="https://fonts.gstatic.com" 
-				crossorigin>
-			<link 
-				href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400&display=swap" 
-				rel="stylesheet">
-			<link 
-				href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer+SC&family=Josefin+Sans&display=swap" rel="stylesheet">
-			<link 
-				href="https://fonts.googleapis.com/icon?family=Material+Icons"
-				rel="stylesheet">
-			<!-- Base CSS -->
-			<link rel="stylesheet" href="{% static 'css/base.css' %}">
-		{% endblock %}
+	{% block corecss %}
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+			crossorigin="anonymous"
+		/>
+		<link 
+			rel="preconnect" 
+			href="https://fonts.googleapis.com">
+		<link 
+			rel="preconnect" 
+			href="https://fonts.gstatic.com" 
+			crossorigin>
+		<link 
+			href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400&display=swap" 
+			rel="stylesheet">
+		<link 
+			href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer+SC&family=Josefin+Sans&display=swap" rel="stylesheet">
+		<link 
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet">
+		<!-- Base CSS -->
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	{% endblock %}
 
-		{% block extra_css %}
-		{% endblock %}
+	{% block extra_css %}
+	{% endblock %}
 
-		{% block corejs %}
-			<script
-				src="https://kit.fontawesome.com/23c2ad1397.js" 		crossorigin="anonymous">
-			</script>
-			<script
-                src="https://code.jquery.com/jquery-3.6.0.min.js"
-                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                crossorigin="anonymous">
-            </script>
-			<!-- JavaScript Bundle with Popper -->
-			<script 
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/	bootstrap.bundle.min.js" 
-				integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-			</script>
-			<!-- Stripe -->
-			<script src="https://js.stripe.com/v3/"></script>
-		{% endblock %}
+	{% block corejs %}
+		<script
+			src="https://kit.fontawesome.com/23c2ad1397.js" 		crossorigin="anonymous">
+		</script>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous">
+		</script>
+		<!-- JavaScript Bundle with Popper -->
+		<script 
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/	bootstrap.bundle.min.js" 
+			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+		</script>
+		<!-- Stripe -->
+		<script src="https://js.stripe.com/v3/"></script>
+	{% endblock %}
 
-		{% block extra_js %}
-		{% endblock %}
+	{% block extra_js %}
+	{% endblock %}
 
-		<title>Hide & Chic {% block extra_title %}{% endblock %}</title>
-	</head>
-	<body>
+	<title>Hide & Chic {% block extra_title %}{% endblock %}</title>
+</head>
+<body>
 		
-		<!-- MODALS -->
-		{% include 'includes/nav_modals.html' %}
+<!-- MODALS -->
+{% include 'includes/nav_modals.html' %}
 
-		<!-- SALE / FREE DELIVERY CAROUSEL BANNER -->
-		<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-			<div class="carousel-inner text-center">
-			  <div class="carousel-item active">
-				<div class="col cyan py-lg-1">
-					<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<div class="col orange-soda py-lg-1 d-none d-sm-block">
-					<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		<!-- NAVBAR -->
-		<!-- Bootstrap Offcanvas Navbar -->
-		<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
-			<div class="container-fluid">
-				<!-- Left Aligned Mobile Brand -->
-				<a class="logo navbar-brand logo-font fs-1 text-white ps-3 py-0" href="{% url 'home' %}">
-					Hide & Chic
-				</a>
-	  
-				<!-- Offcanvas Mobile Toggler -->
+<!-- SALE / FREE DELIVERY CAROUSEL BANNER -->
+<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+	<div class="carousel-inner text-center">
+		<div class="carousel-item active">
+		<div class="col cyan py-lg-1">
+			<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
+		</div>
+		</div>
+		<div class="carousel-item">
+		<div class="col orange-soda py-lg-1 d-none d-sm-block">
+			<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
+		</div>
+		</div>
+	</div>
+	</div>
+
+<!-- NAVBAR -->
+<!-- Bootstrap Offcanvas Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
+	<div class="container-fluid">
+		<!-- Left Aligned Mobile Brand -->
+		<a class="logo navbar-brand logo-font fs-1 text-white ps-3 py-0" href="{% url 'home' %}">
+			Hide & Chic
+		</a>
+
+		<!-- Offcanvas Mobile Toggler -->
+		<button 
+				class="navbar-toggler pe-auto"
+				type="button" 
+				data-bs-toggle="offcanvas" 
+				data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+			<span class="blue-black-text platinum fas fa-bars fa-lg custom-toggler p-2"></span>
+		</button>
+		<!-- Offcanvas Mobile SideNav -->
+		<div 
+			class="offcanvas offcanvas-end" 
+			tabindex="-1" 
+			id="navbarOffcanvasLg" 
+			aria-labelledby="navbarOffcanvasLgLabel">
+
+			<!-- Offcanvas Sidenav Content -->
+			<div class="offcanvas-header">
+				<h5 
+					class="offcanvas-title logo-font fs-3 blue-black-text"
+					id="offcanvasNavbarLabel">Hide & Chic
+				</h5>
 				<button 
-						class="navbar-toggler pe-auto"
-						type="button" 
-						data-bs-toggle="offcanvas" 
-						data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
-					<span class="blue-black-text platinum fas fa-bars fa-lg custom-toggler p-2"></span>
+					type="button" 
+					class="btn-close text-reset" data-bs-dismiss="offcanvas" 
+					aria-label="Close">
 				</button>
-				<!-- Offcanvas Mobile SideNav -->
-				<div 
-					class="offcanvas offcanvas-end" 
-					tabindex="-1" 
-					id="navbarOffcanvasLg" 
-					aria-labelledby="navbarOffcanvasLgLabel">
-
-					<!-- Offcanvas Sidenav Content -->
-					<div class="offcanvas-header">
-						<h5 
-							class="offcanvas-title logo-font fs-3 blue-black-text"
-							id="offcanvasNavbarLabel">Hide & Chic
-						</h5>
-						<button 
-							type="button" 
-							class="btn-close text-reset" data-bs-dismiss="offcanvas" 
-							aria-label="Close">
-						</button>
-					</div>
-					<div class="offcanvas-body blue-black">
-						<!-- Nav -->
-						<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold">
-							<li class="nav-item blue-black-text">
-								<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-							</li>
-							
-							<!-- Shop All Dropdown -->
-							<li class="nav-item dropdown">
-								<!-- Shop All Toggle -->
-								<a class="nav-link dropdown-toggle blue-black" 
-									href="{% url 'products' %}" role="button" 
-									id="dropdownMenuLink" 
-									data-bs-toggle="dropdown" aria-expanded="false">Shop All
-								</a>
-				
-								<!-- Shop All Menu -->
-								<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets">Jackets</a></li>
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=bags">Bags</a></li>
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">Accessories</a></li>
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=sale">Sale</a></li>
-									<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
-								</ul>
-							</li>
-
-							<!-- Leather Care Dropdown -->
-							<li class="nav-item dropdown">
-								<!-- Leather Care Toggle -->
-								<a class="nav-link dropdown-toggle" 
-									href="#" role="button" 
-									id="dropdownMenuLink" 
-									data-bs-toggle="dropdown" aria-expanded="false">Leather Care
-								</a>
-				
-								<!-- Leather Care Menu -->
-								<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
-									<li><a class="dropdown-item" href="#">Prodcuts</a></li>
-									<li><a class="dropdown-item" href="#">FAQ</a></li>
-								</ul>
-							</li>
+			</div>
+			<div class="offcanvas-body blue-black">
+				<!-- Nav -->
+				<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold">
+					<li class="nav-item blue-black-text">
+						<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+					</li>
+					
+					<!-- Shop All Dropdown -->
+					<li class="nav-item dropdown">
+						<!-- Shop All Toggle -->
+						<a class="nav-link dropdown-toggle blue-black" 
+							href="{% url 'products' %}" role="button" 
+							id="dropdownMenuLink" 
+							data-bs-toggle="dropdown" aria-expanded="false">Shop All
+						</a>
+		
+						<!-- Shop All Menu -->
+						<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets">Jackets</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=bags">Bags</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">Accessories</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=sale">Sale</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
 						</ul>
+					</li>
 
-						<!-- Nav 2 -->
-						<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase">
+					<!-- Leather Care Dropdown -->
+					<li class="nav-item dropdown">
+						<!-- Leather Care Toggle -->
+						<a class="nav-link dropdown-toggle" 
+							href="#" role="button" 
+							id="dropdownMenuLink" 
+							data-bs-toggle="dropdown" aria-expanded="false">Leather Care
+						</a>
+		
+						<!-- Leather Care Menu -->
+						<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
+							<li><a class="dropdown-item" href="#">Prodcuts</a></li>
+							<li><a class="dropdown-item" href="#">FAQ</a></li>
+						</ul>
+					</li>
+				</ul>
 
-							<!-- Product Management -->	
-                			{% if request.user.is_superuser %}
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" 
-										href="#" role="button" 
-										id="dropdownMenuLink" 
-										data-bs-toggle="dropdown" aria-expanded="false">Product Management
-									</a>
-									<!-- Product Management Menu -->
-									<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
-										<li><a class="dropdown-item" href="#">Add New</a></li>
-										<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
-									</ul>
-								</li>
+				<!-- Nav 2 -->
+				<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase">
+
+					<!-- Product Management -->	
+					{% if request.user.is_superuser %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" 
+								href="#" role="button" 
+								id="dropdownMenuLink" 
+								data-bs-toggle="dropdown" aria-expanded="false">Product Management
+							</a>
+							<!-- Product Management Menu -->
+							<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Add New</a></li>
+								<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
+							</ul>
+						</li>
+					{% endif %}
+				</ul>
+
+				<!-- Nav With Icons -->	
+				<ul class="navbar-nav flex-row nav-icons">
+					<!-- User -->
+					<li class="nav-item ml-lg-n4 dropstart">
+						<a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown"
+							role="button" aria-expanded="false"
+							href="#">
+							<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
+						</a>
+						<ul class="dropdown-menu">
+							{% if request.user.is_authenticated %}
+								<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+								<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+							{% else %}
+								<li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+								<li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
 							{% endif %}
 						</ul>
-
-						<!-- Nav With Icons -->	
-						<ul class="navbar-nav flex-row nav-icons">
-							<!-- User -->
-							<li class="nav-item ml-lg-n4 dropstart">
-								<a class="nav-link dropdown-toggle"
-									data-bs-toggle="dropdown"
-									role="button" aria-expanded="false"
-									href="#">
-									<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
-								</a>
-								<ul class="dropdown-menu">
-									{% if request.user.is_authenticated %}
-										<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-										<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
-									{% else %}
-										<li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
-										<li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-									{% endif %}
-								</ul>
-							</li>
-							<!-- Heart -->
-							<li class="nav-item ml-lg-n4">
-								<a id="wishlist" 
-								class="nav-link nav-icons heart"
-								href="#" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" 
-								title="View Wishlist">
-								<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-							</a>
-							</li>
-							<!-- Cart with Modal Trigger -->
-							<li class="nav-item ml-lg-n4 pe-auto">
-							<a	href="#"
-								class="nav-link" 
-								data-bs-toggle="modal"
-								data-bs-target="#cartModal">
-								<span>
-								<i class="fas fa-shopping-cart fa-lg"></i>
-								</span>
-								<span>
-									{% if cart_items %}
-										{{ product_count }}
-									{% endif %}
-								</span>
-							</a>
-							</li>
-							<!-- Search with Modal Trigger -->
-							<li class="nav-item pe-auto">
-								<a 
-									href="#"
-									class="nav-link"
-									data-bs-toggle="modal" data-bs-target="#searchModal">
-									<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-
-		{% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/error_toast.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/warning_toast.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/success_toast.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/info_toast.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
-    	{% endif %}
-
-		{% block page_header %}
-		{% endblock %}
-
-		{% block content %}
-		{% endblock %}
-
-		<!-- Footer -->
-
-		<div id="footer" class="container-fluid blue-black">
-			<footer class="py-5 mx-5 platinum-text">
-			  <div class="row">
-				<h4 class="logo-font mb-3">Hide & Chic</h4>
-				<div class="col-2">
-				  <ul class="nav flex-column">
-					<li class="mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
-					<li class="mb-2"><a href="#" class="nav-link p-0">Shop All</a></li>
-					<li class="mb-2"><a href="#" class="nav-link p-0">Featured Collections</a></li>
-					<li class="mb-2"><a href="#" class="nav-link p-0"></a></li>
-					<li class="mb-2"><a href="#" class="nav-link p-0">Leather Care</a></li>
-				  </ul>
-				</div>
-		  
-				<div class="col-2">
-				  <ul class="nav flex-column">
-					<li class="mb-2"><a href="#" class="nav-link p-0">My Profile</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log In</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log Out</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Register</a></li>
-				  </ul>
-				</div>
-		  
-				<div class="col-2">
-				  <ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Cart</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Product Management</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-					<li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
-				  </ul>
-				</div>
-		  
-				<div class="col-4 offset-1">
-				  <form method="GET" action="{% url 'products' %}">
-					<h5>Search for a product</h5>
-					<div class="input-group w-100">
-						<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
-						<div class="input-group-append">
-							<button class="form-control btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
-								<span class="icon">
-									<i class="fas fa-search"></i>
-								</span>
-							</button>
-						</div>
-					</div>
-				  </form>
-				</div>
-			  </div>
-		  
-			  <div class="d-flex justify-content-between border-top border-secondary border-3 py-3 my-3 socials">
-				<p>&copy; <span id="copyright"></span> Hide & Chic, Inc. All rights reserved.</p>
-				<ul class="list-unstyled d-flex">
-				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
-				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
-				  <li class="ms-3"><a class="link-light" href="#"><i class="fab fa-youtube-square fa-lg"></i></a></li>
+					</li>
+					<!-- Heart -->
+					<li class="nav-item ml-lg-n4">
+						<a id="wishlist" 
+						class="nav-link nav-icons heart"
+						href="#" 
+						data-bs-toggle="tooltip" data-bs-placement="bottom" 
+						title="View Wishlist">
+						<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+					</a>
+					</li>
+					<!-- Cart with Modal Trigger -->
+					<li class="nav-item ml-lg-n4 pe-auto">
+					<a	href="#"
+						class="nav-link" 
+						data-bs-toggle="modal"
+						data-bs-target="#cartModal">
+						<span>
+						<i class="fas fa-shopping-cart fa-lg"></i>
+						</span>
+						<span>
+							{% if cart_items %}
+								{{ product_count }}
+							{% endif %}
+						</span>
+					</a>
+					</li>
+					<!-- Search with Modal Trigger -->
+					<li class="nav-item pe-auto">
+						<a 
+							href="#"
+							class="nav-link"
+							data-bs-toggle="modal" data-bs-target="#searchModal">
+							<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
+						</a>
+					</li>
 				</ul>
-			  </div>
-			</footer>
-		  </div>
+			</div>
+		</div>
+	</div>
+</nav>
 
-		{% block postloadjs %}
-		{{ block.super }}
-		<!-- Code Snippet for bootstrap banner above fixed-top nav - 
-			https://stackoverflow.com/questions/44526926/show-bootstrap-banner-at-the-top-before-navbar/44530320 -->
-			<script type="text/javascript">
-				$(window).scroll(function(){
-					if ($(window).scrollTop() == 0) {
-					 $("#navbar").removeClass("fixed-top");
-				  } else {
-					 $("#navbar").addClass("fixed-top");
-				  }
-				 });
-			</script>
-			<!-- Toasts -->
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$('.toast').toast('show');
-				});
-			</script>
-			<!-- Tooltips -->
-			<script type="text/javascript">
-				$(document).ready(function(){
-				   $('[data-bs-toggle="tooltip"]').tooltip();
-				});       
-			</script>
-			<!-- Render Current Date Function - code snippet from Code Institute Flask Framework Walkthrough Project -->
-			<script>
-				$("#copyright").text(new Date().getFullYear());
-			</script>
-		{% endblock %}
-	</body>
+{% if messages %}
+	<div class="message-container">
+		{% for message in messages %}
+			{% with message.level as level %}
+				{% if level == 40 %}
+					{% include 'includes/toasts/error_toast.html' %}
+				{% elif level == 30 %}
+					{% include 'includes/toasts/warning_toast.html' %}
+				{% elif level == 25 %}
+					{% include 'includes/toasts/success_toast.html' %}
+				{% else %}
+					{% include 'includes/toasts/info_toast.html' %}
+				{% endif %}
+			{% endwith %}
+		{% endfor %}
+	</div>
+{% endif %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<div id="footer-container" class="container-fluid">
+	<footer class="py-5 mx-5 platinum-text">
+		<div class="row">
+			<h4 class="logo-font mb-3">Hide & Chic</h4>
+			<div class="col-2">
+				<ul class="nav flex-column">
+				<li class="mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
+				<li class="mb-2"><a href="#" class="nav-link p-0">Shop All</a></li>
+				<li class="mb-2"><a href="#" class="nav-link p-0">Featured Collections</a></li>
+				<li class="mb-2"><a href="#" class="nav-link p-0"></a></li>
+				<li class="mb-2"><a href="#" class="nav-link p-0">Leather Care</a></li>
+				</ul>
+			</div>
+		
+			<div class="col-2">
+				<ul class="nav flex-column">
+				<li class="mb-2"><a href="#" class="nav-link p-0">My Profile</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log In</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log Out</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Register</a></li>
+				</ul>
+			</div>
+		
+			<div class="col-2">
+				<ul class="nav flex-column">
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Cart</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Product Management</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
+				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+				</ul>
+			</div>
+	
+			<div class="col-4 offset-1">
+				<form method="GET" action="{% url 'products' %}">
+				<h5>Search for a product</h5>
+				<div class="input-group w-100">
+					<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
+					<div class="input-group-append">
+						<button class="form-control btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
+							<span class="icon">
+								<i class="fas fa-search"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	
+		<div class="d-flex justify-content-between border-top border-secondary border-3 py-3 my-3 socials">
+			<p>&copy; <span class="copyright"></span> Hide & Chic, Inc. All rights reserved.</p>
+			<ul class="list-unstyled d-flex">
+				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-youtube-square fa-lg"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+</div>
+
+{% block postloadjs %}
+{{ block.super }}
+<!-- Code Snippet for bootstrap banner above fixed-top nav --> 
+<!-- https://stackoverflow.com/questions/44526926/show-bootstrap-banner-at-the-top-before-navbar/44530320  -->
+	<script type="text/javascript">
+		$(window).scroll(function(){
+			if ($(window).scrollTop() == 0) {
+				$("#navbar").removeClass("fixed-top");
+			} else {
+				$("#navbar").addClass("fixed-top");
+			}
+			});
+	</script>
+	<!-- Toasts -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.toast').toast('show');
+		});
+	</script>
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('[data-bs-toggle="tooltip"]').tooltip();
+		});       
+	</script>
+	<!-- Render Current Date Function - code snippet from Code Institute Flask Framework Walkthrough Project -->
+	<script>
+		$(".copyright").text(new Date().getFullYear());
+	</script>
+{% endblock %}
+</body>
 </html>
