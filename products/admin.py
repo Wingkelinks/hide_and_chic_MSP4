@@ -10,6 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
         'sku',
         'on_sale',
         'price',
+        'sale_price',
         'rating',
         'image',
     )

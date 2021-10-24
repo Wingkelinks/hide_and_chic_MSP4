@@ -6,7 +6,9 @@ from django.db.models.functions import Lower
 # Use object Q from Django to handle filtering search by name and or description
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """ 
+    A view to show all products, including sorting categories and handling search queries.
+    """
     
     products = Product.objects.all()
     query = None
