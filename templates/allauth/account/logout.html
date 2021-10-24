@@ -12,7 +12,7 @@
           <hr class="w-25 mb-4">
           <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-          <form method="post" action="{% url 'account_logout' %}">
+          <form method="post" action="{% url 'account_logout' %}" class="py-5">
             {% csrf_token %}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
@@ -21,7 +21,7 @@
               <i class="material-icons">arrow_back_ios_new</i>
               <span class="text-uppercase">Home</span>
             </a>
-            <button type="submit">{% trans 'Sign Out' %}</button>
+            <button class="btn cyan rounded-3 btn-lg btn-hmm text-uppercase" type="submit">{% trans 'Sign Out' %}</button>
           </form>
       </div>
   </div>
