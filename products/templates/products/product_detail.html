@@ -18,11 +18,11 @@
             <div class="image-container p-4">
                 {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
-                        <img class="img-fluid h-25 rounded-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <img class="img-fluid h-25 rounded-3" src="{{ product.image.url }}" alt="{{ item.product.name }}">
                     </a>
                     {% else %}
-                    <a href="">
-                        <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <a href="" class="text-decoration-none">
+                        <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                     </a>
                 {% endif %}
             </div>

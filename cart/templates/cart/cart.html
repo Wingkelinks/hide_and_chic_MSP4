@@ -43,9 +43,9 @@
                                 <td class="p-3 w-25">
                                     <a href="{% url 'product_detail' item.product.id %}">
                                         {% if item.product.image %}
-                                            <img class="mg-fluid rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                            <img class="mg-fluid rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                         {% else %}
-                                            <img class="mg-fluid rounded product-img-cart" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            <img class="mg-fluid rounded product-img-cart" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                         {% endif %}
                                     </a>
                                 </td>
