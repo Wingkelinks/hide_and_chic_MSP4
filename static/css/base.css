@@ -31,6 +31,8 @@ body {
 	font-family: var(--body-font);
 }
 
+/* -------------------------------------- */
+
 /* Main logo font */
 .logo-font {
 	font-family: var(--logo-font);
@@ -51,12 +53,14 @@ body {
 	background: #fff;
 	z-index: -1;
 }
+
 /* Custom Dropdown */
 #navbarOffcanvasLg .dropdown-menu .dropdown-item {
 	color: var(--text-color-blue-black);
 	font-weight: 800;
 }
 
+/* Adjust Boostrap container-fluid */
 .container-fluid {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -171,7 +175,7 @@ body {
 	object-fit: cover;
 }
 
-/* Centering Mat Icon in div: */
+/* Centering Material Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
 .icon,
 .material-icons {
@@ -226,8 +230,12 @@ body {
 	color: #ffffff !important;
 }
 
-/* Footer links */
+/* Footer */
+#footer-container {
+	background-color: var(--color-blue-black);
+}
 
+/* Links */
 footer ul li .nav-link:hover,
 footer ul li .nav-link:focus,
 footer ul li .nav-link:active {
@@ -284,11 +292,11 @@ footer .socials ul li a:active {
 }
 /*  ---------------------------- TOASTS END */
 
-/* ------------------- ALLAUTH FORM FORMATTING */
+/* ALLAUTH FORM FORMATTING ------------------- */
 
 .allauth-form-inner-content p {
 	margin-top: 1.5rem; /* mt-4 */
-	color: #6c757d; /* text-muted */
+	color: var(--text-color-muted); /* text-muted */
 	text-transform: uppercase;
 }
 
@@ -326,6 +334,36 @@ footer .socials ul li a:active {
 .allauth-form-inner-content a:hover {
 	color: var(--text-color-rosso); /* text-info */
 }
+
+/* ------------------- ALLAUTH FORM FORMATTING */
+
+/* ------------------- PRODUCT FORM FORMATTING */
+/* Code Institute - Boutique Ado */
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+	border-color: var(--color-coral);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+	background-color: var(--color-coral);
+	border-color: var(--color-coral);
+}
+
+/* PRODUCT FORM FORMATTING ------------------- */
 
 /* MEDIA QUERIES -------------------------------  */
 /* Code Snippet - CI Boutique Ado Course Material */
