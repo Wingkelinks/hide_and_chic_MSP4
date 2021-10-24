@@ -110,6 +110,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'hideandchic@example.com'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -208,10 +209,12 @@ if 'USE_AWS' in os.environ:
 # Variables for calculating delivery costs
 FREE_DELIVERY_THRESHOLD = 150
 STANDARD_DELIVERY_PERCENTAGE = 10
+
 STRIPE_CURRENCY = 'aud'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
 
 
 

@@ -1,0 +1,27 @@
+Hello {{ order.full_name }}!
+
+Thank you for your order! 
+
+Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+We are sending your order to:
+{{ order.street_address1 }}
+{{ order.town_or_city }}
+{{ order.state_or_country }}
+
+Your contact number is saved as: {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+We can't wait for you to love your new leather as much as we do! 
+
+Sincerely,
+
+Hide & Chic
