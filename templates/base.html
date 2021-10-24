@@ -142,11 +142,13 @@
 		
 						<!-- Shop All Menu -->
 						<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets">Jackets</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=bags">Bags</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories">Accessories</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=sale">Sale</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,footwear.on_sale">Footwear</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets, jackets.on_sale">Jackets</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=bags,bags.on_sale">Bags</a></li>
+							<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories,accessories.on_sale">Accessories</a></li>
+							
+							<li><a class="dropdown-item" href="{% url 'products' %}?sale">Sale</a></li>
+							
 							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
 						</ul>
 					</li>

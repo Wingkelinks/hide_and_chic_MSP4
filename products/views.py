@@ -13,6 +13,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    sale = False
     
     if request.GET:
         if 'sort' in request.GET:
@@ -43,6 +44,10 @@ def all_products(request):
                 
                 queries = Q(name__icontains=query) | Q(description__icontains=query)
                 products = products.filter(queries)
+                
+            if 'sale' in request.GET:
+                sale = True
+                products = products.filter(on_sale=True)
     
     current_sorting = f'{sort}_{direction}'
 
@@ -50,6 +55,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'sale': sale,
     }
     
     return render(request, 'products/products.html', context)
