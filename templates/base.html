@@ -183,8 +183,7 @@
 							</a>
 							<!-- Product Management Menu -->
 							<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
-								<li><a class="dropdown-item" href="{% url 'add_product' %}">Add New</a></li>
-								<li><a class="dropdown-item" href="#">Edit or Delete</a></li>
+								<li><a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a></li>
 							</ul>
 						</li>
 					{% endif %}
@@ -200,7 +199,7 @@
 							href="#">
 							<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
 						</a>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu text-uppercase">
 							{% if request.user.is_authenticated %}
 								<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
 								<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
@@ -275,65 +274,6 @@
 {% block content %}
 {% endblock %}
 
-<!-- Footer -->
-<div id="footer-container" class="container-fluid">
-	<footer class="py-5 mx-5 platinum-text">
-		<div class="row">
-			<h4 class="logo-font mb-3">Hide & Chic</h4>
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Shop All</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Featured Collections</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0"></a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Leather Care</a></li>
-				</ul>
-			</div>
-		
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="mb-2"><a href="#" class="nav-link p-0">My Profile</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log In</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log Out</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Register</a></li>
-				</ul>
-			</div>
-		
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Cart</a></li>		
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
-				</ul>
-			</div>
-	
-			<div class="col-4 offset-1">
-				<form method="GET" action="{% url 'products' %}">
-				<h5>Search for a product</h5>
-				<div class="input-group w-100">
-					<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
-					<div class="input-group-append">
-						<button class="form-control btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
-							<span class="icon">
-								<i class="fas fa-search"></i>
-							</span>
-						</button>
-					</div>
-				</div>
-				</form>
-			</div>
-		</div>
-	
-		<div class="d-flex justify-content-between border-top border-secondary border-3 py-3 my-3 socials">
-			<p>&copy; <span class="copyright"></span> Hide & Chic, Inc. All rights reserved.</p>
-			<ul class="list-unstyled d-flex">
-				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
-				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
-				<li class="ms-3"><a class="link-light" href="#"><i class="fab fa-youtube-square fa-lg"></i></a></li>
-			</ul>
-		</div>
-	</footer>
-</div>
 
 {% block postloadjs %}
 {{ block.super }}
