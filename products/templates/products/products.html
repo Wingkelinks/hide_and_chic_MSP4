@@ -126,8 +126,8 @@
                                 </small>
                                 {% if request.user.is_superuser %}
                                     <p class="mt-2 mb-0">
-                                    <a class="cyan-text text-decoration-none" href="#">Edit</a> |
-                                    <a class="orange-soda-text text-decoration-none" href="#">Delete</a>
+                                    <a class="cyan-text text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a> |
+                                    <a class="orange-soda-text text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
                                     </p>
                                 {% endif %}
                             </div>
