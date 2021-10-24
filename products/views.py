@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib import messages
-from django.db.models import Q, query_utils
-from .models import Category, Product
+from django.db.models import Q
 from django.db.models.functions import Lower
-# Use object Q from Django to handle filtering search by name and or description
+# Q from Django to handle filtering search by name and or description
+from .models import Category, Product
+from .forms import ProductForm
+
 
 def all_products(request):
     """ 
@@ -73,3 +75,13 @@ def product_detail(request, product_id):
     }
     
     return render(request, 'products/product_detail.html', context)
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
