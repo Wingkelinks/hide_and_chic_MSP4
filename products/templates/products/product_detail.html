@@ -40,6 +40,13 @@
                         <p class="lead mb-0 fw-bold">${{ product.price }}</p>
                     {% endif %}
 
+                    {% if request.user.is_superuser %}
+                        <p class="mt-2 mb-0">
+                        <a class="cyan-text text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a class="orange-soda-text text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </p>
+                    {% endif %}
+
                     {% if product.category %}
                     <a 
                         class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
