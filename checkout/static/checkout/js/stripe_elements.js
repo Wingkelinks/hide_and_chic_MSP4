@@ -28,8 +28,8 @@ var style = {
 	},
 };
 // Stripe injects an iframe into the DOM
-var cardElement = elements.create("card", { style: style });
-cardElement.mount("#card-element");
+var card = elements.create("card", { style: style });
+card.mount("#card-element");
 
 // Handle realtime validation errors on the card element
 card.addEventListener("change", function (event) {
@@ -121,7 +121,6 @@ form.addEventListener("submit", function (ev) {
 						// Overlay hidden and card element re-enabled
 						card.update({ disabled: false });
 						$("#submit-button").attr("disabled", false);
-
 						// Submit form
 					} else {
 						if (result.paymentIntent.status === "succeeded") {
@@ -129,10 +128,10 @@ form.addEventListener("submit", function (ev) {
 						}
 					}
 				});
-			// If data not posted to view, reload the page
-			// & display error message
 		})
 		.fail(function () {
+			// If data not posted to view, reload the page
+			// & display error message
 			location.reload();
 		});
 });
