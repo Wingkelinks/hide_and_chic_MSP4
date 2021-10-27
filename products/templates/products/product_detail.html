@@ -141,7 +141,7 @@
             </div>
         </div>
         <div class="col-sm-2 align-self-center d-grid gap-5">
-        <!-- Review Modal -->
+        <!-- Review Modal Trigger -->
         {% if request.user.is_authenticated %}
             <button class="btn btn-sml rounded-pill blue-black">
                 <p class="platinum-text my-auto">Submit a review?<br>
@@ -169,6 +169,7 @@
         </div>
         
         <div class="col-sm-6 offset-3">
+            <!-- Review card -->
             <div class="card border-0 shadow rounded">
                 <div class="card-header blue-black platinum-text d-flex flex-row">
                     <div class="me-auto">
@@ -183,18 +184,26 @@
                     {% endif %}
                     </div>
 
-                    <!-- Edit button -->
+                    <!-- Edit Review Action -->
                     <div>
                     {% if review.user == request.user or request.user.is_superuser %}
-                        <a href="{% url 'edit_review' review.id %}#reviews-container"
+                    <a 
+                        href="{% url 'edit_review' review.id %}#reviews-container"
                         data-bs-toggle="modal" 
                         data-bs-target="#reviewModal"
-                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-light">Edit</a>
+                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-light">Edit
+                    </a>
                     {% endif %}
-                    <!-- Delete button - admin restricted -->
+
+                    <!-- Delete Review Modal Trigger --> 
+                    <!-- Visible only admin -->
                     {% if request.user.is_superuser %}
-                        <a href="{% url 'edit_review' review.id %}#reviews-container"
-                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-danger">Delete</a>
+                    <a  
+                        data-bs-toggle="modal"
+                        data-bs-target="#reviewDeleteModal"
+                        aria-label="Delete review for {{ review.user }}"
+                        class="btn btn-sm btn-danger">Delete
+                    </a>
                     {% endif %}
                     </div>
                 </div>
@@ -208,6 +217,45 @@
                    <p>{{ review.created|date:"SHORT_DATE_FORMAT"}}</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Delete Review Modal -->
+        <div 
+        class="modal fade" 
+        id="reviewDeleteModal"
+        tabindex="-1"
+        aria-labelledby="reviewDeleteModal" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border border-danger">
+                <div class="modal-header blue-black platinum-text text-uppercase">
+                    <h5 
+                        class="modal-title">Just to clarify...
+                    </h5>
+                    <button 
+                        type="button" 
+                        class="btn-close btn-close-white"
+                        data-bs-target="#reviewDeleteModal"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete {{ review.user }}'s review on {{ product.name }}?
+                </div>
+                <div class="modal-footer blue-black">
+                    <button 
+                        type="button" 
+                        class="btn btn-light text-decoration-none"
+                        data-bs-dismiss="modal">Cancel
+                    </button>
+                    <a 
+                        class="btn btn-danger text-decoration-none" 
+                        href="{% url 'delete_review' review.id %}">Delete
+                    </a>
+                </div>
+            </div>
+        </div>
         </div>
         {% endfor %}
     </div>

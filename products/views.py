@@ -152,7 +152,7 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the database """
+    """ Allow admin users to delete a product from the database """
     
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that is a job for Admin!')
@@ -161,12 +161,13 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
+    
     return redirect(reverse('products'))
 
 
 @login_required
 def add_review(request, product_id):
-    """ A view to allow logged in users to submit a product review """
+    """ Allow logged in users to submit a product review """
     
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
@@ -217,7 +218,7 @@ def add_review(request, product_id):
 @login_required
 def edit_review(request, review_id):
     """
-    A view for users to edit their product reviews.
+    Allow registered users to edit their product reviews
     """
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
@@ -246,3 +247,24 @@ def edit_review(request, review_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """
+    Allow admin users to delete product reviews
+    """
+
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            "Sorry, that is a job for Admin!")
+        return redirect(reverse('home'))
+
+    review = get_object_or_404(ProductReview, pk=review_id)
+    product = review.product
+    review_owner = review.user
+    review.delete()
+    messages.info(request, f"Deleted {review_owner}'s review of {product}.")
+
+    return redirect(reverse('product_detail', args=[product.id]))

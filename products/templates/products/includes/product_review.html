@@ -1,18 +1,20 @@
+<!-- Edit Review Modal -->
 <div 
 	class="modal fade" 
 	id="reviewModal"
 	tabindex="-1" 	
-	aria-labelledby="reviewModalLabel" aria-hidden="true">
+	aria-labelledby="reviewModalLabel" 
+    aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
         {% if edit %}
-        <div class="modal-content">
-			<div class="modal-header">
+        <div class="modal-content border border-danger">
+			<div class="modal-header blue-black">
 				<h5 
-					class="modal-title">Please fill in the form to edit your review
+					class="modal-title platinum-text">Please fill in the form to edit your review
 				</h5>
 				<button 
 					type="button" 
-					class="btn-close" 
+					class="btn-close btn-close-white"
 					data-bs-dismiss="modal"
 					data-bs-target="#reviewModal"
 					aria-label="Close">
@@ -29,14 +31,15 @@
 			</div>
 		</div>
         {% else %}
-		<div class="modal-content">
-			<div class="modal-header">
+        <!-- Add Review Modal -->
+		<div class="modal-content border border-danger">
+			<div class="modal-header blue-black">
 				<h5 
-					class="modal-title">Please fill in the form to submit your review
+					class="modal-title platinum-text">Please fill in the form to submit your review
 				</h5>
 				<button 
 					type="button" 
-					class="btn-close" 
+					class="btn-close btn-close-white" 
 					data-bs-dismiss="modal"
 					data-bs-target="#reviewModal"
 					aria-label="Close">
@@ -55,4 +58,5 @@
         {% endif %}
 	</div>
 </div>
+
 
