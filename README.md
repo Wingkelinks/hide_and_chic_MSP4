@@ -40,11 +40,18 @@ An catchy introduction to the commerce project will go here...
 
 > # **PROJECT OVERVIEW/STRATEGY**
 
+Hide & Chic - Serving Your Leather Obsession
+
+Hide & Chic is an online store solely dedicated to fine leather products. Not only does it focus on a niche market, it is also dedicated to providing customers with unique and hard-to-find, quality leather treasures. It offers a carefully curated selection of the finest leather goods - all in one place.
+
 ## USER EXPERIENCE (UX)
 
-MySwim is my fourth milestone project as a Code Institute student working towards a Diploma in Full Stack Software Development. It forms part of the Full Stack Frameworks module where the main aim is to "build a full-stack site ....."
+Hide & Chic is my fourth milestone project as a Code Institute student working towards a Diploma in Full Stack Software Development. It forms part of the Full Stack Frameworks module.
 
-As a user/shopper this site will...
+The project purpose is outlined as follows:
+
+"... build a full-stack site based around business logic used to control a centrally-owned dataset."
+"... set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service."
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -54,28 +61,38 @@ As a user/shopper this site will...
 
 - ## USER STORIES
 
-  - #### As a first time visitor, I want...
-
-    1. To easily understand the main purpose of the site and learn more about what it offers.
-    2. Access to easy and clear navigation.
-    3. To experience a responsive site.
-    4. To experience appealing visuals and design.
-    5. To experience intuitive UX Design.
-    6. A convenient and secure registration process.
-
-  - #### As a returning visitor, I want...
-
-    <!-- 1. A convenient login and logout process.
-    2. To be able to search for swimming sets using appropriate keywords.
-    3. To have access to a personal profile.
-    4. To be able to save 'favourite' swimming sets created by other users under my profile.
-    5. To be able to add new swimming sets.
-    6. To be able to edit or delete swimming sets from my profile.
-    7. To be able to print out a selected set. -->
-
-  - #### As the site owner/admin, I want...
-    1. To manage categories (add, edit or delete).
-    2. To be able to edit or remove content submitted by users.
+| **As a...**                          | **I want to...**                                                 | **So I can...**                                                                                          |
+| :----------------------------------- | :--------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| **_ VIEWING AND NAVIAGTION _**       |
+| Shopper                              | Immediately understand the purpose of the site                   | Decide whether to stay                                                                                   |
+|                                      | View a list of products                                          | Select some to purchase                                                                                  |
+|                                      | View individual product details                                  | Identify the price, description, product rating, product image, available sizes and read product reviews |
+|                                      | Easily identify deals and sale items                             | Take advantage of special savings on products I'd like to purchase                                       |
+|                                      | Easily view the total of my cart contents/purchases              | Avoid spending too much                                                                                  |
+| **_ REGISTRATION & USER ACCOUNTS _** |
+|                                      | Easily register for an account                                   | Access a personal account and view my profile                                                            |
+|                                      | Easily log in and out                                            | Access my personal account info                                                                          |
+|                                      | Easily recover password if forgotten                             | Regain access to my account                                                                              |
+|                                      | Receive email confirmation upon registering                      | Verify account successful registration                                                                   |
+|                                      | Have a personalized user profile                                 | View my order confirmation, history, wishlist and view/update personal delivery details                  |
+| **_ SORTING & SEARCHING _**          |
+|                                      | Sort the list of available products                              | Easily identify products by rating, price and category                                                   |
+| Sort a specific cateogry             | Identify products by rating, price within a category             |
+|                                      | Add a juice to my favourites list                                | Quickly find a product I'd like to purchase again                                                        |
+|                                      | Search for a product by name/keyword                             | Find a specific product to purchase                                                                      |
+|                                      | View what I've searched for plus the results                     | See if the product is available                                                                          |
+| **_ PURCHASING & CHECKOUT _**        |
+|                                      | Easily select the size and quantity of a product when purchasing | Can be assured I'm selecting size and quantity I want                                                    |
+|                                      | View items in my cart to be purchased                            | Identify the total cost of my purchase and items to be received                                          |
+|                                      | Adjust the quantity of items in my cart                          | Easily make changes before checking out                                                                  |
+|                                      | Feel my personal and payment info is processed securely          | Make purchases confidently                                                                               |
+|                                      | View order confirmation upon checkout                            | Verify my order                                                                                          |
+|                                      | Receive an email confirmation upon checkout                      | I have a personal record of my order                                                                     |
+| **_ PURCHASING & CHECKOUT _**        |
+|                                      | Add a product                                                    | Add new items to my store                                                                                |
+|                                      | Edit/update a product                                            | Change product prices, descriptions, images and other related fields                                     |
+|                                      | Delete a product                                                 | Remove items no longer on sale or out of stock                                                           |
+|                                      | Delete customer product reviews                                  | In the instance of offensive commentary                                                                  |
 
 > # **SCOPE**
 
@@ -145,7 +162,7 @@ Take a closer look at the colour schemes:
 
 ## DATABASE MODEL
 
-<!-- #### Sets Collection
+#### Sets Collection
 
 | **Key**       | **Type** | **Notes**                                                     |
 | :------------ | :------- | :------------------------------------------------------------ |
@@ -206,7 +223,7 @@ In addition to the above, the _admin_ user has the following features available:
 - **Edit any Set**
 - **Delete any Set**
 
-_Defensive Programming_ Features include **Deletion Confirmation** alerts that appear as a modal, when a user clicks on any 'delete' related button. -->
+_Defensive Programming_ Features include **Deletion Confirmation** alerts that appear as a modal, when a user clicks on any 'delete' related button.
 
 ## DESIRABLE
 
