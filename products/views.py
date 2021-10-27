@@ -2,10 +2,15 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models.functions import Lower
 # Q from Django to handle filtering search by name and or description
-from .models import Category, Product
-from .forms import ProductForm
+from django.db.models.functions import Lower
+
+from .models import Category, Product, ProductReview
+from profiles.models import UserProfile
+
+from .forms import ProductForm, ReviewForm
+
+from checkout.models import OrderLineItem
 
 
 def all_products(request):
@@ -28,38 +33,38 @@ def all_products(request):
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
-                sortkey = 'category__name'
+                sortkey = 'category__name'                
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-    
-        if request.GET:
-            if 'category' in request.GET:
-                categories = request.GET['category'].split(',')
-                products = products.filter(category__name__in=categories)
-                categories = Category.objects.filter(name__in=categories)
 
-            if 'q' in request.GET:
-                query = request.GET['q']
-                if not query:
-                    messages.error(request, "You didn't enter any search criteria!")
-                    return redirect(reverse('products'))
-                
-                queries = Q(name__icontains=query) | Q(description__icontains=query)
-                products = products.filter(queries)
-                
-            if 'sale' in request.GET:
-                sale = True
-                products = products.filter(on_sale=True)
-    
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+            
+        if 'sale' in request.GET:
+            sale = True
+            products = products.filter(on_sale=True)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)                           
+            products = products.filter(queries)
+                  
     current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'current_sorting': current_sorting,
         'sale': sale,
     }
     
@@ -67,13 +72,21 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ A view to show individual product details including a reviews and ratings form. """
+    
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user_id=request.user)
+    else:
+        profile = None
     
     # To only return one product
     product = get_object_or_404(Product, pk=product_id)
+    form = ReviewForm()
     
     context = {
         'product': product,
+        'form': form,
+        'profile': profile,
     }
     
     return render(request, 'products/product_detail.html', context)
@@ -149,3 +162,53 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_review(request, product_id):
+    """ A view to allow logged in users to submit a product review """
+    
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user_id=request.user)
+    else:
+        profile = None
+
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST)
+            reviews = product.reviews.all()
+
+            if reviews.filter(user=request.user).exists():
+                messages.info(
+                    request, f"You've already reviewed {product.name}")
+                return redirect(reverse('product_detail', args=[product.id]))
+
+            if form.is_valid():
+                review = form.save(commit=False)
+                review.product = product
+                review.user = request.user
+                # Check if the user's line items include the product
+                if OrderLineItem.objects.filter(
+                    order__user_profile=profile).filter(
+                        product=product).exists():
+                    review.verified_purchase = True
+
+                review.save()
+                messages.info(
+                    request,
+                    'Thanks for the review!')
+
+                return redirect(reverse('product_detail', args=[product.id]))
+            
+            else:
+                messages.error(
+                    request,
+                    "Sorry - that didn't work. Please check your form and try again!")
+
+    context = {
+        'form': form,
+        'profile': profile,
+    }
+
+    return render(request, context)
