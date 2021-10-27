@@ -197,7 +197,7 @@ def add_review(request, product_id):
                 review.save()
                 messages.info(
                     request,
-                    'Thanks for the review!')
+                    f"Thank you for reviewing {product.name}!")
 
                 return redirect(reverse('product_detail', args=[product.id]))
             

@@ -17,9 +17,9 @@
             <h1 class="logo-font p-1">Products</h1>
             <hr class="w-25 mx-auto mb-4">
             {% for c in current_categories %}
-            <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                <span class="p-2 mb-4 badge rounded bg-info bg-gradient bg-opacity-50 border border-light fw-bold text-dark text-uppercase">{{ c.friendly_name }}</span>
-            </a>
+                <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                    <span class="p-2 mb-4 badge rounded bg-info bg-gradient bg-opacity-50 border border-light fw-bold text-dark text-uppercase">{{ c.friendly_name }}</span>
+                </a>
             {% endfor %}
         </div>
     </div>
@@ -27,7 +27,8 @@
         <div class="col-6 col-md-4 col-lg-4 col-xl-2 sort-select-wrapper mx-auto mb-4">
             <select 
                 id="sort-selector"
-                class="form-select form-select-sm border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}" aria-label="Sort Selector">
+                class="form-select form-select-sm border-
+                {% if current_sorting != 'None_None' %}info{% else %}black{% endif %}" aria-label="Sort Selector">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -36,7 +37,7 @@
                 <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                 <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                 <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>  
             </select>
         </div>
     </div>
