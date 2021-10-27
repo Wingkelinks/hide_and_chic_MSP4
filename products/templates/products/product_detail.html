@@ -31,8 +31,8 @@
                 <!-- Admin edit/delete actions -->
                 {% if request.user.is_superuser %}
                 <div class="position-absolute top-0 start-0 p-5">
-                    <a class="btn btn-sm btn-light text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a>
-                    <a class="btn btn-sm btn-danger text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
+                    <a class="btn btn-sm cyan blue-black-text link-light" href="{% url 'edit_product' product.id %}">Edit</a>
+                    <a class="btn btn-sm orange-soda platinum-text link-dark text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
                 </div>
                 {% endif %}
             </div>

@@ -65,7 +65,7 @@
             {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 g-4">
                     <!-- Card Top - product image -->
-                    <div class="card h-100 border-light position-relative">
+                    <div class="card h-100 border-light position-relative shadow-sm">
                     <!-- If product on sale render badge -->
                     {% if product.on_sale %}
                         <span id="sale-badge"
@@ -87,7 +87,7 @@
                         <!-- Add to wishlist -->
                         <div class="position-relative">
                             <small class="position-absolute top-0 end-0">
-                                <a id="wishlist" class="cyan-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                <a id="wishlist" class="rosso-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
                                     <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
                                 </a>
                             </small>
@@ -97,7 +97,7 @@
                                 <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>
                                 <!-- Rating -->
                                 {% if product.rating %}
-                                    <small class="blue-black-text"><i class="far fa-star fa-sm"></i>{{ product.rating }} / 5</small>
+                                    <small class="blue-black-text"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
                                 {% else %}
                                     <small class="blue-black-text">No Rating</small>
                                 {% endif %}                          
@@ -105,13 +105,13 @@
                         </div>
                         <div class="row justify-content-center">
                             {% if product.on_sale %}
-                                <div class="col-6 text-center">
-                                    <p class="fw-bold fs-5 text-decoration-line-through mb-0">
+                                <div class="col-6 text-center mt-2">
+                                    <p class="fw-bold fs-6 text-decoration-line-through mb-0">
                                     ${{ product.price }}</p>
                                     <p class="rosso-text fw-bold fs-5">${{ product.sale_price }}</p>  
                                 </div>
                             {% else %}
-                                <div class="col-6 text-center">
+                                <div class="col-6 text-center mt-2 mb-0">
                                     <p class="fw-bold fs-5">
                                         ${{ product.price }}</p>
                                 </div>
@@ -122,13 +122,10 @@
                     <div class="card-footer border-0 bg-transparent mt-0">
                         <div class="row"> 
                             <div class="col text-center">
-                                <small class="product-action">
-                                    <a class="blue-black-text text-decoration-none link-secondary text-uppercase" href="#!"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                                </small>
                                 {% if request.user.is_superuser %}
                                     <p class="mt-2 mb-0">
-                                    <a class="cyan-text text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a> |
-                                    <a class="orange-soda-text text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <a class="btn btn-sm cyan text-decoration-none blue-black-text link-light" href="{% url 'edit_product' product.id %}">Edit</a>
+                                    <a class="btn btn-sm orange-soda text-decoration-none platinum-text link-dark" href="{% url 'delete_product' product.id %}">Delete</a>
                                     </p>
                                 {% endif %}
                             </div>

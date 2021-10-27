@@ -10,10 +10,10 @@
 	tabindex="-1" 	
 	aria-labelledby="searchModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
+		<div class="modal-content border border-warning">
+			<div class="modal-header blue-black">
 				<h5 
-					class="modal-title">Search
+					class="modal-title platinum-text text-uppercase">Search
 				</h5>
 				<button 
 					type="button" 
@@ -49,10 +49,10 @@
 	tabindex="-1" 
 	aria-labelledby="cartModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
+		<div class="modal-content border border-warning">
+			<div class="modal-header blue-black">
 				<h5 
-					class="modal-title logo-font">Your Cart
+					class="modal-title logo-font platinum-text text-uppercase">Your Cart
 				</h5>
 				<button 
 					type="button" 
@@ -64,9 +64,9 @@
 			</div>
 			<div class="modal-body">
 				{% if cart_items %}
-					<p class="text-center pt-2 fw-bold">You have <strong class="orange-soda-text">{{ product_count }}</strong> items in your cart</p>
+					<p class="pt-2 fw-bold">You have <strong class="orange-soda-text">{{ product_count }}</strong> items in your cart</p>
 				{% else %}
-					<p class="text-center pt-2">Your cart is empty!</p>
+					<p class="pt-2">Your cart is empty!</p>
 				{% endif %}
 
 					<div class="table-responsive rounded">
