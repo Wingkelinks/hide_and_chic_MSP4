@@ -4,6 +4,31 @@
 	tabindex="-1" 	
 	aria-labelledby="reviewModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
+        {% if edit %}
+        <div class="modal-content">
+			<div class="modal-header">
+				<h5 
+					class="modal-title">Please fill in the form to edit your review
+				</h5>
+				<button 
+					type="button" 
+					class="btn-close" 
+					data-bs-dismiss="modal"
+					data-bs-target="#reviewModal"
+					aria-label="Close">
+				</button>
+			</div>
+			<div class="modal-body">
+				<form method="POST" action="{% url 'edit_review' review.id %}#reviews-container" class="form">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right mt-3">
+                        <button class="btn btn-lg text-uppercase cyan" type="submit">Update Review</button>
+                    </div>
+                </form>
+			</div>
+		</div>
+        {% else %}
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 
@@ -18,7 +43,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="{% url 'add_review' product.id %}#reviews-section" class="form mb-2">
+				<form method="POST" action="{% url 'add_review' product.id %}#reviews-container" class="form">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right mt-3">
@@ -27,6 +52,7 @@
                 </form>
 			</div>
 		</div>
+        {% endif %}
 	</div>
 </div>
 

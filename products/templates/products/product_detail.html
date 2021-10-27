@@ -18,7 +18,7 @@
     <div class="row d-flex justify-content-center">
         <!-- Product Image -->
         <div class="col-sm-4 align-self-center">
-            <div class="image-container p-4">
+            <div class="image-container p-4 position-relative">
                 {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
                         <img class="img-fluid h-25 rounded-3" src="{{ product.image.url }}" alt="{{ item.product.name }}">
@@ -28,13 +28,19 @@
                         <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                     </a>
                 {% endif %}
+                <!-- Admin edit/delete actions -->
+                {% if request.user.is_superuser %}
+                <div class="position-absolute top-0 start-0 p-5">
+                    <a class="btn btn-sm btn-light text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a>
+                    <a class="btn btn-sm btn-danger text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- Product Details -->
         <div class="col-sm-6 align-self-center">
             <div>
                 <div>
-
                     <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
 
                     {% if product.on_sale %}
@@ -67,14 +73,6 @@
                         </p>
                     {% else %}
                         <p class="blue-black-text fw-bold ms-1 my-1">No reviews at this stage</p>
-                        <p class="fw-bold">
-                            <a 
-                                class="coral-text text-decoration-none ms-1" 
-                                href="#"
-                                data-bs-toggle="modal" 
-                                data-bs-target="#reviewModal">Submit a review?
-                            </a>
-                        </p>
                     {% endif %}
 
                     <hr class="w-25">
@@ -145,23 +143,18 @@
         <div class="col-sm-2 align-self-center d-grid gap-5">
         <!-- Review Modal -->
         {% if request.user.is_authenticated %}
-            <button class="btn btn-sml border-2 border-dark rounded-pill blue-black">
+            <button class="btn btn-sml rounded-pill blue-black">
                 <p class="platinum-text my-auto">Submit a review?<br>
                     <a class="platinum-text text-uppercase text-decoration-none fw-bold"
                     href="#"
                     data-bs-toggle="modal" 
                     data-bs-target="#reviewModal">      
                     Click here!</a>
-                </p>           
-            {% else %}
-                <p class="text-center">Please <a class="link-normal" href="{% url 'account_signup' %}">Register</a> or <a class="link-normal" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
+                </p>
             </button>
-        {% endif %}
-        <!-- Admin edit/delete actions -->
-        {% if request.user.is_superuser %}
-            <button class="btn btn-sml border border-3 border-dark rounded-pill mx-auto">
-                <a class="cyan-text text-decoration-none" href="{% url 'edit_product' product.id %}">Edit</a> |
-                <a class="coral-text text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a> 
+            {% else %}
+            <button class="btn btn-sml rounded-pill blue-black">
+                <p class="platinum-text my-auto">To leave a review please <a class="text-decoration-none salmon-text text-uppercase" href="{% url 'account_signup' %}">Register</a> or <a class="text-decoration-none cyan-text text-uppercase" href="{% url 'account_login' %}">Login</a></p>
             </button>
         {% endif %}
         </div>
@@ -175,20 +168,35 @@
             <hr class="w-25 mx-auto mb-lg-5">
         </div>
         
-        <div class="col-sm-8 offset-2">
-            <div class="card text-center">
-                <div class="card-header blue-black platinum-text">
-                    <small class="h5">
+        <div class="col-sm-6 offset-3">
+            <div class="card border-0 shadow rounded">
+                <div class="card-header blue-black platinum-text d-flex flex-row">
+                    <div class="me-auto">
+                    <small class="h5 align-middle">
                         {{ product.name }} |
                     </small>
                     {% if product.rating %}
-                    <small class="platinum-text">
-                        <i class="material-icons m-0 cyan-text">star_rate</i>
-                        {{ product.rating }} / 5
-                    </small>
-                    {% else %}
-                        <small class="platinum-text">No Rating</small>
+                        <small class="platinum-text">
+                            <i class="material-icons m-0 cyan-text">star_rate</i>
+                            {{ product.rating }} / 5
+                        </small>
                     {% endif %}
+                    </div>
+
+                    <!-- Edit button -->
+                    <div>
+                    {% if review.user == request.user or request.user.is_superuser %}
+                        <a href="{% url 'edit_review' review.id %}#reviews-container"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#reviewModal"
+                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-light">Edit</a>
+                    {% endif %}
+                    <!-- Delete button - admin restricted -->
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'edit_review' review.id %}#reviews-container"
+                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-danger">Delete</a>
+                    {% endif %}
+                    </div>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Review Title</h5>
