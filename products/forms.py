@@ -32,4 +32,4 @@ class ReviewForm(forms.ModelForm):
     
     class Meta:
         model = ProductReview
-        exclude = ('product', 'user', 'created')
+        fields = ('review_title', 'rating', 'review')

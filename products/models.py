@@ -56,6 +56,8 @@ class ProductReview(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='reviews')
     sku = models.CharField(max_length=254, null=True, blank=True)
+    review_title = models.CharField(max_length=254, 
+                                    null=True, blank=False)
     review = models.TextField(max_length=500, blank=False)
     rating = models.IntegerField(null=True, blank=True, default=0)
     created = models.DateTimeField(auto_now_add=True)
