@@ -1,6 +1,7 @@
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/organization/repository)
 
 <h1 align="center">Hide & Chic</h1>
+<h2 align="center">Serving Your Leather Obsession</h2>
 
 ###### Code Institute MS4 / Full Stack Frameworks With Django
 
@@ -33,29 +34,27 @@
 
 <span id="context"></span>
 
-An catchy introduction to the commerce project will go here...
-
-<span id="ux-overview"></span>
-<span id="ux"></span>
-
-> # **PROJECT OVERVIEW/STRATEGY**
-
-Hide & Chic - Serving Your Leather Obsession
-
-Hide & Chic is an online store solely dedicated to fine leather products. Not only does it focus on a niche market, it is also dedicated to providing customers with unique and hard-to-find, quality leather treasures. It offers a carefully curated selection of the finest leather goods - all in one place.
-
-## USER EXPERIENCE (UX)
-
-Hide & Chic is my fourth milestone project as a Code Institute student working towards a Diploma in Full Stack Software Development. It forms part of the Full Stack Frameworks module.
+Hide & Chic is my fourth and final milestone project as a Code Institute student working towards a Diploma in Full Stack Software Development. It forms part of the Full Stack Frameworks module. The final project is not intended for commercial use - education pursposes only.
 
 The project purpose is outlined as follows:
 
 "... build a full-stack site based around business logic used to control a centrally-owned dataset."
 "... set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service."
 
-<div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
+<span id="ux-overview"></span>
+<span id="ux"></span>
 
-> # **STRUCTURE**
+> # **PROJECT OVERVIEW**
+
+Hide & Chic is an Australian based business that focusses on a niche retail market, as well as a commitment to being accessible to a broad audience within its unique industry.
+
+## USER EXPERIENCE (UX)
+
+Hide & Chic is an online retail store solely dedicated to the sale of fine leather products. Dedicated to providing customers with unique and hard-to-find, quality leather treasures, it offers a carefully curated selection of the finest leather goods - all in one place.
+
+It offers shoppers a gender-inclusive retail experience - product categories are not gender-specific and include a range of both gender-fluid and gender-neutral collections. Products are simply categorised according to function. In the case where size may be applicable to a product - a universal, standard sizing range is available for selection.
+
+<div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
 <span id="ux"></span>
 
@@ -98,22 +97,11 @@ The project purpose is outlined as follows:
 
 **Minimum Viable Product** for the website will include:
 
-- responsive navigation on all pages
-- home page - featuring a hero image and call to action
-- about section - offering information about the site's purpose
-- error pages - in the event of 404 or 500 errors occuring
-<!-- - print page - gives users access to print friendly version of a set -->
-
-<!-- **C.R.U.D Principle** to be met by incorporating the following functionality within respective pages:
-
-- Register (CREATE user instance in database)
-- Log In/Log Out
-- Search Sets (READ and RETRIEVE records in database)
-- Profile Page (READ records in database)
-- Add New Set & Add Favourite to Profile (UPDATE and add to data)
-- Manage Content for Admin: - Add Category/Set (UPDATE records) - Edit Category/Set (UPDATE records) - Delete Category/Set (DELETE records)
-- Edit a Set (UPDATE existing data)
-- Delete a Set (DELETE to remove records from database) -->
+- Mobile first design
+- Easy to navigate
+- Intuitive design
+- Visually appealing
+- Secure
 
 > # **SKELETON**
 
@@ -135,93 +123,42 @@ The project purpose is outlined as follows:
 
 - #### Theme and Colour Scheme
 
-<!-- The theme is inspired by swimming and is intended to appeal to all types of swimmers. A clean and modern colour scheme with contrasting and complementary colours was chosen to reflect a sense of simple energy. [Coolors](https://coolors.co/) was used to generate two colour palettes which were incorporated as utility classes in the CSS file, to be easily called upon directly from the HTML files. -->
+Naturally, the theme and colour palette is inspired by leather and an associated earthiness. In striving to maintain good contrast across the site, a bold orangey-red color was used as a starting point. From then on [Coolors](https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff-4dec38-000000) was used search for appealing tones and contrasting colours. The result was the two colour palettes as shown below, which were incorporated as utility classes in the CSS file, to be easily called upon directly from the HTML files.
 
 Take a closer look at the colour schemes:
 
-  <!-- <img src="static/images/test_images/color-scheme2.png" width="400">
-  <img src="static/images/test_images/color-scheme1.png" width="400">
-
-- [MySwim Color Scheme 1](https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff-4dec38-000000)
-- [MySwim Color Scheme 2](https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff-4c91ff-5c9bff-6ba4ff-78acff-84b4ff) -->
+  <img src="media/Hide&Chic_color1.png" width="400">
+  <img src="media/Hide&Chic_color2.png" width="400">
 
 - #### Typography
 
 ##### [Google Fonts](https://fonts.google.com/)
 
-<!-- - [Tourney Text](https://fonts.google.com/specimen/Tourney) was selected for the MySwim logo in the Navbar and makes an appearance in selected headings and messages throughout the site.
-  I chose it for it's 'sporty, techy' vibe (to quote Google Fonts).
-- [Roboto](https://fonts.google.com/specimen/Roboto) was chosen for the body of the site. It has a modern and open appeal and pairs nicely with Tourney Text. -->
+- [IM Fell Great Primer SC](https://fonts.google.com/specimen/IM+Fell+Great+Primer+SC?preview.text=Hide%20%26%20Chic&preview.text_type=custom&sort=alpha&query=im+fell+#standard-styles) was selected for the Hide & Chic logo in the Navbar and makes an appearance in selected headings and messages throughout the site. It has an old style printing appeal which I found appropriate.
+- [Roboto](https://fonts.google.com/specimen/Josefin+Sans?preview.text=Hide%20%26%20Chic&preview.text_type=custom&sort=alpha&query=josefin+sans) was chosen for the body of the site. It has a an elegant, vintage feeling and pairs nicely with IM Fell Great Primer SC.
 
 - #### Imagery
 
-  <!-- - Appropriate images related to swimming were selected for the site.
-  - Images are all obtained from [Unsplash](https://unsplash.com/) and are free to use. -->
+  - All images were individually sourced from [Unsplash](https://unsplash.com/) and are free to use.
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
 ## DATABASE MODEL
 
-#### Sets Collection
+A relational database is utilised for this project as there are a number of relationships between the tables. SQLite was used during development and then Heroku Postgres in production. The diagram below illustrates the database logic:
 
-| **Key**       | **Type** | **Notes**                                                     |
-| :------------ | :------- | :------------------------------------------------------------ |
-| \_id          | ObjectId |                                                               |
-| category_name | string   | Category Name                                                 |
-| set_name      | string   | Set Name                                                      |
-| warm_up       | string   | Warm up instructions                                          |
-| pre_set       | array    | Array allows for dynamically added fields using JQuery script |
-| main_set      | array    | Array allows for dynamically added fields using JQuery script |
-| cool_down     | string   | Cool down instructions                                        |
-| total_km      | string   | Set Distance                                                  |
-| created_by    | string   | Created when a session user submits a new set                 |
-
-#### Categories Collection
-
-| **Key**       | **Type** | **Description**                 |
-| :------------ | :------- | :------------------------------ |
-| \_id          | ObjectId |                                 |
-| category_name | string   | Category Name provided by Admin |
-
-#### Users Collection
-
-| **Key**  | **Type** | **Description**                                   |
-| :------- | :------- | :------------------------------------------------ |
-| \_id     | ObjectId |                                                   |
-| username | string   | User's username                                   |
-| password | string   | Password gets hashed when user creates an account |
-
-#### Favourites Collection
-
-| **Key**  | **Type** | **Description**                                |
-| :------- | :------- | :--------------------------------------------- |
-| \_id     | ObjectId | Created when a user saves a set as a favourite |
-| set_id   | string   | Associated set id                              |
-| set_name | string   | Associated set name                            |
-| user     | string   | User id                                        |
+\*\*\*\* INSERT DB DIAGRAM
 
 > # **FEATURES**
 
-## EXISTING
+## KEY MODELS AND APPS
 
-- **Register Account**
-- **Log In to Account**
-- **Log Out of Account**
-- **View Swim Sets**
-- **Search Sets**
-- **Add a Set**
-- **Edit a Set**
-- **Delete a Set**
-- **Add a Set to Favourites**
-- **Print a Set**
-
-In addition to the above, the _admin_ user has the following features available:
-
-- **Add a Category**
-- **Edit a Category**
-- **Delete a Category**
-- **Edit any Set**
-- **Delete any Set**
+- **Category**
+- **Product**
+- **Product Review**
+- **Order**
+- **Order Line Item**
+- **User Profile**
 
 _Defensive Programming_ Features include **Deletion Confirmation** alerts that appear as a modal, when a user clicks on any 'delete' related button.
 
