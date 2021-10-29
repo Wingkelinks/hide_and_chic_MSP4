@@ -7,6 +7,10 @@
 	--text-color-platinum: #e5e5e5;
 	--color-blue-black: #011014;
 	--text-color-blue-black: #011014;
+	--text-color-muted: #6c757d;
+	--color-cyan: #37ccf1;
+	--text-color-cyan: #37ccf1;
+	--color-granny-smith: #c8f6a7;
 	--color-orange-soda: #f15c37;
 	--text-color-orange-soda: #f15c37;
 	--color-coral: #f67b53;
@@ -15,10 +19,6 @@
 	--text-color-salmon: #fb996f;
 	--color-rosso: #d42912;
 	--text-color-rosso: #d42912;
-	--color-cyan: #37ccf1;
-	--text-color-cyan: #37ccf1;
-	--color-granny-smith: #c8f6a7;
-	--text-color-muted: #6c757d;
 }
 
 html {
@@ -250,7 +250,6 @@ footer .socials ul li a:active {
 /* -------------------------- HOME PAGE END */
 
 /* PRODUCTS PAGE -------------------------------- */
-
 .return-product-link:focus,
 .return-product-link:active,
 .return-product-link:hover {

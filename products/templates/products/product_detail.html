@@ -12,6 +12,7 @@
 {% block content %}
 
 {% include 'products/includes/product_review.html' %}
+{% include 'products/includes/confirm_product_delete.html' %}
 
 <div class="overlay"></div>
 <div class="container">
@@ -31,8 +32,12 @@
                 <!-- Admin edit/delete actions -->
                 {% if request.user.is_superuser %}
                 <div class="position-absolute top-0 start-0 p-5">
-                    <a class="btn btn-sm cyan blue-black-text link-light" href="{% url 'edit_product' product.id %}">Edit</a>
-                    <a class="btn btn-sm orange-soda platinum-text link-dark text-decoration-none" href="{% url 'delete_product' product.id %}">Delete</a>
+                    <a class="btn btn-sm cyan blue-black-text link-light shadow" href="{% url 'edit_product' product.id %}">Edit</a>
+                    <a 
+                        class="btn btn-sm orange-soda platinum-text link-dark text-decoration-none shadow" 
+                        data-bs-toggle="modal"
+                        data-bs-target="#productDeleteModal">Delete
+                    </a>
                 </div>
                 {% endif %}
             </div>
@@ -41,7 +46,16 @@
         <div class="col-sm-6 align-self-center">
             <div>
                 <div>
-                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
+                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}
+                    <!-- Add to wishlist -->
+                    {% if request.user.is_authenticated %}
+                        <small>
+                        <a id="wishlist" class="rosso-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                        </a>
+                        </small>
+                    {% endif %}
+                    </p>
 
                     {% if product.on_sale %}
                         <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
@@ -218,7 +232,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Delete Review Modal -->
         <div 
         class="modal fade" 

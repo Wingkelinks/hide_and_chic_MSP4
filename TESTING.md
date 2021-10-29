@@ -1,10 +1,8 @@
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/organization/repository)
-
 Back to [README.md](README.md)
 
 ## INDEX
 
-- <a href="#user-stories">Testing User Stories from User Experience Section</a>
+- <a href="#user-stories">User Storie - how are they met?</a>
 - <a href="#testing-manual">Manual</a>
 - <a href="#testing-auto">Automated</a>
 - <a href="#testing-responsive">Responsiveness</a>
@@ -15,91 +13,143 @@ Back to [README.md](README.md)
 
 > # **TESTING**
 
-<!-- > <span id="user-stories"></span>
+> <span id="user-stories"></span>
 
 ## USER STORY TESTING
 
-- #### First Time Visitor Goals
+### Broadscale User Expectations
 
-  - Understand the purpose of the site
+**Easy Navigation**
 
-    1.  A first time visitor will experience a simple, but striking home page that contains a hero-image, title and slogan that indicate that the site is about swimming.
-    2.  The user is prompted to click an animated 'down arrow', which directs them to the about section, where they can learn about the full intention of the site.
-    3.  From there, they are invited to register by clicking on a registration button.
+1.  The Navigation is highly contrasted, responsive and easy to understand.
+2.  The Navbar and Footer are present on all pages, including Error pages.
+3.  The Footer includes top-level navigation links, for when a user is near the bottom of the page.
+4.  The title of each page is visible to the user in the browser window, which further indicates which page the user is on.
 
-  - Easy Navigation
+**Responsiveness**
 
-    1.  The Navigation is clean, responsive and easy to understand.
-    2.  The Navbar and Footer are present on all pages, including Error pages.
-    3.  The Footer includes top-level navigation links, for when a user is near the bottom of the page.
-    4.  The title of each page is visible to the user in the browser window, which further indicates which page the user is on.
+5.  The site is fully responsive to different screen sizes. This is largely achieved by using Bootstraps grid system in conjunction with varied media queries.
 
-  - Responsiveness
+**Appealing Visual Design**
 
-    1.  The site is fully responsive to different screen sizes. This is largely achieved by using the Materialize Front-end framework in conjunction with small components from Tachyons - a CSS Toolkit.
+6. The site provides a good visual experience.
+7. This is achieved by using a striking, complementary color scheme that is consistent across all pages.
+8. The page structure is kept clean and easily readable, by maintaining clear spacing and a simple layout.
+9. Two complementing font styles are present across the site. They offer an elegant, vintage feel and provide further consistency to the site's overall appearance.
 
-  - Appealing Visual Design
+**Intuitive UX Design**
 
-    1. The site provides a good visual experience.
-    2. This is achieved by using a bright and bold color scheme that is consistent across all pages.
-    3. The page structure is kept clean and easily readable, by maintaining clear spacing and a simple layout.
-    4. Two clean and modern font styles are present across the site. They provide further consistency to the overall appearance.
+10. Good UX ensures the user is not left guessing as to what to do, or where to go next.
+11. This is assisted by including recognisable icons where user action is required.
+12. Alert messages are also present, to let the user know that an action has been performed.
+13. Confirmation modals are used to ensure that the user is aware they are about to make an important change to their stored data.
 
-  - Intuitive UX Design
+**Security**
 
-    1. Good UX ensures the user is not left guessing as to what to do, or where to go next.
-    2. This is assisted by including recognisable icons where user action is required.
-    3. Alert messages are also present, to let the user know that an action has been performed.
-    4. Confirmation modals are used to ensure that the user is aware they are about to make an important change to their stored data.
+14. Allauth provides a robust user account system while Stripe offers secure payments, furthered by use of webhooks to ensure transactions are recorded.
 
-  - A convenient and secure registration process.
+### As a potential customer I want to... 
 
-    1. The registration process for new users is straightforward as they are only required to enter a username and password.
-    2. Security is ensured by Werkzeug Security for password hashing.
+**Immediately understand the purpose of the site**
 
-- #### Returning Visitor Goals
+1.  A first time visitor will experience a striking home page that contains a hero-image, title and slogan that indicate the site is a retail leather store.
+2.  The user is prompted to click an animated 'down arrow', which directs them to the collections and featured collection section, where they can glean further insight into what type of products are on offer.
+3.  A carousel showcasing positive customer reviews about products and the store in general, further indicate that the site exists within the retail industry.
 
-  As well as the above elements (with the exception of registration), returning visitors want the following:
+**Easily browse through all products**
 
-  - A convenient login and logout process.
+4. Unregistered users can view all products.
+5. Numerous links point to the products page.
+6. The navigation bar inludes a 'shop all' dropdown menu which inludes the various categories
+7. The search functionality allows the user to find products by name, category or keyword.
+8. The sort functionality allows users to order products by name, category, price and rating. 
+9. The product cards are simple yet informative - at a glance, the user can tell the name, price, rating and whether the item is on sale or not.
 
-    1. A returning visitor can easily re-enter the site, by simply entering their username and password.
+**Experience a convenient and secure registration process**
 
-  - To be able to search for swimming sets using appropriate keywords.
+10. A link to sign up is visible on the home page and is included in the dropdown menu, triggered by clickin the user profile icon in the navbar. 
+11. The registration process for new users is straightforward as they are only required to enter a username, email address and password.
+12. Upon registration the user is sent a confirmation email which when accessed takes them back to the site where they can log in.
 
-    1. A search bar is present that allows users to filter search for swimming sets by category
-       and stroke names.
+**Shop without registering**
 
-  - To have access to a personal profile.
+13. Users do not need to register to add items to their cart, or make purchases.
 
-    1. Registered users have access to a personalised profile page where they can view the swimming sets that they have created.
+**Read product reviews/ratings**
 
-  - To be able to add new swimming sets.
+14. A rating (if applicable) for each product is visible on the products page and product details page.
+15. When viewing a product in detail, existing reviews appear below the product image and description.
 
-    1. Users can add a new set by completing a form that is designed with the structure of swimming programmes in mind.
+- **Choose from a range of sizes for certain products**
 
-  - To be able to edit or delete swimming sets from my profile.
+1. If a product has sizes to choose from, the user can select their preference from the product details page before adding it to their cart. If not specified, the default selection is size medium. 
 
-    1. Users also have the option of editing or deleting a set from their profile.
+### As a registered customer I want... 
 
-  - To be able to save 'favourite' swimming sets created by other users under my profile.
+As well as the above elements (with the exception of registration), returning customers can experience the following:
 
-    1. Registered users can also save their 'favourite' swimming sets. These are stored on a seperate page that is connected to their profile page.
+**A convenient login and logout process**
 
-  - To be able to print a swimming set.
+1. A returning user can easily re-enter the site, by using the simple login process.
 
-    1. Registered users have the option of accessing a 'print friendly' version of any set of their choice.
+**To be able to search for products using appropriate keywords**
 
-- #### As the site owner/admin, I want...
+2. Search functionality is present that allows users to search products by name, category or keyword.
 
-  - To manage all content (add, edit or delete).
+**To have access to a personal profile**
 
-    1. Admin access ensures nominated admin users have the ability to manage content across the site.
-    2. They can choose to edit or delete content submitted by users, including sets and categories.
+3. Registered users have access to a personalised profile page where they can view
+  - Order confirmation
+  - Order history
+  - Their wishlist
+  - Links to their product reviews
+  - Personal delivery details
 
-  - Admin also have access to their own profile page, where they too can submit swimming sets that are visible for all registered users to see.
+**To save my default delivery details**
 
-  - Admin can add their own favourites and access the 'print a set' page too.
+4. Users can either update their details from their account dashboard or by opting to save their details before checking out.
+5. Next time they checkout, their details will conveniently be prepoulated into the checkout form. 
+
+**To be able to add a product to a wishlist**
+
+6. Registered users can save their favourite products to a wishlist. These are stored on their profile page.
+
+**To be able to post a review on a product I've bought**
+
+7. Registered users can review any product from the product detail page.
+8. They are only able to leave one review per product. 
+9. They are not able to delete their reviews, however, they can edit them. 
+
+**Review my cart before checking out**
+
+10. Users can adjust the quantity of an item by clicking the plus/minus buttons in their cart, as well as removing them by clicking the red 'X' icon.
+
+**Receive confirmation of my orders**
+
+1. Upon successfully checking out, users see a pop-up toast informing them their order was successful and that a confirmation email has been sent to their nominated email address. 
+
+**Easily see what products are on sale**
+
+1. Users can easily identify sale items by selecting the sale category from the shop all dropdown menu. 
+2. Every product that is on sale, also includes a sale alert badge in the corner of the product image. 
+3. And if a product is on sale, the original price is crossed out, and the sale price (in red) can be seen below it.
+
+**Receive free delivery above an order threshold**
+
+1. If an order is $150 (AUD) the delivery fee will be waived.
+
+
+### As the site owner/admin, I want...
+
+**To have admin privileges to enable me to manage all content (add, edit or delete)**
+
+1. Admin can add new products from the product management link in the navbar.
+2. They can change access all relevant fields.
+3. The Edit Product page can be accessed from any of the product pages by clicking the edit icon.
+4. The form fields are prepopulated with the existing product's details.
+5. From the front-end a product can only be deleted via the product details page to avoid accidental deletion (this proofing came as a late addition in the development process, after I had the accident myself).
+6. A confirm deletion modal appears to double check the intention.
+
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -109,38 +159,96 @@ Back to [README.md](README.md)
 
 > # **MANUAL TESTING**
 
+:heavy_check_mark:
+
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
 Manual testing was performed throughout the building process. The following is a breakdown of the different areas/components that have successfully passed manual testing.
 
-- #### Navigation
+#### Navigation
 
-  1. All links in navigation tested and direct users to the correct pages.
-  2. Correct navigation options are visible to users in session:
+- All links in navigation tested and direct users to the correct pages
+  - :heavy_check_mark:
+- Correct navigation options are visible to users in session:
 
-  - Logged in user: Home, Profile, My Profile, New Swim, Search Sets and Log Out
-  - Admin Logged in: All of the above including Manage Content
-  - User not logged in: Home, Register, Log In
+  - Logged in user: My Profile & Log Out
+  - Admin Logged in: Product Management (includes edit, delete buttons on produts and add new in dropdown), My Profile & Log Out
+  - User not logged in: Register & Log In
+  - :heavy_check_mark:
+- The offcanvas mobile menu displays links as above for different users 
+  - :heavy_check_mark:
 
-  3. The dropdown mobile menu displays links as above for different users.
+#### Footer
 
-- #### Footer
+- The footer displays essential navigation links for different users:
 
-  1. The footer displays essential navigation links for different users:
+  - Logged in user: Log Out & My Profile
+  - User not logged in: Register & Log In
+  - :heavy_check_mark:
 
-  - Logged in user: Home, Log Out
-  - User not logged in: Home, Register, Log In
+- Social media links all in working order and direct user to external pages in a new browser window
+  - :heavy_check_mark:
 
-  2. Social media links all in working order and direct user to external pages in a new browser window.
+#### Home Page
 
-- #### Home Page
+- On page load, the hero image and call to action buttons render clearly
+  - :heavy_check_mark:
+- The sale and free delivery banner above the navbar, appear and the fade in and out effect functions as expected
+  - :heavy_check_mark:
+- On page scroll, the banner disappears and the navbar remains fixed to the top, visible at all times
+  - :heavy_check_mark:
+- All links direct the user to the correct pages
+  - :heavy_check_mark:
 
-  1. The about section in the home page displays a different invitation for different users:
+#### Products
 
-  - Logged in users: are invited to 'check out the collection of swim sets'
-  - Users not logged in: are invited to register before they have access to the swim sets
+- Confrim each option from the Sort By selector works and lists products in the corresponding order
+  - :heavy_check_mark:
+- Confirm that all categories display relevant products
+  - :heavy_check_mark:
+- Check product details against the database to ensure the correct info is shown for each product
+  - :heavy_check_mark:
+- Confirm that edit/delete product buttons only appear for admin users
+  - :heavy_check_mark:
 
-- #### Registration and Log In Pages
+
+#### Product Details 
+
+- Confirm correct product info is displayed
+    - :heavy_check_mark:
+- Confirm heart icon only displays when logged in as Registered user
+    - :heavy_check_mark:
+- When logged in as admin confirm clicking edit icon leads to the Edit Product page
+    - :heavy_check_mark:
+- Confirm clicking delete icon brings up modal asking for confirmation
+    - :heavy_check_mark:
+- Confirm clicking Delete removes the product from the database
+    - :heavy_check_mark:
+![order-form](wireframes/test-images/options-form.jpg)
+- Confirm that users can update the quantity using the carets or by inputing into the text field
+    - :heavy_check_mark:
+- Confirm product quantity entered cannot be less than 1 or more than 99
+    - :heavy_check_mark:
+![number-input](wireframes/test-images/number-input.jpg)
+- Confirm that clicking the Juices button takes user back to all products view
+    - CHECK
+- Confirm that clicking the Add to Cart button does add the item to the cart
+    - CHECK
+- Confirm that if a product has no reivews, a message asking user to leave a review is displayed, and that clicking it will take them down the Reviews anchor
+    - CHECK
+  
+#### Reviews
+
+- Confirm that products that have reviews, render correclty
+  - :heavy_check_mark:
+- Confirm that delete buttons on reviews only visible to admin users
+  - :heavy_check_mark:
+- Check that all edit review buttons work for registered customers and render the correct form
+  - :heavy_check_mark:
+- Check that all edit, delete and add buttons for products and reviews render the correct pages and forms for admin users
+  - :heavy_check_mark:
+
+#### Registration and Log In Pages
 
   1. Anybody can register for free. Passwords are hashed for using [Werkzeug Security](https://werkzeug.palletsprojects.com/en/2.0.x/utils/). If a user accidentally navigates to the register page, from there they can click on a log in link and vice versa.
 
@@ -255,7 +363,7 @@ Initial Pep8 tests showed some refactoring was required, mainly removing whitesp
 
 ## <span id="testing-responsive"></span>
 
-> # **RESPONSIVENESS** -->
+> # **RESPONSIVENESS**
 
 ## CROSS BROWSER COMPATIBILITY
 

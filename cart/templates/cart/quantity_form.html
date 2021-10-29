@@ -1,0 +1,48 @@
+<form 
+    class="form refresh-form shadow-sm"
+    method="POST"
+    action="{% url 'refresh_cart' item.item_id %}">
+    {% csrf_token %}
+    <div class="input-group">
+        <!-- Increment / Decrement Product Quantity -->
+        <div class="input-group input-group-qty">
+            <button 
+                class="input-group-text decrement-qty granny-smith btn btn-sm p-1"
+                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}"
+                aria-label="Decrease quantity of {{ item.product.name }}">
+                <i class="material-icons cart-qty-icon">remove</i>
+            </button>
+            <input 
+                class="form-control form-control-sm qty_input border-light has-validation"
+                type="number" name="quantity" 
+                value="{{ item.quantity }}" 
+                min="1" max="99"
+                data-item_id="{{ item.item_id }}"
+                data-token="{{ csrf_token }}"
+                id="id_qty_{{ item.item_id }}"
+                >
+            <button 
+                class="input-group-text increment-qty granny-smith btn btn-sm p-1"
+                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}"
+                aria-label="Increase quantity of {{ item.product.name }}"> 
+                <i class="material-icons cart-qty-icon">add</i>
+            </button>
+            {% if item.product.has_sizes %}
+                <input 
+                    type="hidden" name="product_size"
+                    value="{{ item.size }}">
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+ <!-- Refresh / Clear Cart Actions -->
+<div class="text-center mt-1 shadow-sm rounded-3">
+<a class="text-decoration-none refresh-link cyan-text btn p-0" data-bs-toggle="tooltip" data-bs-placement="left" title="Update Item Quantity">
+    <i class="material-icons fw-bold">refresh</i>
+</a>
+<a class="text-decoration-none remove-item rosso-text btn p-0"
+ id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" data-bs-toggle="tooltip" data-bs-placement="right" title="Remove Item">
+    <i class="material-icons fw-bold">clear</i>
+</a>
+</div>

@@ -66,31 +66,31 @@ It offers shoppers a gender-inclusive retail experience - product categories are
 | :------------| :----------------| :-------------- |:-------------- |
 |**VIEWING & NAVIGATION**|
 ||*SHOPPER* | Immediately understand the purpose of the site | Decide whether to stay |
-|||View a list of products | Select some to purchase
+|||View a list of products without having to register | Select some to purchase
 |||View individual product details  | Identify the price, description, product rating, product image, available sizes and read product reviews |
 |||Easily identify deals and sale items  | Take advantage of special savings on products I'd like to purchase |
-|||Easily view the total of my cart contents/purchases | Avoid spending too much  |
+|||Easily view the total of my cart contents/purchases | Keep track of expenditure  |
 | **REGISTRATION & USER ACCOUNTS** |**As a...**| **I want to...** | **So I can...** |
 ||*SHOPPER*| Easily register for an account | Access a personal account and view my profile |
 |||Easily log in and out | Access my personal account info |
 ||| Easily recover password if forgotten | Regain access to my account |
-||| Receive email confirmation upon registering | Verify account successful registration |
-||| Have a personalized user profile | View my order confirmation, history, wishlist and view/update personal delivery details |
+||| Receive email confirmation upon registering | Verify successful registration |
+||| Have a personalized user profile | View my order confirmation, history, wishlist, reviews and view/update personal delivery details |
 | **SORTING & SEARCHING** |**As a...**| **I want to...** | **So I can...** |
-||*SHOPPER* | Sort the list of available products|Easily identify products by rating, price and category |
-|||Sort a specific cateogry | Identify products by rating, price within a category |
-|||Add a product to my favourites list | Quickly find a product I'd like to purchase again |
+||*SHOPPER* | Sort the list of available products|Easily identify products by category, name, rating and price |
+|||Sort a specific category | Identify products by name, rating and price within a category |
+|||Add a product to my wishlist | Quickly find a product I've saved or purchase again|
 |||Search for a product by name/keyword | Find a specific product to purchase |
 |||View what I've searched for plus the results| See if the product is available |
 | **PURCHASING & CHECKOUT** |**As a...**| **I want to...** | **So I can...** |
-||SHOPPER| Easily select the size and quantity of a product when purchasing | Can be assured I'm selecting size and quantity I want|
+||*SHOPPER*| Easily select the size and quantity of a product when purchasing | Can be assured I'm selecting size and quantity I want|
 ||| View items in my cart to be purchased | Identify the total cost of my purchase and items to be received |
 ||| Adjust the quantity of items in my cart | Easily make changes before checking out |
 ||| Feel my personal and payment info is processed securely | Make purchases confidently |
 ||| View order confirmation upon checkout | Verify my order |
 ||| Receive an email confirmation upon checkout  | I have a personal record of my order |
-| **PURCHASING & CHECKOUT**|**As an...**| **I want to...** | **So I can...** |
-||OWNER/ADMIN | Add a product | Add new items to my store |
+| **ADMIN PRIVILEGES** |**As an...**| **I want to...** | **So I can...** |
+||*OWNER/ADMIN* | Add a product | Add new items to my store |
 ||| Edit/update a product| Change product prices, descriptions, images and other related fields  |
 ||| Delete a product | Remove items no longer on sale or out of stock |
 |||Delete customer product reviews | In the instance of offensive commentary|
@@ -130,9 +130,10 @@ Naturally, the theme and colour palette is inspired by leather and an associated
 Take a closer look at the colour schemes:
 
   - Palette 1
-  <img src="/media/Hide&Chic_color1.png" width="400">
+  <img src="/media/hideandchic_color1.png" width="400">
+
   - Palette 2
-  <img src="/media/Hide&Chic_color2.png" width="400">
+  <img src="/media/hideandchic_color2.png" width="400">
   
   | Palette 1| Palette 2|
   |:------------|:------------|
@@ -211,8 +212,6 @@ A relational database is utilised for this project as there are a number of rela
 
 ## CURRENT
 
----
-
 ### Site-wide
 
 #### **Responsiveness**
@@ -235,7 +234,7 @@ The navigation menu assists the user in finding their way across the site.
 
 Navigation options are updated depending on a user's status:
 - whether they are registered and logged in or not
-- and if they are logged in as admin, certain priveleges are made available
+- and if they are logged in as admin, certain privileges are made available
 
 
 #### **Footer**
@@ -396,7 +395,6 @@ Registered session users can:
 Admin/superusers can:
   - Add, update and delete products
   - Add, update and delete product reviews
----
 
 ## FUTURE FEATURES
 
@@ -712,8 +710,8 @@ Full testing details can be found [here](TESTING.md)
 
 - [Scroll down button animation](https://codepen.io/nelledejones/pen/gOOPWrK)
 
-- [Centering Material Icon in div](https://newbedev.com/mat-icon-does-not-center-in-its-div)
-- 
+- [Centering a Material Icon in a div](https://newbedev.com/mat-icon-does-not-center-in-its-div)
+
 ## CONTENT AND MEDIA
 
 - All text content is original
