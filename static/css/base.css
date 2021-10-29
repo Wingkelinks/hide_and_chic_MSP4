@@ -27,7 +27,7 @@ html {
 }
 
 body {
-	height: calc(100vh - 164px);
+	min-height: calc(100vh - 164px);
 	font-family: var(--body-font);
 }
 
@@ -52,6 +52,10 @@ body {
 	position: fixed;
 	background: #fff;
 	z-index: -1;
+}
+
+#navbar {
+	border-bottom: 1px solid #f15c37;
 }
 
 /* Custom Dropdown */
@@ -233,6 +237,7 @@ body {
 /* Footer */
 #footer-container {
 	background-color: var(--color-blue-black);
+	border-top: 1px solid #f15c37;
 }
 
 /* Links */

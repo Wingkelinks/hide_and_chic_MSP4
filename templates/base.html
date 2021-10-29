@@ -276,86 +276,77 @@
 {% endblock %}
 
 <!-- Footer -->
-<div id="footer-container" class="container-fluid">
-	<footer class="py-5 mx-5 mt-5 platinum-text">
+<div id="footer-container" class="container-fluid fixed-bottom">
+	<footer class="py-2 mx-4 platinum-text">
 		<div class="row">
-			<h4 class="logo-font mb-3">Hide & Chic</h4>
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Shop All</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Featured Collections</a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0"></a></li>
-				<li class="mb-2"><a href="#" class="nav-link p-0">Leather Care</a></li>
+
+			<div class="col-3 text-center mt-3">
+				<p>&copy; <span class="copyright"></span><span class="logo-font px-1">Hide & Chic</span>, Inc.</p>
+			</div>
+
+			<div class="col-1 socials my-auto">
+				<ul class="nav flex-row justify-content-center">
+					<li class="px-1">
+						<a class="link-light" 
+							href="https://www.facebook.com/" 
+							aria-hidden="true"
+							target="_blank"
+							rel="noopener noreferrer">
+						<i class="fab fa-facebook fa-lg"></i>
+						</a>
+					</li>
+					<li class="px-1">
+						<a 
+							class="link-light" 
+							href="https://www.instagram.com/"
+							aria-hidden="true"
+							target="_blank"
+							rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i>
+						</a>
+					</li>
+					<li class="px-1">
+						<a 
+							class="link-light" 
+							href="https://www.youtube.com/"
+							aria-hidden="true"
+							target="_blank"
+							rel="noopener noreferrer"><i class="fab fa-youtube-square fa-lg"></i>
+						</a>
+					</li>
 				</ul>
 			</div>
-		
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="mb-2"><a href="#" class="nav-link p-0">My Profile</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log In</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Log Out</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Register</a></li>
-				</ul>
-			</div>
-		
-			<div class="col-2">
-				<ul class="nav flex-column">
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">Cart</a></li>		
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-				<li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+
+			<div class="col-4 my-auto">
+				<ul class="nav flex-row justify-content-center">
+				<li class=""><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
+				<li class=""><a href="{% url 'products' %}" class="nav-link ">Shop All</a></li>
+
+				{% if user is authenticated %}
+					<li class=""><a href="{% url 'profile' %}" class="nav-link ">My Profile</a></li>
+					<li class="nav-item "><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a></li>
+				{% else %}
+					<li class="nav-item "><a href="{% url 'account_login' %}" class="nav-link ">Log In</a></li>
+					<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
+				{% endif %}
+	
+				<li class="nav-item "><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
 				</ul>
 			</div>
 	
-			<div class="col-4 offset-1">
+			<div class="col-4 order-last my-auto">
 				<form method="GET" action="{% url 'products' %}">
-				<h5>Search for a product</h5>
-				<div class="input-group w-100">
-					<input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
-					<div class="input-group-append">
-						<button class="form-control btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
-							<span class="icon">
-								<i class="fas fa-search"></i>
-							</span>
-						</button>
+					<div class="input-group w-100 mb-0">
+						<input class="form-control form-control-sm border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
+						<div class="">
+							<button class=" btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
+								<span class="icon">
+									<i class="fas fa-search"></i>
+								</span>
+							</button>
+						</div>
 					</div>
-				</div>
 				</form>
 			</div>
-		</div>
-	
-		<div class="d-flex justify-content-between border-top border-secondary border-3 pt-3 socials">
-			<p>&copy; <span class="copyright"></span> Hide & Chic, Inc. All rights reserved.</p>
-			<ul class="list-unstyled d-flex">
-				<li class="ms-3">
-					<a class="link-light" 
-						href="https://www.facebook.com/" 
-						aria-hidden="true"
-						target="_blank"
-						rel="noopener noreferrer">
-					<i class="fab fa-facebook fa-lg"></i>
-					</a>
-				</li>
-				<li class="ms-3">
-					<a 
-						class="link-light" 
-						href="https://www.instagram.com/"
-						aria-hidden="true"
-						target="_blank"
-						rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i>
-					</a>
-				</li>
-				<li class="ms-3">
-					<a 
-						class="link-light" 
-						href="https://www.youtube.com/"
-						aria-hidden="true"
-						target="_blank"
-						rel="noopener noreferrer"><i class="fab fa-youtube-square fa-lg"></i>
-					</a>
-				</li>
-			</ul>
-		</div>
 	</footer>
 </div>
 
