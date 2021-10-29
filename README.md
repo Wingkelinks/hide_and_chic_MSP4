@@ -130,10 +130,10 @@ Naturally, the theme and colour palette is inspired by leather and an associated
 Take a closer look at the colour schemes:
 
   - Palette 1
-  <img src="/media/hideandchic_color1.png" width="400">
+  <img src="/testing/images/hideandchic_color1.png" width="400">
 
   - Palette 2
-  <img src="/media/hideandchic_color2.png" width="400">
+  <img src="/testing/images/hideandchic_color2.png" width="400">
   
   | Palette 1| Palette 2|
   |:------------|:------------|
@@ -477,7 +477,7 @@ The following is required to run this project in your local environment:
 
 1. Visit this [Repository link](https://github.com/Wingkelinks/hide_and_chic_MSP4) and click on the Clone or Download button to copy the link provided.
 
-    ![repo-clone](/media/repo-clone.png)
+  <img src="/testing/images/repo-clone.png" width="400">
 
 2. In your IDE of choice, open a terminal window and navigate to the directory that you want to copy the project to:
 

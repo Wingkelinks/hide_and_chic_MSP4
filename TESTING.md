@@ -2,7 +2,7 @@ Back to [README.md](README.md)
 
 ## INDEX
 
-- <a href="#user-stories">User Storie - how are they met?</a>
+- <a href="#user-stories">User Stories - how are they met?</a>
 - <a href="#testing-manual">Manual</a>
 - <a href="#testing-auto">Automated</a>
 - <a href="#testing-responsive">Responsiveness</a>
@@ -159,7 +159,6 @@ As well as the above elements (with the exception of registration), returning cu
 
 > # **MANUAL TESTING**
 
-:heavy_check_mark:
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -224,18 +223,16 @@ Manual testing was performed throughout the building process. The following is a
     - :heavy_check_mark:
 - Confirm clicking Delete removes the product from the database
     - :heavy_check_mark:
-![order-form](wireframes/test-images/options-form.jpg)
-- Confirm that users can update the quantity using the carets or by inputing into the text field
+- Confirm that users can update the quantity using the plus/minus buttons or by inputing into the text field
     - :heavy_check_mark:
 - Confirm product quantity entered cannot be less than 1 or more than 99
     - :heavy_check_mark:
-![number-input](wireframes/test-images/number-input.jpg)
-- Confirm that clicking the Juices button takes user back to all products view
-    - CHECK
-- Confirm that clicking the Add to Cart button does add the item to the cart
-    - CHECK
-- Confirm that if a product has no reivews, a message asking user to leave a review is displayed, and that clicking it will take them down the Reviews anchor
-    - CHECK
+  
+<img src="/testing/images/quantity_input.png" width="400">
+- Confirm that checkout and continue shopping buttons work correctly
+    - :heavy_check_mark:
+- Confirm that Add to Cart button adds the item to the cart
+    - :heavy_check_mark:
   
 #### Reviews
 
@@ -247,74 +244,68 @@ Manual testing was performed throughout the building process. The following is a
   - :heavy_check_mark:
 - Check that all edit, delete and add buttons for products and reviews render the correct pages and forms for admin users
   - :heavy_check_mark:
+- Confirm that products with reviews, display the correct numnber of reviews as well as the rating
+  -  :heavy_check_mark:
+  -  
+<img src="/testing/images/reviews.png" width="400">
 
-#### Registration and Log In Pages
+#### Checkout
+- Confirm correct items and amounts carried over from cart, including if a discount code has been applied
+  -  :heavy_check_mark:
+- Confirm if user has logged in and saved their details previously, the form is pre-populated with these details
+    - :heavy_check_mark:
+- Confirm Stripe webhooks successfully processed and Order saved
+    - :heavy_check_mark:
+  
+<img src="/testing/images/stripe_trigger.png" width="400">
 
-  1. Anybody can register for free. Passwords are hashed for using [Werkzeug Security](https://werkzeug.palletsprojects.com/en/2.0.x/utils/). If a user accidentally navigates to the register page, from there they can click on a log in link and vice versa.
+#### Footer 
 
-  2. The username and password validators are in place and check that users are meeting the requirements for both registration and log in processes.
+- Check each page to confirm footer remains fixed to the bottom of the especially when there is minimal content (Sign Up)
+  - This was actually a problem for some time. The original footer was much larger in height, and because its position needed to be set to fixed, it covered content on certain pages. In the end, the solution was to re-design a more minimal looking footer. 
+    - :heavy_check_mark:
+- Check all footer icon to confirm hover effects
+    - :heavy_check_mark:
+- Click each social icon to check pages open in a new browser window
+    - :heavy_check_mark:
 
-  3. Upon successful registration, a personalised welcome message is displayed to the new user. If unsuccessful, the user will be notified by a different alert letting them know that their username/password is incorrect.
 
-  4. When a user successfully logs in, they are directed to their profile page and greeted by a personalised welcome message.
+#### Search Functionality 
+- Hover over magnifying glass icon to confirm colour changes to blue
+    - :heavy_check_mark:
+- Click on magnifying glass to confirm search modal appears
+    - :heavy_check_mark:
+- Search for a specific product or keyword, eg. 'wallett to check that relevant products are displayed
+    - :heavy_check_mark:
+- Confirm that returned list of wallets, displays number of filtered items, and can be sorted by price (low to high) for example
+  - :heavy_check_mark:
+  
+<img src="/testing/images/search.png" width="400">
 
-- #### Search Sets Page
+#### Profile Dashboard
+- Confirm details can be updated and checkout form is prefilled
+    - :heavy_check_mark:
+- Order history displayed
+    - :heavy_check_mark:
+- Can view individual orders via the link on order number
+    - :heavy_check_mark:
+- Can view review history/links to reviews
+    - :heavy_check_mark:
+    - 
+#### Add / Edit / Delete Products
+- Only admin can access pages
+    - :heavy_check_mark:
+- Confirm deletion modals working correctly
+    - :heavy_check_mark:
+<img src="/testing/images/confirm_delete.png" width="400">
+- Added or updated products reflect in database
+    - :heavy_check_mark:
+<img src="/testing/images/db_reflect.png" width="400">
 
-  1. The Search Sets page displays all available sets added by all users.
 
-  2. The Search Bar allows users to filter the available sets by entering some text (it is suggested they search by category or stroke). When they hit 'search', relevant sets will be displayed. Below the search bar, a message is displayed that informs the user of their search results. At this stage, if no results are returned, nothing gets displayed. A message to direct the user to try something else or direct them elsewhere would be desirable.
+#### Error Handler Pages
 
-  3. At this stage, pagination is not an included feature, but it is also a desirable one.
-
-- #### Add Set Page
-
-  1. Users can add a new swim set by clicking on the 'new swim' link. There they will be directed to fill in a form that includes fields relevant to a swim programme.
-
-  2. The input fields were developed from the Sets collection initially stored in MongoDB during the initial stages of development.
-
-  3. The 'Select Category' field which is viewed as a dropdown menu, is connected to the Category collection stored in MongoDB. If an admin user makes adjustments to a category, this field gets updated accurately.
-
-  4. The Pre Set and Main Set fields are stored as arrays in the database. This allows these fields to include additional entry fields that get added dynamically via some JQuery script. These are accurately rendered when a user submits the form.
-
-  5. Upon submission, the set is added to collection on the site and in the database itself.The user is then redirected to the Search Sets page and an alert message is displayed notifying them of a successful submission.
-
-- #### Edit Set Page
-
-  1. For general registered users, each set stored on their profile will display an edit button, that redirects them to a form for editing.
-
-  2. Admin users are able to edit any set from the Search Sets page. For admin, an edit button will be visible on all sets.
-
-  3. The form is prefilled based on the selected sets existing values/field entries.
-
-  4. The edit button updates the set in the database and on the site. The user gets an alert message notifying them that their set was succesfully updated. They remain on the Edit Set page.
-
-  5. The cancel button will redirect the user to the Search Sets page.
-
-- #### Profile Favourites and Print Pages
-
-  1. A user's profile page displays their name and provides them with additional options to add a new set or to navigate to their Favourites page. All of the users stored sets are displayed as cards similar to those on the Search Set page, with the addition of three buttons: favourite, edit and print.
-
-  2. The Favourite page includes a user's selected favourites displayed alphabetically by set name in small cards. Each card contains a 'view' button which redirects the user to that set located on the Search Sets page. They can also choose to navigate back to their profile by clicking on a 'back to profile' button at the top of the page.
-
-  3. When a user 'favourites' a set from the collection, a new favourite is added to the database stored in a Favourites collection. Each favourite gets populated with the associated values for the set (id and name) as well as the user id.
-
-  4. When a user clicks on a print button, they are redirected to a page that renders their selected set in a print friendly manner. The name of the set gets displayed at the top of the page. They can choose to navigate back to their profile by clicking on a 'back to profile' button at the top of the page. The print function is initialised by some JQuery script, utilising the window.print() method.
-
-- #### Manage Content Page
-
-  1. The Manage Content page can only be accessed by admin users in session. It gives admin users the options to add, edit and delete categories. They can also add new sets from the Manage Content page.
-
-  2. The Add Category button will direct users to a form that requires the input of a new category name. If they hit cancel, they will be redirected back to the Manage Content page. If they hit submit, they will receive an alert message notifying of a successful add. Categories are stored and added alphabetically.
-
-  3. The delete button will trigger a modal asking the user for confirmation before going ahead and deleting the category permanently. If they confirm deletion, an alert message will be displayed confirming that the category has been deleted.
-
-- #### Deleting Content (Admin and Users)
-
-  1. The deletion process of sets is similar to that of category deletion mentioned above. If a user chooses to delete a set, a modal will be triggered that asks, "Do you really want to delet your set {{ set.set_name }}? This cannot be undone!" If they choose to delete, the set is removed from the collection. If they select not to delete, they remain on their profile page.
-
-- #### Error Handler Pages
-
-  1. In the event of 404 and 500 errors, pages with appropriate messages will be displayed. Both pages include buttons to invite the user to return to the Home page.
+- In the event of 404 and 500 errors, pages with appropriate messages will be displayed. Both pages include buttons to invite the user to return to the Home page.
 
 ---
 
@@ -322,12 +313,12 @@ Manual testing was performed throughout the building process. The following is a
 
 > # **AUTOMATED TESTING**
 
-- ## [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+#### [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
 
   - Throughout the development process, DevTools was used for testing responsive behaviour on small, medium and large screen sizes.
   - It was also consistently used to debug and prototype CSS.
 
-  ### [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+#### [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 - Used to check performance, accessibility and SEO potential on all pages of the website.
   _Across all pages:_
@@ -337,25 +328,31 @@ Manual testing was performed throughout the building process. The following is a
   - Best Practices: 100%
   - SEO: 90%
 
-- ## [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+- Overall performance is good, however some issues are noted:
+  - *unused CSS* - a Bootstrap related issue
+  - *unused JavaScript* - caused by Stripe & JQuery
 
-No errors or warnings to show.
+#### [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-- ## [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+**TEST**
 
-No errors found, 15 warnings
+#### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+**TEST**
 
 <img src="static/images/test_images/css-test.png" width="300">
 
-- ## [Python Validator](http://pep8online.com/)
+#### [Python Validator](http://pep8online.com/)
 
-Initial Pep8 tests showed some refactoring was required, mainly removing whitespace and fixing some indenting issues. Everything was cleared apart from what is shown in the image below:
+- Initial Pep8 tests showed some refactoring was required, mainly removing whitespace and fixing some indenting issues. Everything was cleared apart from what is shown in the image below:
 
-<img src="static/images/test_images/pep8-result1.png" width="300">
+<img src="" width="300">
 
-- ## [JavaScript Validator](https://jshint.com/)
+#### [JavaScript Validator](https://jshint.com/)
 
-1 undefined variable, 2 warnings
+**TEST**
+
+#### [Unicorn revealer - overflow](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln/related) - **TEST**
 
 <img src="static/images/test_images/jshint-test.png" width="300">
 
@@ -365,7 +362,7 @@ Initial Pep8 tests showed some refactoring was required, mainly removing whitesp
 
 > # **RESPONSIVENESS**
 
-## CROSS BROWSER COMPATIBILITY
+### CROSS BROWSER COMPATIBILITY
 
 Browsers tested:
 
@@ -374,7 +371,7 @@ Browsers tested:
 - Firefox _v.88_
 - Safari _v.14_
 
-## VARIED SCREEN SIZES
+### VARIED SCREEN SIZES
 
 Chrome DevTools used to test:
 
@@ -392,39 +389,58 @@ Chrome DevTools used to test:
 - Surface Duo
 - Galaxy Fold
 
+### Real world testing 
+- iPhone SE
+- MacBook Pro
+- MacBook Air
+- iPad 
+
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
 <span id="testing-resolved"></span>
 
 > # **RESOLVED ISSUES**
 
-- UnboundLocalError : local variable 'product' referenced before assignment
-- In contexts.py in the cart_contents model, I had referenced 'product' but not defined it yet. This was fixed by defining product = get_object_or_404(Product, pk=item_id) again, but within local scope.
-<!-- - Initially tried to use Materialize *Parallax* effect on the Home Page, but image wouldn't appear. Resorted to more of a custom approach, combining *Tachyons* and *Materialize* classes for responsiveness.
-<img src="static/images/test_images/test5.png" width="400">
+- When a footer was initially extended from the base.html, it seemed to render correctly on most pages, apart from the checkout ones. 
+- This was eventually resolved by removing the Material Icons from the buttons. 
+- It is not clear why these were the cause of the issue.
 
+<img src="/testing/images/footer-issue.png" width="400">
 
-- The following screenshots were captured to address and debug a variety of issues relating to repsonsiveness, general layout issues, ensuring consistency throughout the site (mainly navigation) and general styling/design concerns.
+<br><hr>
 
-<img src="static/images/test_images/test6.png" width="400">
+- Previously, the checkout success page was not working as it was meant to - the loading overlay would't render and sometimes the checkout success page didn't appear.
+- A typo in the stripe_elements.js file was discovered - the card variable had been incorrectly named.
 
-<img src="static/images/test_images/test7.png" width="400">
+<img src="/testing/images/stripe_issue.png" width="400">
 
-<img src="static/images/test_images/test8.png" width="400">
+<br><hr>
 
-<img src="static/images/test_images/test9.png" width="400">
+- When first implementing the cart modal (in the navbar), the CSS across the navigation and home page, wasn't rendering.
+- A template looping issue was found to be the cause.
 
-<img src="static/images/test_images/test10.png" width="400">
+<img src="/testing/images/looping-issue.png" width="400">
 
-<img src="static/images/test_images/test11.png" width="400">
-
-<img src="static/images/test_images/test12.png" width="400">
-
-<img src="static/images/test_images/test13.png" width="400">
+<br><hr>
 
 > # **UNRESOLVED ISSUES**
 
-- Unable to implement **Remove Favourites** function.
-- Was not able to fix sizing of buttons in form that get added dynamically through JQuery script when a user adds a new input field to the _pre_set_ and _main_set_ fields of the 'add set' form.
-- Warnings reported by CSS validator
-- Warnings reported by JSHint -->
+- The following screenshots address and attempt to debug issues relating to repsonsiveness, general layout issues, ensuring consistency throughout the site (mainly navigation) and general styling/design concerns.
+
+<br><hr>
+
+- Fixed footer covering inner page content. 
+
+<img src="/testing/images/footer-margin-issue.png" width="400">
+
+<br><hr>
+
+- Sale items not being filtered by category buttons or via the search bar. 
+- Filtered correctly when navigating from the products menu.
+
+<img src="/testing/images/sale-not-filtering.png" width="400">
+
+
+<div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
+
+<br><hr>
