@@ -89,9 +89,9 @@
 <!-- NAVBAR -->
 <!-- Bootstrap Offcanvas Navbar -->
 <nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
-	<div class="container-fluid">
+	<div class="container-fluid mx-4">
 		<!-- Left Aligned Mobile Brand -->
-		<a class="logo navbar-brand logo-font fs-1 text-white ps-3 py-0" href="{% url 'home' %}">
+		<a class="logo navbar-brand logo-font fs-1 text-white py-0" href="{% url 'home' %}">
 			Hide & Chic
 		</a>
 
@@ -126,7 +126,7 @@
 			</div>
 			<div class="offcanvas-body blue-black">
 				<!-- Nav -->
-				<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold">
+				<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold align-self-end">
 					<li class="nav-item blue-black-text">
 						<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
 					</li>
@@ -190,14 +190,14 @@
 				</ul>
 
 				<!-- Nav With Icons -->	
-				<ul class="navbar-nav flex-row nav-icons">
+				<ul class="navbar-nav flex-row nav-icons justify-content-between mt-sm-4">
 					<!-- User -->
-					<li class="nav-item ml-lg-n4 dropstart">
+					<li class="nav-item ml-lg-n4 dropdown">
 						<a class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown"
 							role="button" aria-expanded="false"
 							href="#">
-							<i class="fas fa-user-circle me-lg-0 fa-lg me-3"></i>
+							<i class="fas fa-user-circle me-lg-0 fa-lg"></i>
 						</a>
 						<ul class="dropdown-menu text-uppercase">
 							{% if request.user.is_authenticated %}
@@ -277,14 +277,31 @@
 
 <!-- Footer -->
 <div id="footer-container" class="container-fluid fixed-bottom">
-	<footer class="py-2 mx-4 platinum-text">
+	<footer class="py-2 mx-5 platinum-text">
 		<div class="row">
 
-			<div class="col-3 text-center mt-3">
+			<div class="col-12 my-auto">
+				<ul class="nav flex-row justify-content-center">
+				<li class=""><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
+				<li class=""><a href="{% url 'products' %}" class="nav-link ">Shop All</a></li>
+
+				{% if user is authenticated %}
+					<li class=""><a href="{% url 'profile' %}" class="nav-link ">My Profile</a></li>
+					<li class="nav-item "><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a></li>
+				{% else %}
+					<li class="nav-item "><a href="{% url 'account_login' %}" class="nav-link ">Log In</a></li>
+					<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
+				{% endif %}
+	
+				<li class="nav-item "><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm text-center">
 				<p>&copy; <span class="copyright"></span><span class="logo-font px-1">Hide & Chic</span>, Inc.</p>
 			</div>
 
-			<div class="col-1 socials my-auto">
+			<div class="col-sm socials">
 				<ul class="nav flex-row justify-content-center">
 					<li class="px-1">
 						<a class="link-light" 
@@ -315,25 +332,8 @@
 					</li>
 				</ul>
 			</div>
-
-			<div class="col-4 my-auto">
-				<ul class="nav flex-row justify-content-center">
-				<li class=""><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
-				<li class=""><a href="{% url 'products' %}" class="nav-link ">Shop All</a></li>
-
-				{% if user is authenticated %}
-					<li class=""><a href="{% url 'profile' %}" class="nav-link ">My Profile</a></li>
-					<li class="nav-item "><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a></li>
-				{% else %}
-					<li class="nav-item "><a href="{% url 'account_login' %}" class="nav-link ">Log In</a></li>
-					<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
-				{% endif %}
 	
-				<li class="nav-item "><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
-				</ul>
-			</div>
-	
-			<div class="col-4 order-last my-auto">
+			<div class="col-sm my-auto d-none d-sm-block d-sm-none d-md-block justify-content-start">
 				<form method="GET" action="{% url 'products' %}">
 					<div class="input-group w-100 mb-0">
 						<input class="form-control form-control-sm border-black rounded-3" type="text" name="q" placeholder="Search for a product...">

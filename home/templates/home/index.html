@@ -4,14 +4,17 @@
 {% block content %}
 <div id="hero-image" class="container-fluid">
     <div class="row vh-100">
-        <div class="col-sm-11 offset-1 platinum-text my-auto">
-            <h2 class="slogan display-4 logo-font lh-base my-5">Serving your leather obsession...</h2>
+        <div class="col-sm-11 offset-1 my-auto">
+            <h2 class="slogan display-4 logo-font lh-base my-5 platinum-text">Serving your leather obsession...</h2>
             <a 
-            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5">Shop Now
+            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 me-2">Shop Now
+          </a>
+          <a 
+            href="{% url 'account_signup' %}" type="button" class="btn-hmm rounded-3 blue-black-text platinum fw-bold btn btn-lg border-3 border-dark text-uppercase fs-5">Register
           </a>
         </div>
         <div class="row">
-          <div class="col-sm text-center m-auto p-0 scroll-down-btn">
+          <div class="col-sm text-center scroll-down-btn">
               <a
               href="#featured-collections"
               class="btn-yes rounded-circle btn platinum-text blue-black border border-light border-3 opacity-75"
