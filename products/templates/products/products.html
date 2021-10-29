@@ -10,6 +10,8 @@
 {% endblock %}
 
 {% block content %}
+
+
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
@@ -85,6 +87,7 @@
                     <!-- Card Body - product name -->
                     <div class="card-body pb-0">
                         <!-- Add to wishlist -->
+                        {% if request.user.is_authenticated %}
                         <div class="position-relative">
                             <small class="position-absolute top-0 end-0">
                                 <a id="wishlist" class="rosso-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
@@ -92,6 +95,7 @@
                                 </a>
                             </small>
                         </div>
+                        {% endif %}
                         <div class="row">
                             <div class="col text-center">
                                 <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>
@@ -121,11 +125,11 @@
                     <!-- Card Footer - add to cart -->
                     <div class="card-footer border-0 bg-transparent mt-0">
                         <div class="row"> 
-                            <div class="col text-center">
+                            <div class="col text-end">
                                 {% if request.user.is_superuser %}
-                                    <p class="mt-2 mb-0">
-                                    <a class="btn btn-sm cyan text-decoration-none blue-black-text link-light" href="{% url 'edit_product' product.id %}">Edit</a>
-                                    <a class="btn btn-sm orange-soda text-decoration-none platinum-text link-dark" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <!-- Admin edit -->
+                                    <p class="mb-0">
+                                    <a class="btn btn-sm cyan text-decoration-none blue-black-text link-light shadow" href="{% url 'edit_product' product.id %}">Edit</a>
                                     </p>
                                 {% endif %}
                             </div>

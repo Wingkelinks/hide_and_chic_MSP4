@@ -1,0 +1,38 @@
+<!-- Delete Product Modal -->
+<div 
+class="modal fade" 
+id="productDeleteModal"
+tabindex="-1"
+aria-labelledby="productDeleteModal"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border border-danger">
+        <div class="modal-header blue-black platinum-text text-uppercase">
+            <h5 
+                class="modal-title">Just to clarify...
+            </h5>
+            <button 
+                type="button" 
+                class="btn-close btn-close-white"
+                data-bs-target="#productDeleteModal"
+                data-bs-dismiss="modal"
+                aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to permanently delete {{ product.name }}?
+        </div>
+        <div class="modal-footer blue-black">
+            <button 
+                type="button" 
+                class="btn btn-light text-decoration-none"
+                data-bs-dismiss="modal">Cancel
+            </button>
+            <a 
+                class="btn btn-danger text-decoration-none" 
+                href="{% url 'delete_product' product.id %}">Delete
+            </a>
+        </div>
+    </div>
+</div>
+</div>
