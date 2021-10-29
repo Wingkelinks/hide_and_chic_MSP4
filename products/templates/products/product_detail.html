@@ -175,16 +175,16 @@
     </div>
 
     <!-- Product Reviews -->
-    <div class="row mt-5" id="reviews-container">
+    <div class="row pb-5 mb-5" id="reviews-container">
         {% for review in product.reviews.all %}
         <div class="col-sm-12 text-center mt-2">
             <h3 class="logo-font mb-4">Reviews</h3>    
             <hr class="w-25 mx-auto mb-lg-5">
         </div>
         
-        <div class="col-sm-6 offset-3">
+        <div class="col-sm-6 offset-3 mb-5">
             <!-- Review card -->
-            <div class="card border-0 shadow rounded">
+            <div class="card border-0 shadow rounded mb-5">
                 <div class="card-header blue-black platinum-text d-flex flex-row">
                     <div class="me-auto">
                     <small class="h5 align-middle">
@@ -226,7 +226,7 @@
                     <p class="card-text blue-black-text mt-4 lh-lg">
                         "{{ review }}"</p>
                 </div>
-                <div class="card-footer blockquote-footer fs-6 bg-transparent border-top-0 mb-0">
+                <div class="card-footer blockquote-footer fs-6 bg-transparent border-top-0 pb-0">
                 <small class="fst-italic">{{ review.user.username }}</small> 
                    <p>{{ review.created|date:"SHORT_DATE_FORMAT"}}</p>
                 </div>
