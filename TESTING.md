@@ -1,8 +1,11 @@
-Back to [README.md](README.md)
+:point_left:
+ Back to [README.md](README.md)
+
+> # **TESTING**
 
 ## INDEX
 
-- <a href="#user-stories">User Stories - how are they met?</a>
+- <a href="#user-stories">User Stories - how are they satisfied?</a>
 - <a href="#testing-manual">Manual</a>
 - <a href="#testing-auto">Automated</a>
 - <a href="#testing-responsive">Responsiveness</a>
@@ -10,8 +13,6 @@ Back to [README.md](README.md)
 - <a href="#testing-unresolved">Unresolved Issues</a>
 
 ---
-
-> # **TESTING**
 
 > <span id="user-stories"></span>
 
@@ -80,9 +81,9 @@ Back to [README.md](README.md)
 14. A rating (if applicable) for each product is visible on the products page and product details page.
 15. When viewing a product in detail, existing reviews appear below the product image and description.
 
-- **Choose from a range of sizes for certain products**
+**Choose from a range of sizes for certain products**
 
-1. If a product has sizes to choose from, the user can select their preference from the product details page before adding it to their cart. If not specified, the default selection is size medium. 
+16. If a product has sizes to choose from, the user can select their preference from the product details page before adding it to their cart. If not specified, the default selection is size medium. 
 
 ### As a registered customer I want... 
 
@@ -126,17 +127,17 @@ As well as the above elements (with the exception of registration), returning cu
 
 **Receive confirmation of my orders**
 
-1. Upon successfully checking out, users see a pop-up toast informing them their order was successful and that a confirmation email has been sent to their nominated email address. 
+11. Upon successfully checking out, users see a pop-up toast informing them their order was successful and that a confirmation email has been sent to their nominated email address. 
 
 **Easily see what products are on sale**
 
-1. Users can easily identify sale items by selecting the sale category from the shop all dropdown menu. 
-2. Every product that is on sale, also includes a sale alert badge in the corner of the product image. 
-3. And if a product is on sale, the original price is crossed out, and the sale price (in red) can be seen below it.
+12. Users can easily identify sale items by selecting the sale category from the shop all dropdown menu.
+13. Every product that is on sale, also includes a sale alert badge in the corner of the product image. 
+14. And if a product is on sale, the original price is crossed out, and the sale price (in red) can be seen below it.
 
 **Receive free delivery above an order threshold**
 
-1. If an order is $150 (AUD) the delivery fee will be waived.
+15. If an order is $150 (AUD) the customer's order becomes eligible for free delivery.
 
 
 ### As the site owner/admin, I want...
@@ -159,95 +160,66 @@ As well as the above elements (with the exception of registration), returning cu
 
 > # **MANUAL TESTING**
 
-
-<div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
-
 Manual testing was performed throughout the building process. The following is a breakdown of the different areas/components that have successfully passed manual testing.
 
 #### Navigation
 
-- All links in navigation tested and direct users to the correct pages
-  - :heavy_check_mark:
+- All links in navigation tested and direct users to the correct pages :heavy_check_mark:
 - Correct navigation options are visible to users in session:
 
   - Logged in user: My Profile & Log Out
   - Admin Logged in: Product Management (includes edit, delete buttons on produts and add new in dropdown), My Profile & Log Out
-  - User not logged in: Register & Log In
-  - :heavy_check_mark:
-- The offcanvas mobile menu displays links as above for different users 
-  - :heavy_check_mark:
+  - User not logged in: Register & Log In :heavy_check_mark:
+- The offcanvas mobile menu displays links as above for different users :heavy_check_mark:
 
 #### Footer
 
 - The footer displays essential navigation links for different users:
 
   - Logged in user: Log Out & My Profile
-  - User not logged in: Register & Log In
-  - :heavy_check_mark:
+  - User not logged in: Register & Log In :heavy_check_mark:
 
-- Social media links all in working order and direct user to external pages in a new browser window
-  - :heavy_check_mark:
+- Social media links all in working order and direct user to external pages in a new browser window :heavy_check_mark:
 
 #### Home Page
 
-- On page load, the hero image and call to action buttons render clearly
-  - :heavy_check_mark:
-- The sale and free delivery banner above the navbar, appear and the fade in and out effect functions as expected
-  - :heavy_check_mark:
-- On page scroll, the banner disappears and the navbar remains fixed to the top, visible at all times
-  - :heavy_check_mark:
-- All links direct the user to the correct pages
-  - :heavy_check_mark:
+- On page load, the hero image and call to action buttons render clearly :heavy_check_mark:
+- The sale and free delivery banner above the navbar, appear and the fade in and out effect functions as expected :heavy_check_mark:
+- On page scroll, the banner disappears and the navbar remains fixed to the top, visible at all times :heavy_check_mark:
+- All links direct the user to the correct pages :heavy_check_mark:
 
 #### Products
 
-- Confrim each option from the Sort By selector works and lists products in the corresponding order
-  - :heavy_check_mark:
-- Confirm that all categories display relevant products
-  - :heavy_check_mark:
-- Check product details against the database to ensure the correct info is shown for each product
-  - :heavy_check_mark:
-- Confirm that edit/delete product buttons only appear for admin users
-  - :heavy_check_mark:
+- Confrim each option from the Sort By selector works and lists products in the corresponding order :heavy_check_mark:
+- Confirm that all categories display relevant products :heavy_check_mark:
+- Check product details against the database to ensure the correct info is shown for each product :heavy_check_mark:
+- Confirm that edit/delete product buttons only appear for admin users :heavy_check_mark:
 
 
 #### Product Details 
 
-- Confirm correct product info is displayed
-    - :heavy_check_mark:
-- Confirm heart icon only displays when logged in as Registered user
-    - :heavy_check_mark:
-- When logged in as admin confirm clicking edit icon leads to the Edit Product page
-    - :heavy_check_mark:
-- Confirm clicking delete icon brings up modal asking for confirmation
-    - :heavy_check_mark:
-- Confirm clicking Delete removes the product from the database
-    - :heavy_check_mark:
-- Confirm that users can update the quantity using the plus/minus buttons or by inputing into the text field
-    - :heavy_check_mark:
-- Confirm product quantity entered cannot be less than 1 or more than 99
-    - :heavy_check_mark:
+- Confirm correct product info is displayed :heavy_check_mark:
+- Confirm heart icon only displays when logged in as Registered user :heavy_check_mark:
+- When logged in as admin confirm clicking edit icon leads to the Edit Product page :heavy_check_mark:
+- Confirm clicking delete icon brings up modal asking for confirmation :heavy_check_mark:
+- Confirm clicking Delete removes the product from the database :heavy_check_mark:
+- Confirm that users can update the quantity using the plus/minus buttons or by inputing into the text field :heavy_check_mark:
+- Confirm product quantity entered cannot be less than 1 or more than 99 :heavy_check_mark:
   
-<img src="/testing/images/quantity_input.png" width="400">
-- Confirm that checkout and continue shopping buttons work correctly
-    - :heavy_check_mark:
-- Confirm that Add to Cart button adds the item to the cart
-    - :heavy_check_mark:
+  <img src="/testing/images/quantity_input.png" width="400">
+
+- Confirm that checkout and continue shopping buttons work correctly  :heavy_check_mark:
+- Confirm that Add to Cart button adds the item to the cart :heavy_check_mark:
   
 #### Reviews
 
-- Confirm that products that have reviews, render correclty
-  - :heavy_check_mark:
-- Confirm that delete buttons on reviews only visible to admin users
-  - :heavy_check_mark:
-- Check that all edit review buttons work for registered customers and render the correct form
-  - :heavy_check_mark:
-- Check that all edit, delete and add buttons for products and reviews render the correct pages and forms for admin users
-  - :heavy_check_mark:
-- Confirm that products with reviews, display the correct numnber of reviews as well as the rating
-  -  :heavy_check_mark:
-  -  
-<img src="/testing/images/reviews.png" width="400">
+- Confirm that products that have reviews, render correclty :heavy_check_mark:
+- Confirm that delete buttons on reviews only visible to admin users :heavy_check_mark:
+- Check that all edit review buttons work for registered customers and render the correct form :heavy_check_mark:
+- Check that all edit, delete and add buttons for products and reviews render the correct pages and forms for admin users :heavy_check_mark:
+- Confirm that products with reviews, display the correct numnber of reviews as well as the rating :heavy_check_mark:
+ 
+  <img src="/testing/images/reviews.png" width="400">
 
 #### Checkout
 - Confirm correct items and amounts carried over from cart, including if a discount code has been applied
@@ -257,55 +229,46 @@ Manual testing was performed throughout the building process. The following is a
 - Confirm Stripe webhooks successfully processed and Order saved
     - :heavy_check_mark:
   
-<img src="/testing/images/stripe_trigger.png" width="400">
+  <img src="/testing/images/stripe_trigger.png" width="400">
 
 #### Footer 
 
 - Check each page to confirm footer remains fixed to the bottom of the especially when there is minimal content (Sign Up)
-  - This was actually a problem for some time. The original footer was much larger in height, and because its position needed to be set to fixed, it covered content on certain pages. In the end, the solution was to re-design a more minimal looking footer. 
-    - :heavy_check_mark:
-- Check all footer icon to confirm hover effects
-    - :heavy_check_mark:
-- Click each social icon to check pages open in a new browser window
-    - :heavy_check_mark:
+  - This was actually a problem for some time. The original footer was much larger in height, and because its position needed to be set to fixed, it covered content on certain pages. In the end, the solution was to re-design a more minimal looking footer.  :heavy_check_mark:
+- Check all footer icon to confirm hover effects :heavy_check_mark:
+- Click each social icon to check pages open in a new browser window :heavy_check_mark:
 
 
 #### Search Functionality 
-- Hover over magnifying glass icon to confirm colour changes to blue
-    - :heavy_check_mark:
-- Click on magnifying glass to confirm search modal appears
-    - :heavy_check_mark:
-- Search for a specific product or keyword, eg. 'wallett to check that relevant products are displayed
-    - :heavy_check_mark:
-- Confirm that returned list of wallets, displays number of filtered items, and can be sorted by price (low to high) for example
-  - :heavy_check_mark:
+- Hover over magnifying glass icon to confirm colour changes to blue :heavy_check_mark:
+- Click on magnifying glass to confirm search modal appears :heavy_check_mark:
+- Search for a specific product or keyword, eg. 'wallett to check that relevant products are displayed :heavy_check_mark:
+- Confirm that returned list of wallets, displays number of filtered items, and can be sorted by price (low to high) for example :heavy_check_mark:
   
-<img src="/testing/images/search.png" width="400">
+  <img src="/testing/images/search.png" width="400">
 
 #### Profile Dashboard
-- Confirm details can be updated and checkout form is prefilled
-    - :heavy_check_mark:
-- Order history displayed
-    - :heavy_check_mark:
-- Can view individual orders via the link on order number
-    - :heavy_check_mark:
-- Can view review history/links to reviews
-    - :heavy_check_mark:
-    - 
+- Confirm details can be updated and checkout form is prefilled :heavy_check_mark:
+- Order history displayed :heavy_check_mark:
+- Can view individual orders via the link on order number :heavy_check_mark:
+- Can view review history/links to reviews :heavy_check_mark:
+  
 #### Add / Edit / Delete Products
-- Only admin can access pages
-    - :heavy_check_mark:
-- Confirm deletion modals working correctly
-    - :heavy_check_mark:
-<img src="/testing/images/confirm_delete.png" width="400">
-- Added or updated products reflect in database
-    - :heavy_check_mark:
-<img src="/testing/images/db_reflect.png" width="400">
+- Only admin can access pages :heavy_check_mark:
+- Confirm deletion modals working correctly :heavy_check_mark:
+ 
+  <img src="/testing/images/confirm_delete.png" width="400">
+
+- Added or updated products reflect in database :heavy_check_mark:
+  
+  <img src="/testing/images/db_reflect.png" width="400">
 
 
 #### Error Handler Pages
 
 - In the event of 404 and 500 errors, pages with appropriate messages will be displayed. Both pages include buttons to invite the user to return to the Home page.
+
+<div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
 ---
 
@@ -358,6 +321,8 @@ Manual testing was performed throughout the building process. The following is a
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
+---
+
 ## <span id="testing-responsive"></span>
 
 > # **RESPONSIVENESS**
@@ -397,6 +362,7 @@ Chrome DevTools used to test:
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
+---
 <span id="testing-resolved"></span>
 
 > # **RESOLVED ISSUES**
@@ -405,23 +371,24 @@ Chrome DevTools used to test:
 - This was eventually resolved by removing the Material Icons from the buttons. 
 - It is not clear why these were the cause of the issue.
 
-<img src="/testing/images/footer-issue.png" width="400">
+  <img src="/testing/images/footer-issue.png" width="400">
 
 <br><hr>
 
 - Previously, the checkout success page was not working as it was meant to - the loading overlay would't render and sometimes the checkout success page didn't appear.
 - A typo in the stripe_elements.js file was discovered - the card variable had been incorrectly named.
 
-<img src="/testing/images/stripe_issue.png" width="400">
+  <img src="/testing/images/stripe_issue.png" width="400">
 
 <br><hr>
 
 - When first implementing the cart modal (in the navbar), the CSS across the navigation and home page, wasn't rendering.
 - A template looping issue was found to be the cause.
 
-<img src="/testing/images/looping-issue.png" width="400">
+  <img src="/testing/images/looping-issue.png" width="400">
 
 <br><hr>
+<span id="testing-unresolved"></span>
 
 > # **UNRESOLVED ISSUES**
 
@@ -431,14 +398,14 @@ Chrome DevTools used to test:
 
 - Fixed footer covering inner page content. 
 
-<img src="/testing/images/footer-margin-issue.png" width="400">
+  <img src="/testing/images/footer-margin-issue.png" width="400">
 
 <br><hr>
 
 - Sale items not being filtered by category buttons or via the search bar. 
 - Filtered correctly when navigating from the products menu.
 
-<img src="/testing/images/sale-not-filtering.png" width="400">
+  <img src="/testing/images/sale-not-filtering.png" width="400">
 
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
