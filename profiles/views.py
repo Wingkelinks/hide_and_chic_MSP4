@@ -51,9 +51,26 @@ def order_history(request, order_number):
 
 
 @login_required
+def wishlist(request):
+    """
+    Function that handles and returns user's wishlisted items
+    """
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_wishlist = user_profile.wishlist.filter()
+
+    template = 'profiles/profile_wishlist.html'
+    context = {
+        'profile': user_profile,
+        'wishlist': user_wishlist,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def wishlist_toggle(request, product_id, nav):
     """
-    Allows a registered user to add and remove favourite products to and from their wishlist
+    Allows registered users to add and remove wishlisted products to and from their wishlist
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -68,19 +85,4 @@ def wishlist_toggle(request, product_id, nav):
     else:
         return redirect(reverse('wishlist'))
 
-  
-@login_required
-def wishlist(request):
-    """
-    Function that displays the user's wishlist from in their profile.
-    """
-    user_profile = get_object_or_404(UserProfile, user=request.user)
-    user_wishlist = user_profile.wishlist.filter()
 
-    template = 'profiles/profile_wishlist.html'
-    context = {
-        'profile': user_profile,
-        'wishlist': user_wishlist,
-    }
-
-    return render(request, template, context)

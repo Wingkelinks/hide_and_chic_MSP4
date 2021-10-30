@@ -15,7 +15,7 @@
 {% include 'products/includes/confirm_product_delete.html' %}
 
 <div class="overlay"></div>
-<div class="container">
+<div class="container" id="fix-height-wrapper">
     <div class="row d-flex justify-content-center">
         <!-- Product Image -->
         <div class="col-sm-4 align-self-center">
@@ -48,29 +48,28 @@
                 <div>
                     <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
                     <!-- Add / remove wishlist item -->
-                    {% if request.user.is_authenticated %}
-                        {% if in_wishlist %}
-                            <small>
-                                <a id="wishlist" 
-                                class="blue-black-text nav-icons heart" 
-                                href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                data-bs-placement="right" 
-                                title="Remove from Wishlist">
-                                <i class="fas fa-heart-broken fa-lg heart me-lg-0 me-3"></i>
-                                </a>
-                            </small>
-                        {% else %}
-                            <small>
-                                <a id="wishlist" 
-                                class="rosso-text nav-icons heart" 
-                                href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                data-bs-placement="right" 
-                                title="Add to Wishlist">
-                                <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                </a>
-                            </small>
-                        {% endif %}
-                        {% endif %}
+                        <small>
+                            {% if request.user.is_authenticated %}
+                                {% if in_wishlist %}
+                                    <a 
+                                        class="blue-black-text nav-icons heart" 
+                                        href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                        data-bs-placement="right" 
+                                        title="Remove from Wishlist">
+                                        <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                    </a>
+                                    {% else %}
+                                        <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
+                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                        </a>
+                                    {% endif %}
+                                {% else %}
+                                        <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
+                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                        </a>
+                                {% endif %}
+                                </small>
 
                     {% if product.on_sale %}
                         <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
@@ -148,18 +147,16 @@
                         </div>
                     </div>
                     <!-- Add to Cart / Continue Shopping Buttons -->
-                    <div class="vstack gap-4 mt-5 w-50">
+                    <div class="vstack gap-4 my-5">
                         <button
-                            type="hidden" name="redirect_url" value="{{ request.path }}"                            
-                            class="btn btn-lg text-uppercase coral"
+                            type="hidden" name="redirect_url" value="{{ request.path }}"                      
+                            class="btn btn-act text-uppercase coral"
                             value="submit">Add to Cart
-                            <i class="align-middle material-icons">
-                                add_shopping_cart
-                            </i>
+                            <i class="fas fa-shopping-cart"></i>
                         </button>
                         <a
                             href="{% url 'products' %}" 
-                            class="btn btn-lg text-uppercase granny-smith">Continue Shopping
+                            class="btn btn-go text-uppercase granny-smith">Continue Shopping
                             <i class="icon material-icons">
                             store
                             </i>

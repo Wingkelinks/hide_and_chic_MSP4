@@ -10,6 +10,7 @@
 	--text-color-muted: #6c757d;
 	--color-cyan: #37ccf1;
 	--text-color-cyan: #37ccf1;
+	--text-color-granny-smith: #c8f6a7;
 	--color-granny-smith: #c8f6a7;
 	--color-orange-soda: #f15c37;
 	--text-color-orange-soda: #f15c37;
@@ -29,6 +30,10 @@ html {
 body {
 	height: calc(100vh - 164px);
 	font-family: var(--body-font);
+}
+
+#fix-height-wrapper {
+	height: 100vh;
 }
 
 /* -------------------------------------- */
@@ -84,6 +89,10 @@ body {
 }
 .blue-black-text {
 	color: var(--text-color-blue-black);
+}
+
+.granny-smith-text {
+	color: var(--text-color-granny-smith);
 }
 
 .granny-smith {
@@ -218,7 +227,7 @@ body {
 .btn-hmm:hover,
 .btn-hmm:active,
 .btn-hmm:focus {
-	background: rgb(1, 16, 20, 0.5);
+	background: var(--color-blue-black);
 	color: var(--text-color-cyan);
 }
 
@@ -227,6 +236,20 @@ body {
 .btn-yes:focus {
 	background-color: var(--color-platinum);
 	color: var(--color-orange-soda);
+}
+
+.btn-act:hover,
+.btn-act:active,
+.btn-act:focus {
+	background-color: var(--color-blue-black);
+	color: var(--text-color-orange-soda);
+}
+
+.btn-go:hover,
+.btn-go:active,
+.btn-go:focus {
+	background-color: var(--color-blue-black);
+	color: var(--text-color-granny-smith);
 }
 
 /* Custom Toggler */

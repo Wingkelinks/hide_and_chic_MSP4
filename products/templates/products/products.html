@@ -88,27 +88,28 @@
                     <div class="card-body pb-0">
                         <!-- Add / remove wishlist item -->
                         <div class="position-relative">
-                            {% if request.user.is_authenticated %}
-                            {% if in_wishlist %}
-                            <small class="position-absolute top-0 end-0">
-                                <a id="wishlist" 
-                                    class="blue-black-text nav-icons heart" 
-                                    href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                    data-bs-placement="right" 
-                                    title="Remove from Wishlist">
-                                    <i class="fas fa-heart-broken fa-lg heart me-lg-0 me-3"></i>
-                                </a>
-                                {% else %}
-                                    <a id="wishlist" 
-                                    class="rosso-text nav-icons heart" 
-                                    href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                    data-bs-placement="right" 
-                                    title="Add to Wishlist">
-                                    <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                            <small class="position-absolute top-100 start-100 translate-middle-x">
+                                {% if request.user.is_authenticated %}
+                                    {% if in_wishlist %}
+                                    <a 
+                                        class="blue-black-text nav-icons heart" 
+                                        href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                        data-bs-placement="right" 
+                                        title="Remove from Wishlist">
+                                        <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
                                     </a>
+                                    {% else %}
+                                        <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
+                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                        </a>
+                                    {% endif %}
+                                {% else %}
+                                        <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
+                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                        </a>
+                                {% endif %}
                             </small>
-                            {% endif %}
-                        {% endif %}
                         </div>
                         <div class="row">
                             <div class="col text-center">
