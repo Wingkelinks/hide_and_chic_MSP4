@@ -1,11 +1,12 @@
 from django import forms
+from django.db.models import fields
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ('user',)
+        exclude = ('user','wishlist')
 
     def __init__(self, *args, **kwargs):
         """
