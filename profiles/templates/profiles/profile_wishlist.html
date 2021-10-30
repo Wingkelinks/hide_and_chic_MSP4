@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="profile-wishlist-wrapper" >
+<p class="fs-4 fw-bold mb-1">Current wishlist</p>
+<p class="text-muted fs-5"></p>
+<div class="row">
+    <div class="col-12">
+        <div class="global-heading-hr mb-2"></div>
+        {% for product in wishlist %}
+            <div class="row">
+                <div class="col-2 d-none d-sm-block">
+                    <!-- displays product image -->
+                    {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="img-fluid rounded" src="{{ product.image.url }}" alt="Image of {{ product.name }}"> 
+                        </a>
+                    {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="No image available of {{ product.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+                <!-- Display of bought product name, bought quantity and the individual product price  -->
+                <div class="col-md-5 col d-flex align-items-center">
+                    <a href="{% url 'product_detail' product.id %}" class="no-decoration text-dark">
+                        <p class="small mb-0 fw-bold">
+                            <span class="text-capitalize">{{ product.name }}</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- Remove button -->
+                <div class="col-md-5 col d-flex align-items-center justify-content-end">
+                    <a href="{% url 'wishlist_toggle' product.id 0 %}" class="btn btn-warning btn-lg fw-bold pt-2 ms-3 float-end">
+                        <span><i class="fas fa-times"></i></span>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+            <div class="">
+            <a 
+                class="btn-hmm rounded-3 platinum blue-black-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'profile' %}">Back to Profile
+            </a>
+            
+            <p class="blue-black-text">Or, head back to keep browsing?</p>
+            <a 
+                class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 btn-block call-to-action-btns" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">Yes - take me there!
+            </a>
+            </div>
+    </div>
+</div>
+</div>
+{% endblock %}

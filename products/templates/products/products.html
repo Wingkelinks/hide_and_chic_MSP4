@@ -86,16 +86,30 @@
                     {% endif %}
                     <!-- Card Body - product name -->
                     <div class="card-body pb-0">
-                        <!-- Add to wishlist -->
-                        {% if request.user.is_authenticated %}
+                        <!-- Add / remove wishlist item -->
                         <div class="position-relative">
+                            {% if request.user.is_authenticated %}
+                            {% if in_wishlist %}
                             <small class="position-absolute top-0 end-0">
-                                <a id="wishlist" class="rosso-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
-                                    <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                <a id="wishlist" 
+                                    class="blue-black-text nav-icons heart" 
+                                    href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    title="Remove from Wishlist">
+                                    <i class="fas fa-heart-broken fa-lg heart me-lg-0 me-3"></i>
                                 </a>
+                                {% else %}
+                                    <a id="wishlist" 
+                                    class="rosso-text nav-icons heart" 
+                                    href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    title="Add to Wishlist">
+                                    <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                    </a>
                             </small>
-                        </div>
+                            {% endif %}
                         {% endif %}
+                        </div>
                         <div class="row">
                             <div class="col text-center">
                                 <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>

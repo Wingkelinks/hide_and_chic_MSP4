@@ -46,16 +46,31 @@
         <div class="col-sm-6 align-self-center">
             <div>
                 <div>
-                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}
-                    <!-- Add to wishlist -->
+                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
+                    <!-- Add / remove wishlist item -->
                     {% if request.user.is_authenticated %}
-                        <small>
-                        <a id="wishlist" class="rosso-text nav-icons heart" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
-                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                        </a>
-                        </small>
-                    {% endif %}
-                    </p>
+                        {% if in_wishlist %}
+                            <small>
+                                <a id="wishlist" 
+                                class="blue-black-text nav-icons heart" 
+                                href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                data-bs-placement="right" 
+                                title="Remove from Wishlist">
+                                <i class="fas fa-heart-broken fa-lg heart me-lg-0 me-3"></i>
+                                </a>
+                            </small>
+                        {% else %}
+                            <small>
+                                <a id="wishlist" 
+                                class="rosso-text nav-icons heart" 
+                                href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                data-bs-placement="right" 
+                                title="Add to Wishlist">
+                                <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                </a>
+                            </small>
+                        {% endif %}
+                        {% endif %}
 
                     {% if product.on_sale %}
                         <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
