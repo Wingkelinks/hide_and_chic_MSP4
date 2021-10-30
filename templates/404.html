@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %}Hide & Chic - Page Not Found{% endblock %}
+{% block content %}
+<div id="error-gradient">
+    <div>
+        <h1 class="platinum-text fw-bold text-uppercase">Oh dear, page not found!</h1>
+        <div>
+            <a href="{% url 'products' %}" class="btn coral rounded-3 btn-lg">
+                <i class="material-icons">
+                    arrow_back_ios_new
+                </i>
+                <span class="text-uppercase">Continue Shopping</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
