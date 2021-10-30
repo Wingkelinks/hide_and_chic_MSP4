@@ -17,11 +17,11 @@ Code Institute MS4 / Full Stack Frameworks With Django</h5>
 - <a href="#context">Context</a>
   - <a href="#ux-overview">Project Overview/Strategy</a>
   - <a href="#ux">User Experience</a>
-  - <a href="#ux-strategy">Strategy</a>
   - <a href="#ux-scope">Scope</a>
   - <a href="#ux-structure">Structure</a>
 - <a href="#skeleton">Skeleton</a>
 - <a href="#surface">Surface</a>
+- <a href="#db-model">Database Model</a>
   - <a href="#features-existing">Existing Features</a>
   - <a href="#features-future">Future Features</a>
 - <a href="#technologies">Technologies Used</a>
@@ -95,6 +95,7 @@ It offers shoppers a gender-inclusive retail experience - product categories are
 ||| Delete a product | Remove items no longer on sale or out of stock |
 |||Delete customer product reviews | In the instance of offensive commentary|
 
+> <span id="ux-scope"></span>
 > # **SCOPE**
 
 **Minimum Viable Product** for the website will include:
@@ -108,18 +109,19 @@ It offers shoppers a gender-inclusive retail experience - product categories are
 > # **SKELETON**
 
 ## WIREFRAMES
+<span id="ux-structure"></span>
+<span id="skeleton"></span>
 
-<span id="ux-skeleton"></span>
+- Click [here](wireframes/final_wireframes.pdf) to view the final wireframes
+- Preliminary sketches:
 
-- Wireframes can be viewed [here]()
+<img src="/wireframes/prelim_wireframe1.jpeg" width="400">
+<img src="/wireframes/prelim_wireframe2.jpeg" width="400">
 
-## SITE MAP
-
-- A site map can be viewed [here]()
 
 > # **SURFACE**
 >
-> <span id="ux-surface"></span>
+> <span id="surface"></span>
 
 ## DESIGN
 
@@ -157,11 +159,13 @@ Take a closer look at the colour schemes:
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
+<span id="db-model"></span>
+
 ## DATABASE MODEL
 
 A relational database is utilised for this project as there are a number of relationships between the tables. SQLite was used during development and then Heroku Postgres in production. The diagram below illustrates the database logic:
 
-\*\*\*\* INSERT DB DIAGRAM
+- Click [here](wireframes/db_diagram.pdf) to view the database schema.
 
 #### Key models
 
@@ -209,6 +213,7 @@ A relational database is utilised for this project as there are a number of rela
 - Linked to the Order model by ForeignKey to attach order information to a user's profile
 
 > # **FEATURES**
+<span id="features-existing"></span>
 
 ## CURRENT
 
@@ -396,6 +401,7 @@ Admin/superusers can:
   - Add, update and delete products
   - Add, update and delete product reviews
 
+<span id="features-future"></span>
 ## FUTURE FEATURES
 
 - Pagination
@@ -687,7 +693,7 @@ AWS_SECRET_ACCESS_KEY
 
 > # **TESTING**
 
-Full testing details can be found [here](TESTING.md)
+Click [here](TESTING.md) to view testing details. 
 
 ---
 
