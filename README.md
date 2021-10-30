@@ -8,7 +8,7 @@ Code Institute MS4 / Full Stack Frameworks With Django</h5>
 
 <img src="" width="800">
 
-[Click here to view the live project]()
+[Click here to view the live project](https://hide-and-chic.herokuapp.com/)
 
 ---
 
