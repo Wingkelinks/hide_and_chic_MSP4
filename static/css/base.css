@@ -136,7 +136,8 @@ body {
 /* ---------------------------- PALETTE END*/
 
 /* HOME PAGE ----------------------------  */
-#hero-image {
+#hero-image,
+#error-gradient {
 	height: 100vh;
 	position: relative;
 	background-image: url("/media/duffel_bag.jpg"),
