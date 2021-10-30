@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
@@ -45,6 +45,42 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def wishlist_toggle(request, product_id, nav):
+    """
+    Allows a registered user to add and remove favourite products to and from their wishlist
+    """
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+
+    if user_profile.wishlist.filter(id=product_id).exists():
+        user_profile.wishlist.remove(product_id)
+        messages.success(request, 'Removed from wishlist')
+    else:
+        user_profile.wishlist.add(product_id)
+        messages.success(request, 'Added to wishlist')
+    if nav:
+        return redirect(reverse('product_detail', args=[product_id]))
+    else:
+        return redirect(reverse('wishlist'))
+
+  
+@login_required
+def wishlist(request):
+    """
+    Function that displays the user's wishlist from in their profile.
+    """
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_wishlist = user_profile.wishlist.filter()
+
+    template = 'profiles/profile_wishlist.html'
+    context = {
+        'profile': user_profile,
+        'wishlist': user_wishlist,
     }
 
     return render(request, template, context)
