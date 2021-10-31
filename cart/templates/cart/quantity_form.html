@@ -7,7 +7,7 @@
         <!-- Increment / Decrement Product Quantity -->
         <div class="input-group input-group-qty">
             <button 
-                class="input-group-text decrement-qty granny-smith btn btn-sm p-1"
+                class="input-group-text decrement-qty granny-smith btn btn-sm p-lg-1"
                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}"
                 aria-label="Decrease quantity of {{ item.product.name }}">
                 <i class="material-icons cart-qty-icon">remove</i>
@@ -22,7 +22,7 @@
                 id="id_qty_{{ item.item_id }}"
                 >
             <button 
-                class="input-group-text increment-qty granny-smith btn btn-sm p-1"
+                class="input-group-text increment-qty granny-smith btn btn-sm p-lg-1"
                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}"
                 aria-label="Increase quantity of {{ item.product.name }}"> 
                 <i class="material-icons cart-qty-icon">add</i>
@@ -38,11 +38,11 @@
 
 <!-- Refresh / Clear Cart Actions -->
 <div class="text-center mt-1 shadow-sm rounded-3">
-<a class="text-decoration-none refresh-link cyan-text btn p-0" data-bs-toggle="tooltip" data-bs-placement="left" title="Update Item Quantity">
-    <i class="material-icons fw-bold">refresh</i>
-</a>
-<a class="text-decoration-none remove-item rosso-text btn p-0"
- id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" data-bs-toggle="tooltip" data-bs-placement="right" title="Remove Item">
-    <i class="material-icons fw-bold">clear</i>
-</a>
+    <a class="text-decoration-none refresh-link cyan-text btn btn-sm p-0" data-bs-toggle="tooltip" data-bs-placement="left" title="Update Item Quantity">
+        <i class="material-icons fw-bold">refresh</i>
+    </a>
+    <a class="text-decoration-none remove-item rosso-text btn btn-sm p-0"
+    id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" data-bs-toggle="tooltip" data-bs-placement="right" title="Remove Item">
+        <i class="material-icons fw-bold">clear</i>
+    </a>
 </div>

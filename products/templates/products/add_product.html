@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row mb-lg-5">
             <div class="col text-center">
                 <h1 class="logo-font mb-4">Product Management</h1>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6 offset-3">
+            <div class="col-sm-6 mx-auto">
                 <form 
                     method="POST" 
                     action="{% url 'add_product' %}" 

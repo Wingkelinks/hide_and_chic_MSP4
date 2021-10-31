@@ -195,12 +195,12 @@
             <hr class="w-25 mx-auto mb-lg-5">
         </div>
         
-        <div class="col-sm-6 offset-3 mb-5">
+        <div class="col-sm-6 mx-auto mb-5">
             <!-- Review card -->
             <div class="card border-0 shadow rounded mb-5">
                 <div class="card-header blue-black platinum-text d-flex flex-row">
                     <div class="me-auto">
-                    <small class="h5 align-middle">
+                    <small class="h5">
                         {{ product.name }} |
                     </small>
                     {% if product.rating %}
@@ -212,7 +212,7 @@
                     </div>
 
                     <!-- Edit Review Action -->
-                    <div>
+                    <div class="d-grid gap-1">
                     {% if review.user == request.user or request.user.is_superuser %}
                     <a 
                         href="{% url 'edit_review' review.id %}#reviews-container"

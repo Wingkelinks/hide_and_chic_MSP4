@@ -2,11 +2,11 @@
 {% load static %}
 {% block extra_title %} - Page Not Found{% endblock %}
 {% block content %}
-<div id="error-gradient">
-    <div>
+<div id="error-gradient" class="container">
+    <div class="text-center">
         <h1 class="platinum-text fw-bold text-uppercase">Oh dear, page not found!</h1>
         <div>
-            <a href="{% url 'products' %}" class="btn coral rounded-3 btn-lg">
+            <a href="{% url 'products' %}" class="btn btn-go coral rounded-3 btn-lg">
                 <i class="material-icons">
                     arrow_back_ios_new
                 </i>
