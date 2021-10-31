@@ -388,17 +388,26 @@ Chrome DevTools used to test:
   <img src="/testing/images/looping-issue.png" width="400">
 
 <br><hr>
+
+- Fixed footer covering inner page content.
+- Resolved by adding a CSS class of `vh=100` to certain containers across the site
+- And increasing the padding on some of the elements near the bottom of the page
+
+  <img src="/testing/images/footer-margin-issue.png" width="400">
+
+- Static files issue - resolved 
+  
+   <img src="/testing/images/static_files_issue.png" width="400">
+
+- Image URL issue - resolved 
+   <img src="/testing/images/image_url_issue.png" width="400">
+
 <span id="testing-unresolved"></span>
 
 > # **UNRESOLVED ISSUES**
 
 - The following screenshots address and attempt to debug issues relating to repsonsiveness, general layout issues, ensuring consistency throughout the site (mainly navigation) and general styling/design concerns.
 
-<br><hr>
-
-- Fixed footer covering inner page content. 
-
-  <img src="/testing/images/footer-margin-issue.png" width="400">
 
 <br><hr>
 

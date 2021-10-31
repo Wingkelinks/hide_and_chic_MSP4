@@ -1,12 +1,10 @@
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://github.com/Wingkelinks/hide_and_chic_MSP4)
-
 <h1 align="center">Hide & Chic</h1>
 <h2 align="center">Serving Your Leather Obsession</h2>
 
 <h5 align="center">
 Code Institute MS4 / Full Stack Frameworks With Django</h5>
 
-<img src="" width="800">
+<img src="/media/amiresponsive.png" width="800">
 
 [Click here to view the live project](https://hide-and-chic.herokuapp.com/)
 
@@ -165,9 +163,11 @@ Take a closer look at the colour schemes:
 
 A relational database is utilised for this project as there are a number of relationships between the tables. SQLite was used during development and then Heroku Postgres in production. The diagram below illustrates the database logic:
 
-- Click [here](wireframes/db_diagram.pdf) to view the database schema.
+- Click [here](wireframes/db_diagram1.pdf) to view the database schema.
 
 #### Key models
+
+The two custom models created for the purpose of Hide & Chic and to meet MS4 requirements include the ProductReviews model and the Coupon Model. 
 
 **Category**
 + Stores product category details
@@ -192,8 +192,12 @@ A relational database is utilised for this project as there are a number of rela
 + Sends information to the OrderLineItem model to instantiate a purchase
 
 **ProductReview**
-- Links a review to a registered user and product by foreign key
+- Links a review to a registered user and product by ForeignKey
 - Checks whether a user has previously reviewed the same product
+
+**Coupon**
+- Links to a generated order by Foreignkey
+- Applies an amount for discount - which is specified by an admin in the admin panel
 
 **Order**
 - Handles order information:
@@ -718,17 +722,23 @@ Click [here](TESTING.md) to view testing details.
 
 - [Centering a Material Icon in a div](https://newbedev.com/mat-icon-does-not-center-in-its-div)
 
+## STUDENT PROJECTS
+
+- [Joey Schott](https://github.com/JoeyyScott/gamer-supplies)
+- [C-Undritz](https://github.com/C-Undritz/Boardgame-Bazaar)
+
 ## CONTENT AND MEDIA
 
-- All text content is original
+- All text content is original apart from product descriptions. Some are original, while others were copied from an open source database:
+  - [Barcode Lookup](https://www.barcodelookup.com/)
 - Images obtained from [Unsplash](https://unsplash.com/) & [Pexels](https://www.pexels.com/)
-
 
 ## ACKNOWLEDGEMENTS
 
 - Thanks to my Mentor, Sebastian Immel for his humour, guidance and support.
 - Thank you to the Code Institute and the top quality course content.
+- Thank you to the CI Tutor Support team - last minute troubleshooting skills!
 - Thank you to the Code Institue Slack community - a great place to check in and learn from others.
-- Thank you to Chris Zielinksi for his thorough Full Stack Django example (Boutique Ado), as well as for sharing his insights and expertise on the CI Slack channel
+- Thank you to Chris Zielinksi for his thorough Full Stack Django example (Boutique Ado), as well as for sharing his insights and expertise on the CI Slack channel.
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
