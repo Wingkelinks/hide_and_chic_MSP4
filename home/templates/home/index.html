@@ -42,7 +42,7 @@
       <div class="row g-2 mb-2">
           <div class="col-sm">
               <a href="{% url 'products' %}?category=footwear" class="card">
-                <img src="media/leather_shoe_detail.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+                <img src="{{ MEDIA_URL }}leather_shoe_detail.jpg" class="img-fluid rounded" alt="Watch with leather strap">
                 <div class="card-footer border-bottom border-2bg-transparent text-uppercase">
                   <span class="btn">Footwear</span>
                 </div>
@@ -50,7 +50,7 @@
           </div>
           <div class="col-sm">
             <a href="{% url 'products' %}?category=jackets" class="card">
-              <img src="media/zara_black_jacket.jpg " class="img-fluid rounded" alt="Watch with leather strap">
+              <img src="{{ MEDIA_URL }}zara_black_jacket.jpg " class="img-fluid rounded" alt="Black leather jacket">
               <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
                 <span class="btn">Jackets</span>
               </div>
@@ -60,7 +60,7 @@
       <div class="row g-2">
         <div class="col-sm">
           <a href="{% url 'products' %}?category=bags" class="card">
-            <img src="media/two_leather_bags.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+            <img src="{{ MEDIA_URL }}two_leather_bags.jpg" class="img-fluid rounded" alt="Two leather bags">
             <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
               <span class="btn">Bags</span>
             </div>
@@ -69,7 +69,7 @@
         
         <div class="col-sm">
           <a href="{% url 'products' %}?category=accessories" class="card">
-            <img src="media/smartwatch_strap.jpg" class="img-fluid rounded" alt="Watch with leather strap">
+            <img src="{{ MEDIA_URL }}smartwatch_strap.jpg" class="img-fluid rounded" alt="Watch with leather strap">
             <div class="card-footer border-bottom border-2 bg-transparent text-uppercase">
               <span class="btn">Accessories</span>
             </div>
@@ -87,7 +87,7 @@
       <div class="row g-0">
         <div class="col-md-7">
           <a href="{% url 'products' %}">
-            <img src="media/shirt_shoes.jpg" class="img-fluid rounded-start" alt="Shirt and Shoes">
+            <img src="{{ MEDIA_URL }}shirt_shoes.jpg" class="img-fluid rounded-start" alt="Shirt and Shoes">
           </a>
         </div>
         <div class="col-md-5 d-flex flex-row align-items-end">
