@@ -2,14 +2,25 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from .models import Coupon
 import math
 
 def cart_contents(request):
     
+    coupon_id = request.session.get('coupon_id', int())
     cart_items = []
+    cart_total = 0
     total = 0
+    savings = 0
+    coupon_amount = 0
     product_count = 0
     cart = request.session.get('cart', {})
+    
+    try:
+        coupon = Coupon.objects.get(id=coupon_id)
+
+    except Coupon.DoesNotExist:
+        coupon = None
     
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
@@ -42,9 +53,19 @@ def cart_contents(request):
     
     grand_total = delivery + total
     
+    if coupon is not None:
+        coupon_amount = coupon.amount
+        savings = cart_total*(coupon_amount/Decimal('100'))
+        total = cart_total - savings
+    else:
+        total = cart_total
+    
     context = {
         'cart_items': cart_items,
         'total': total,
+        'coupon': coupon,
+        'coupon_amount': coupon_amount,
+        'savings': savings,
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,

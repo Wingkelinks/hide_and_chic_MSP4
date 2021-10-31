@@ -2,13 +2,12 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
+from decimal import Decimal
 from django.conf import settings
-
 from django_countries.fields import CountryField
-
 from products.models import Product
 from profiles.models import UserProfile
-
+from cart.models import Coupon
 
 class Order(models.Model):
     """
@@ -31,6 +30,8 @@ class Order(models.Model):
     delivery_cost = models.DecimalField(max_digits=6,
                                         decimal_places=2, null=False,
                                         default=0)
+    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL, 
+                               null=True, blank=True)
     order_total = models.DecimalField(max_digits=10,
                                       decimal_places=2, null=False,
                                       default=0)
@@ -58,6 +59,13 @@ class Order(models.Model):
             else:
                 self.delivery_cost = 0
             self.grand_total = self.order_total + self.delivery_cost
+            self.save()
+            
+            # Check for coupon in order
+            if self.coupon is not None:
+                savings = self.order_total * (self.coupon.amount / Decimal("100"))
+                self.order_total = self.order_total - savings
+
             self.save()
         
     def save(self, *args, **kwargs):

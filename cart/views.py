@@ -1,8 +1,11 @@
-from django.shortcuts import get_object_or_404, render, redirect, reverse, HttpResponse
+from django.shortcuts import (
+    get_object_or_404, render, redirect, reverse, HttpResponse)
+from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 
 from products.models import Product
-# Create your views here.
+from .models import Coupon
+from .forms import CouponApplyForm
 
 
 def view_cart(request):
@@ -103,3 +106,25 @@ def remove_from_cart(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+    
+
+@require_http_methods(["GET", "POST"])
+def coupon_apply(request):
+    # Check code entered against codes from coupon model
+    code = request.POST.get('coupon-code')
+
+    # Check for empty coupon field
+    if not code:
+        messages.error(request, "Please enter your code!")
+        return redirect(reverse('view_cart'))
+
+    try:
+        coupon = Coupon.objects.get(code=code)
+        request.session['coupon_id'] = coupon.id
+        messages.success(request, f'Coupon code: { code } applied')
+    except Coupon.DoesNotExist:
+        request.session['coupon_id'] = None
+        messages.warning(request, f'Coupon code: { code } invalid')
+        return redirect('view_cart')
+    else:
+        return redirect('view_cart')

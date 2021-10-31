@@ -7,11 +7,12 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-
+from cart.models import Coupon
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from cart.contexts import cart_contents
+
 
 import stripe
 import json
@@ -60,6 +61,12 @@ def checkout(request):
         
         if order_form.is_valid():
             order = order_form.save(commit=False) # Prevent multiple save events
+            coupon = request.session.get('coupon_id')
+            if coupon is not None:
+                code = Coupon.objects.get(pk=coupon)
+                order.coupon = code
+                request.session['coupon_id'] = None
+            
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)

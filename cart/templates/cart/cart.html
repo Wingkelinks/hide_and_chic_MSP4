@@ -107,6 +107,22 @@
                     {% endif %}
                 </table>
             </div>
+            <!-- Apply coupon -->
+            <div class="col text-center">
+                <p class="fs-5 blue-black-text">Enter Coupon Code</p>
+                <form action="{% url 'coupon_apply' %}" method='POST' class="mb-2">
+                    {% csrf_token %}
+                    <input type="text" name="coupon-code" class="w-50 rounded-3" maxlength="10">
+                    <button type='submit' class="btn btn-sm btn-secondary">Apply</button>
+                </form>
+            {% if not coupon == None %}
+                <div class="mb-2">
+                    <span>Current code: <span class="">{{ coupon }}</span></span> |
+                    <span>Savings: <span class="">${{ savings|floatformat:2 }} - {{ coupon_amount }}%</span> off!</span>
+                </div>
+            </div>
+            {% endif %}
+            <hr class="w-100">
             {% include "cart/checkout_btns.html" %}
         </div>
     </div>
