@@ -101,6 +101,18 @@
                             ${{ delivery|floatformat:2 }}
                         </td>
                     </tr>
+                    <!-- Savings/coupon -->
+                    {% if not coupon == None %}
+                    <tr>
+                        <th scope="row" class="py-3"><h6><strong>Savings:</strong></h6></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-end align-middle rosso-text">
+                            ${{ savings|floatformat:2 }} - {{ coupon_amount }}% off!
+                        </td>
+                    </tr>
+                    {% endif %}
                     <!-- Grand Total -->
                     <tr>
                         <th scope="row" class="py-3"><h5><strong class="fw-bold">Grand Total:</strong></h5></th>
