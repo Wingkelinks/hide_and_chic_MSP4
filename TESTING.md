@@ -286,38 +286,33 @@ Manual testing was performed throughout the building process. The following is a
 - Used to check performance, accessibility and SEO potential on all pages of the website.
   _Across all pages:_
 
-  - Performance: 81%
-  - Accessibility: 80%
-  - Best Practices: 100%
-  - SEO: 90%
+  - Performance: 78%
+  - Accessibility: 76%
+  - Best Practices: 93%
+  - SEO: 82%
 
-- Overall performance is good, however some issues are noted:
+- Overall performance is alright, however some issues are noted:
   - *unused CSS* - a Bootstrap related issue
   - *unused JavaScript* - caused by Stripe & JQuery
 
 #### [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-**TEST**
+ - No Errors
+ - 253 Warnings
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-**TEST**
-
-<img src="static/images/test_images/css-test.png" width="300">
+ - 17 Errors
+ - 5 Warnings
 
 #### [Python Validator](http://pep8online.com/)
 
-- Initial Pep8 tests showed some refactoring was required, mainly removing whitespace and fixing some indenting issues. Everything was cleared apart from what is shown in the image below:
-
-<img src="" width="300">
+- Initial Pep8 tests showed some refactoring was required, mainly removing whitespace and fixing some indenting issues.
 
 #### [JavaScript Validator](https://jshint.com/)
 
-**TEST**
-
-#### [Unicorn revealer - overflow](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln/related) - **TEST**
-
-<img src="static/images/test_images/jshint-test.png" width="300">
+  -  2 warnings
+  -  No Errors
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -415,6 +410,10 @@ Chrome DevTools used to test:
 - Filtered correctly when navigating from the products menu.
 
   <img src="/testing/images/sale-not-filtering.png" width="400">
+
+- Coupon Issue - discounted amount not being rendered. No time left to try and fix this now.
+  
+  <img src="/testing/images/coupon_issue.png" width="400">
 
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
