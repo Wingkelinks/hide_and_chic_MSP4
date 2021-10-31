@@ -76,12 +76,12 @@
 	<div class="carousel-inner text-center">
 		<div class="carousel-item active">
 		<div class="col cyan py-lg-1">
-			<span class="text-uppercase text-black fw-bold">Free delivery on orders over ${{ free_delivery_threshold }}</span>
+			<span class="text-uppercase text-black fw-bold fs">Free delivery on orders over ${{ free_delivery_threshold }}</span>
 		</div>
 		</div>
 		<div class="carousel-item">
-		<div class="col orange-soda py-lg-1 d-none d-sm-block">
-			<span class="text-uppercase platinum-text fw-bold">Summer Sale! For 20% off enter 'SUM20' at checkout</span>
+		<div class="col orange-soda py-lg-1">
+			<span class="text-uppercase platinum-text fw-bold">Sale! Take 20% use <span class="blue-black-text fw-bold">SUM20</span> at checkout</span>
 		</div>
 		</div>
 	</div>
@@ -278,7 +278,7 @@
 {% endblock %}
 
 <!-- Footer -->
-<div id="footer-container" class="container-fluid fixed-bottom">
+<div id="footer-container" class="container-fluid fixed-bottom d-none d-sm-block">
 	<footer class="py-2 mx-5 platinum-text">
 		<div class="row">
 
@@ -295,7 +295,7 @@
 					<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
 				{% endif %}
 	
-				<li class="nav-item "><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
+				<li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
 				</ul>
 			</div>
 

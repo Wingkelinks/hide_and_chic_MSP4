@@ -7,11 +7,11 @@
         <div class="col-sm-11 offset-1 my-auto">
             <h2 class="slogan display-4 logo-font lh-base my-5 platinum-text">Serving your leather obsession...</h2>
             <a 
-            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 me-2">Shop Now
+            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 me-2 call-to-action-btns">Shop Now
           </a>
           {% if not request.user.is_authenticated %}
             <a 
-              href="{% url 'account_signup' %}" type="button" class="btn-hmm rounded-3 blue-black-text platinum fw-bold btn btn-lg border-3 border-dark text-uppercase fs-5">Register
+              href="{% url 'account_signup' %}" type="button" class="btn-hmm rounded-3 blue-black-text platinum fw-bold btn btn-lg border-3 border-dark text-uppercase fs-5 call-to-action-btns">Register
             </a>
           {% endif %}
         </div>
@@ -19,7 +19,7 @@
           <div class="col-sm text-center scroll-up-down-btn">
               <a
               href="#collections"
-              class="btn-yes rounded-circle btn platinum-text blue-black border border-light border-3 opacity-75"
+              class="btn-yes rounded-circle btn btn-sm platinum-text blue-black border border-light border-3 opacity-75"
               ><i class="fas fa-caret-down fa-3x"></i></a>
           </div>
         </div>
@@ -107,7 +107,7 @@
       <div class="col-sm text-end scroll-up-down-btn mt-5">
           <a
           href="#hero-image"
-          class="btn-yes rounded-circle btn blue-black platinum-text border border-light border-3"
+          class="btn-yes rounded-circle btn btn-sm blue-black platinum-text border border-light border-3"
           ><i class="fas fa-caret-up fa-3x"></i></a>
       </div>
     </div>

@@ -435,14 +435,19 @@ footer .socials ul li a:active {
 	}
 
 	.call-to-action-btns {
-		width: 80%;
+		width: 40%;
 		height: auto;
 		font-size: 1rem !important;
+		margin-top: 60px;
 	}
 
 	.card-img-top {
 		width: 100%;
 		height: 50vw;
 		object-fit: cover;
+	}
+
+	.slogan {
+		font-size: 1.6rem;
 	}
 }
