@@ -406,12 +406,14 @@ Admin/superusers can:
   - Add, update and delete product reviews
 
 <span id="features-future"></span>
+
 ## FUTURE FEATURES
 
-- Pagination
+- Pagination/View More button on products page - particularly if more products were present in database
 - Contact page
 - Advanced payment features eg. AfterPay, Google and Apple Pay
-- A blog app 
+- A blog app
+- An average rating functionality on products
 
 ---
 

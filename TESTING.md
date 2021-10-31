@@ -415,6 +415,8 @@ Chrome DevTools used to test:
   
   <img src="/testing/images/coupon_issue.png" width="400">
 
+- I am aware that the **Leather Care** dropdown menu doesn't have any functioning links - if time allowed this is where a blog app would be located.
+
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
