@@ -5,8 +5,9 @@ from products.models import Product
 from .models import Coupon
 import math
 
+
 def cart_contents(request):
-    
+
     coupon_id = request.session.get('coupon_id', int())
     cart_items = []
     cart_total = 0
@@ -15,13 +16,13 @@ def cart_contents(request):
     coupon_amount = 0
     product_count = 0
     cart = request.session.get('cart', {})
-    
+
     try:
         coupon = Coupon.objects.get(id=coupon_id)
 
     except Coupon.DoesNotExist:
         coupon = None
-    
+
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
@@ -43,23 +44,23 @@ def cart_contents(request):
                     'product': product,
                     'size': size,
                 })
-    
+
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-    else: 
+    else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     if coupon is not None:
         coupon_amount = coupon.amount
         savings = cart_total*(coupon_amount/Decimal('100'))
         total = cart_total - savings
     else:
         total = cart_total
-    
+
     context = {
         'cart_items': cart_items,
         'total': total,
@@ -72,5 +73,5 @@ def cart_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
-    
+
     return context

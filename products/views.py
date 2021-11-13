@@ -14,17 +14,18 @@ from checkout.models import OrderLineItem
 
 
 def all_products(request):
-    """ 
-    A view to show all products, including sorting categories and handling search queries.
     """
-    
+    A view to show all products,
+    including sorting categories and handling search queries.
+    """
+
     products = Product.objects.all()
     query = None
     categories = None
     sort = None
     direction = None
     sale = False
-    
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -33,7 +34,7 @@ def all_products(request):
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
-                sortkey = 'category__name'                
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -44,7 +45,7 @@ def all_products(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            
+
         if 'sale' in request.GET:
             sale = True
             products = products.filter(on_sale=True)
@@ -52,12 +53,15 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "Please enter a search query!")
                 return redirect(reverse('products'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)                           
+
+            queries = (
+                Q(name__icontains=query) |
+                Q(description__icontains=query)
+                )
             products = products.filter(queries)
-                  
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -67,40 +71,40 @@ def all_products(request):
         'current_sorting': current_sorting,
         'sale': sale,
     }
-    
+
     return render(request, 'products/products.html', context)
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details including a reviews and ratings form. """
-    
+    """ A view to show individual product details,
+    including a reviews and ratings form. """
+
     if request.user.is_authenticated:
         profile = get_object_or_404(UserProfile, user_id=request.user)
     else:
         profile = None
-    
+
     # To only return one product
     product = get_object_or_404(Product, pk=product_id)
     form = ReviewForm()
-    
+
     context = {
         'product': product,
         'form': form,
         'profile': profile,
     }
-    
+
     return render(request, 'products/product_detail.html', context)
 
 
 @login_required
 def add_product(request):
     """ Add a product to the database """
-    
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that is a job for Admin!')
         return redirect(reverse('home'))
 
-    
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -108,10 +112,11 @@ def add_product(request):
             messages.success(request, f'Successfully added {product.name}!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. \
+                Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -123,11 +128,11 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit an existing product in the database """
-    
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that is a job for Admin!')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -136,7 +141,8 @@ def edit_product(request, product_id):
             messages.success(request, f'Successfully updated {product.name}!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. \
+                Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -153,22 +159,22 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     """ Allow admin users to delete a product from the database """
-    
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that is a job for Admin!')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
-    
+
     return redirect(reverse('products'))
 
 
 @login_required
 def add_review(request, product_id):
     """ Allow logged in users to submit a product review """
-    
+
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
         profile = get_object_or_404(UserProfile, user_id=request.user)
@@ -201,11 +207,11 @@ def add_review(request, product_id):
                     f"Thank you for reviewing {product.name}!")
 
                 return redirect(reverse('product_detail', args=[product.id]))
-            
             else:
                 messages.error(
                     request,
-                    "Sorry - that didn't work. Please check your form and try again!")
+                    "Sorry - that didn't work. \
+                        Please check your form and try again!")
 
     context = {
         'form': form,
@@ -232,7 +238,8 @@ def edit_review(request, review_id):
         else:
             messages.error(
                 request,
-                "Sorry - that didn't work. Please check your form and try again!")
+                "Sorry - that didn't work. \
+                    Please check your form and try again!")
 
     else:
         form = ReviewForm(instance=review)

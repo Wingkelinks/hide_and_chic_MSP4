@@ -5,7 +5,7 @@ from .models import Product, Category, ProductReview
 
 class ProductForm(forms.ModelForm):
     """
-    A form for product management by admin. 
+    A form for product management by admin.
     """
 
     class Meta:
@@ -13,8 +13,10 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'
 
     # Replace image field with field using widget
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput
+        )
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
@@ -23,13 +25,13 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'rounded'
-            
+
 
 class ReviewForm(forms.ModelForm):
     """
-    A form for sumbitting product reviews and ratings. 
+    A form for sumbitting product reviews and ratings.
     """
-    
+
     class Meta:
         model = ProductReview
         fields = ('review_title', 'rating', 'review')
