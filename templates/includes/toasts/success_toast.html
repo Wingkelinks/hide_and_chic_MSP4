@@ -1,5 +1,5 @@
 <div class="toast custom-toast rounded-3" data-autohide="">
-    <!---- Toast Title and Close ---->
+    <!-- Toast Title and Close -->
     <div class="toast-header bg-secondary platinum-text">
         <strong class="me-auto text-uppercase">Success!</strong>
         <button 
@@ -9,14 +9,14 @@
             aria-label="Close">
         </button>
     </div>
-    <!---- Toast Success Message ---->
+    <!-- Toast Success Message -->
     <div class="toast-body blue-black-text">
         <div class="row border-bottom border-4 border-light">
             <div class="col text-capitalize fst-italic mb-2 fw-bold lh-lg">
                 {{ message }}
             </div>
         </div>
-        <!---- Toast Success Message For Products ---->
+        <!-- Toast Success Message For Products -->
         {% if grand_total and not on_profile_page %}
             <p class="blue-black-text py-2">Your cart ({{ product_count }})</p>
             <div class="cart-notification-wrapper">
@@ -39,10 +39,10 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <strong><p class="mt-3 mb-1 text-black">
+                    <p class="mt-3 mb-1 text-black"><strong>
                         Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
                         <span class="float-right">${{ total|floatformat:2 }}</span>
-                    </p></strong>
+                    </strong></p>
                     {% if free_delivery_delta > 0 %}
                         <p class="mb-2 p-2 rosso rounded text-white text-center">
                             Spend <strong>${{ free_delivery_delta }}</strong> to qualify for free delivery!

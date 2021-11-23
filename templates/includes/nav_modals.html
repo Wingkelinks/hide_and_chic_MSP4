@@ -8,7 +8,7 @@
 	class="modal fade" 
 	id="searchModal"
 	tabindex="-1" 	
-	aria-labelledby="searchModalLabel" aria-hidden="true">
+	aria-labelledby="searchModal" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content border border-warning">
 			<div class="modal-header blue-black">
@@ -47,7 +47,7 @@
 	class="modal fade"
 	id="cartModal"
 	tabindex="-1" 
-	aria-labelledby="cartModalLabel" aria-hidden="true">
+	aria-labelledby="cartModal" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable">
 		<div class="modal-content border border-warning">
 			<div class="modal-header blue-black">
@@ -104,13 +104,13 @@
 			<div class="modal-footer border-0">
 				{% if cart_items %}
 					<a href="{% url 'view_cart' %}">
-					<button type="button" class="text-uppercase btn coral rounded-3 btn-sml btn-act">View Cart</button>
+						<div class="text-uppercase btn coral rounded-3 btn-sml btn-act">View Cart</div>
 					</a>
 				{% endif %}
 				<a href="{% url 'products' %}">
-				<button type="button" class="text-uppercase btn cyan rounded-3 btn-sml btn-hmm">Continue Shopping</button>
+					<div class="text-uppercase btn cyan rounded-3 btn-sml btn-hmm">Continue Shopping</div>
 				</a>
-			</div>		
+			</div>
 		</div>
 	</div>
 </div>

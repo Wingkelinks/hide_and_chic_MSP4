@@ -7,11 +7,11 @@
         <div class="col-sm-11 offset-1 my-auto">
             <h2 class="slogan display-4 logo-font lh-base my-5 platinum-text">Serving your leather obsession...</h2>
             <a 
-            href="{% url 'products' %}" type="button" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 me-2 call-to-action-btns">Shop Now
-          </a>
+              href="{% url 'products' %}" class="btn-yes rounded-3 blue-black platinum-text fw-bold btn btn-lg border-1 border-light text-uppercase fs-5 me-2 call-to-action-btns">Shop Now
+            </a>
           {% if not request.user.is_authenticated %}
             <a 
-              href="{% url 'account_signup' %}" type="button" class="btn-hmm rounded-3 blue-black-text platinum fw-bold btn btn-lg border-3 border-dark text-uppercase fs-5 call-to-action-btns">Register
+              href="{% url 'account_signup' %}" class="btn-hmm rounded-3 blue-black-text platinum fw-bold btn btn-lg border-3 border-dark text-uppercase fs-5 call-to-action-btns">Register
             </a>
           {% endif %}
         </div>
@@ -23,6 +23,7 @@
               ><i class="fas fa-caret-down fa-3x"></i></a>
           </div>
         </div>
+    </div>
 </div>
 
 <!-- COLLECTIONS & FEATURE SECTION -->
@@ -97,8 +98,8 @@
             <hr class="text-secondary w-25 pt-1">
             <p class="card-text mt-5 lh-lg">The new collection has finally landed... An Italian Autumn is the seasonal inspiration for this gorgeous collection of warm rusts, earthy ochres and tans, complemented by hints of sky blue and cool jade.</p>
             <a 
-            href="{% url 'products' %}" type="button" class="btn btn-sml btn-yes rounded-3 blue-black platinum-text fw-bold border-1 border-light text-uppercase fs-5 me-2">Shop Now
-          </a>
+            href="{% url 'products' %}" class="btn btn-sml btn-yes rounded-3 blue-black platinum-text fw-bold border-1 border-light text-uppercase fs-5 me-2">Shop Now
+            </a>
           </div>
         </div>
       </div>
@@ -108,7 +109,8 @@
           <a
           href="#hero-image"
           class="btn-yes rounded-circle btn btn-sm blue-black platinum-text border border-light border-3"
-          ><i class="fas fa-caret-up fa-3x"></i></a>
+          ><i class="fas fa-caret-up fa-3x"></i>
+          </a>
       </div>
     </div>
   </div>
@@ -130,8 +132,8 @@
             <blockquote class="blockquote">
               <p>"Amazing products and service!"</p>
             </blockquote>
-            <figcaption class="blockquote-footer"><h5 class="card-title">Jason Hunter</h5>
-            </figcaption>
+            <div class="blockquote-footer"><h5 class="card-title">Jason Hunter</h5>
+            </div>
           </div>
         </div>
       </div>
@@ -141,8 +143,8 @@
             <blockquote class="blockquote">
               <p>"Hide & Chic is my go-to for all things gorgeously leather. High quality products and deliveries, always prompt."</p>
             </blockquote>
-            <figcaption class="blockquote-footer"><h5 class="card-title">Elliot Smith</h5>
-            </figcaption>
+            <div class="blockquote-footer"><h5 class="card-title">Elliot Smith</h5>
+            </div>
           </div>
         </div>
       </div>
@@ -152,8 +154,8 @@
             <blockquote class="blockquote">
               <p>"Only the best will do, which is why I buy all my leather products through Hide & Chic."</p>
             </blockquote>
-            <figcaption class="blockquote-footer"><h5 class="card-title">Kathleen Taylor</h5>
-            </figcaption>
+            <div class="blockquote-footer"><h5 class="card-title">Kathleen Taylor</h5>
+            </div>
           </div>
         </div>
       </div>

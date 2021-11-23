@@ -71,8 +71,9 @@
                     <div class="card h-100 border-light position-relative shadow-sm">
                     <!-- If product on sale render badge -->
                     {% if product.on_sale %}
-                        <span id="sale-badge"
-                        class="position-absolute top-0 end-0 py-2 px-1 m-3 rosso platinum-text rounded-circle">Sale</span>
+                        <span
+                            class="position-absolute top-0 end-0 py-2 px-1 m-3 rosso platinum-text rounded-circle">Sale
+                        </span>
                     {% endif %}
                     <!-- If image exists render img url -->
                     {% if product.image %}
@@ -170,7 +171,7 @@
     {{ block.super }}
     <!-- Sort Selector Logic -->
     <!-- Obtained from CI Boutique Ado Walkthrough -->
-    <script type="text/javascript">
+    <script>
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
@@ -193,7 +194,7 @@
         })
     </script>
     <!-- Tooltips -->
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){
            $('[data-bs-toggle="tooltip"]').tooltip();
         });       

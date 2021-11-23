@@ -2,385 +2,387 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
 
-	{% block meta %}
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	{% endblock %}
+		{% block meta %}
+			<meta charset="UTF-8" />
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% endblock %}
 
-	{% block extra_meta %}
-	{% endblock %}
+		{% block extra_meta %}
+		{% endblock %}
 
-	{% block corecss %}
-		<!-- Bootstrap CSS -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-			crossorigin="anonymous"
-		/>
-		<link 
-			rel="preconnect" 
-			href="https://fonts.googleapis.com">
-		<link 
-			rel="preconnect" 
-			href="https://fonts.gstatic.com" 
-			crossorigin>
-		<link 
-			href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400&display=swap" 
-			rel="stylesheet">
-		<link 
-			href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer+SC&family=Josefin+Sans&display=swap" rel="stylesheet">
-		<link 
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet">
-		<!-- Base CSS -->
-		<link rel="stylesheet" href="{% static 'css/base.css' %}">
-	{% endblock %}
+		{% block corecss %}
+			<!-- Bootstrap CSS -->
+			<link
+				href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+				rel="stylesheet"
+				integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+				crossorigin="anonymous"
+			/>
+			<link 
+				rel="preconnect" 
+				href="https://fonts.googleapis.com">
+			<link 
+				rel="preconnect" 
+				href="https://fonts.gstatic.com" 
+				crossorigin>
+			<link 
+				href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400&display=swap" 
+				rel="stylesheet">
+			<link 
+				href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+Great+Primer+SC&family=Josefin+Sans&display=swap" rel="stylesheet">
+			<link 
+				href="https://fonts.googleapis.com/icon?family=Material+Icons"
+				rel="stylesheet">
+			<!-- Base CSS -->
+			<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		{% endblock %}
 
-	{% block extra_css %}
-	{% endblock %}
+		{% block extra_css %}
+		{% endblock %}
 
-	{% block corejs %}
-		<script
-			src="https://kit.fontawesome.com/23c2ad1397.js" 		crossorigin="anonymous">
-		</script>
-		<script
-			src="https://code.jquery.com/jquery-3.6.0.min.js"
-			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			crossorigin="anonymous">
-		</script>
-		<!-- JavaScript Bundle with Popper -->
-		<script 
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/	bootstrap.bundle.min.js" 
-			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-		</script>
-		<!-- Stripe -->
-		<script src="https://js.stripe.com/v3/"></script>
-	{% endblock %}
+		{% block corejs %}
+			<script
+				src="https://kit.fontawesome.com/23c2ad1397.js" 		crossorigin="anonymous">
+			</script>
+			<script
+				src="https://code.jquery.com/jquery-3.6.0.min.js"
+				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+				crossorigin="anonymous">
+			</script>
+			<!-- JavaScript Bundle with Popper -->
+			<script 
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+			</script>
+			<!-- Stripe -->
+			<script src="https://js.stripe.com/v3/"></script>
+		{% endblock %}
 
-	{% block extra_js %}
-	{% endblock %}
+		{% block extra_js %}
+		{% endblock %}
 
 	<title>Hide & Chic{% block extra_title %}{% endblock %}</title>
-</head>
-<body>
-		
-<!-- MODALS -->
-{% include 'includes/nav_modals.html' %}
 
-<!-- SALE / FREE DELIVERY CAROUSEL BANNER -->
-<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-	<div class="carousel-inner text-center">
-		<div class="carousel-item active">
-		<div class="col cyan py-lg-1">
-			<span class="text-uppercase text-black fw-bold fs">Free delivery on orders over ${{ free_delivery_threshold }}</span>
-		</div>
-		</div>
-		<div class="carousel-item">
-		<div class="col orange-soda py-lg-1">
-			<span class="text-uppercase platinum-text fw-bold">Sale! Take 20% use <span class="blue-black-text fw-bold">SUM20</span> at checkout</span>
-		</div>
+	</head>
+	<body>
+			
+	<!-- MODALS -->
+	{% include 'includes/nav_modals.html' %}
+
+	<!-- SALE / FREE DELIVERY CAROUSEL BANNER -->
+	<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+		<div class="carousel-inner text-center">
+			<div class="carousel-item active">
+			<div class="col cyan py-lg-1">
+				<span class="text-uppercase text-black fw-bold fs">Free delivery on orders over ${{ free_delivery_threshold }}</span>
+			</div>
+			</div>
+			<div class="carousel-item">
+			<div class="col orange-soda py-lg-1">
+				<span class="text-uppercase platinum-text fw-bold">Sale! Take 20% use <span class="blue-black-text fw-bold">SUM20</span> at checkout</span>
+			</div>
+			</div>
 		</div>
 	</div>
-</div>
 
-<!-- NAVBAR -->
-<!-- Bootstrap Offcanvas Navbar -->
-<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
-	<div class="container-fluid mx-4">
-		<!-- Left Aligned Mobile Brand -->
-		<a class="logo navbar-brand logo-font fs-1 text-white py-0" href="{% url 'home' %}">
-			Hide & Chic
-		</a>
+	<!-- NAVBAR -->
+	<!-- Bootstrap Offcanvas Navbar -->
+	<nav id="navbar" class="navbar navbar-expand-lg blue-black fixed-top">
+		<div class="container-fluid mx-4">
+			<!-- Left Aligned Mobile Brand -->
+			<a class="logo navbar-brand logo-font fs-1 text-white py-0" href="{% url 'home' %}">
+				Hide & Chic
+			</a>
 
-		<!-- Offcanvas Mobile Toggler -->
-		<button 
-				class="navbar-toggler pe-auto"
-				type="button" 
-				data-bs-toggle="offcanvas" 
-				data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-			<span class="blue-black-text platinum fas fa-bars fa-lg custom-toggler p-2"></span>
-		</button>
-		<!-- Offcanvas Mobile SideNav -->
-		<div 
-			class="offcanvas offcanvas-end" 
-			tabindex="-1" 
-			id="navbarOffcanvasLg" 
-			aria-labelledby="navbarOffcanvasLgLabel">
-
-			<!-- Offcanvas Sidenav Content -->
-			<div class="offcanvas-header">
-				<h5 
-					class="offcanvas-title logo-font fs-3 blue-black-text"
-					id="offcanvasNavbarLabel">Hide & Chic
-				</h5>
-				<button 
+			<!-- Offcanvas Mobile Toggler -->
+			<button 
+					class="navbar-toggler pe-auto"
 					type="button" 
-					class="btn-close text-reset" data-bs-dismiss="offcanvas" 
-					aria-label="Close">
-				</button>
-			</div>
-			<div class="offcanvas-body blue-black">
-				<!-- Nav -->
-				<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold align-self-end">
-					<li class="nav-item blue-black-text">
-						<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-					</li>
-					
-					<!-- Shop All Dropdown -->
-					<li class="nav-item dropdown">
-						<!-- Shop All Toggle -->
-						<a class="nav-link dropdown-toggle blue-black" 
-							href="{% url 'products' %}" role="button" 
-							id="dropdownMenuLink" 
-							data-bs-toggle="dropdown" aria-expanded="false">Shop All
-						</a>
-		
-						<!-- Shop All Menu -->
-						<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,footwear.on_sale">Footwear</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets,jackets.on_sale">Jackets</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=bags,bags.on_sale">Bags</a></li>
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories,accessories.on_sale">Accessories</a></li>
-							
-							<li><a class="dropdown-item" href="{% url 'products' %}?sale">Sale</a></li>
-							
-							<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
-						</ul>
-					</li>
+					data-bs-toggle="offcanvas" 
+					data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+				<span class="blue-black-text platinum fas fa-bars fa-lg custom-toggler p-2"></span>
+			</button>
+			<!-- Offcanvas Mobile SideNav -->
+			<div 
+				class="offcanvas offcanvas-end" 
+				tabindex="-1" 
+				id="navbarOffcanvasLg" 
+				aria-labelledby="navbarOffcanvasLg">
 
-					<!-- Leather Care Dropdown -->
-					<li class="nav-item dropdown">
-						<!-- Leather Care Toggle -->
-						<a class="nav-link dropdown-toggle" 
-							href="#" role="button" 
-							id="dropdownMenuLink" 
-							data-bs-toggle="dropdown" aria-expanded="false">Leather Care
-						</a>
-		
-						<!-- Leather Care Menu -->
-						<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Products</a></li>
-							<li><a class="dropdown-item" href="#">FAQ</a></li>
-						</ul>
-					</li>
-				</ul>
-
-				<!-- Nav 2 -->
-				<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase align-self-end">
-
-					<!-- Product Management -->	
-					{% if request.user.is_superuser %}
+				<!-- Offcanvas Sidenav Content -->
+				<div class="offcanvas-header">
+					<h5 
+						class="offcanvas-title logo-font fs-3 blue-black-text"
+						id="offcanvasNavbarLabel">Hide & Chic
+					</h5>
+					<button 
+						type="button" 
+						class="btn-close text-reset" data-bs-dismiss="offcanvas" 
+						aria-label="Close">
+					</button>
+				</div>
+				<div class="offcanvas-body blue-black">
+					<!-- Nav -->
+					<ul class="navbar-nav justify-content-center flex-grow-1 text-uppercase fw-bold align-self-end">
+						<li class="nav-item blue-black-text">
+							<a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+						</li>
+						
+						<!-- Shop All Dropdown -->
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" 
-								href="#" role="button" 
+							<!-- Shop All Toggle -->
+							<a class="nav-link dropdown-toggle blue-black" 
+								href="{% url 'products' %}" role="button" 
 								id="dropdownMenuLink" 
-								data-bs-toggle="dropdown" aria-expanded="false">Product Management
+								data-bs-toggle="dropdown" aria-expanded="false">Shop All
 							</a>
-							<!-- Product Management Menu -->
-							<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
-								<li><a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a></li>
+			
+							<!-- Shop All Menu -->
+							<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,footwear.on_sale">Footwear</a></li>
+								<li><a class="dropdown-item" href="{% url 'products' %}?category=jackets,jackets.on_sale">Jackets</a></li>
+								<li><a class="dropdown-item" href="{% url 'products' %}?category=bags,bags.on_sale">Bags</a></li>
+								<li><a class="dropdown-item" href="{% url 'products' %}?category=accessories,accessories.on_sale">Accessories</a></li>
+								
+								<li><a class="dropdown-item" href="{% url 'products' %}?sale">Sale</a></li>
+								
+								<li><a class="dropdown-item" href="{% url 'products' %}?category=footwear,jackets,bags,accessories,sale">All Products</a></li>
 							</ul>
 						</li>
-					{% endif %}
-				</ul>
 
-				<!-- Nav With Icons -->	
-				<ul class="navbar-nav flex-row nav-icons justify-content-between mt-sm-4">
-					<!-- User -->
-					<li class="nav-item ml-lg-n4 dropdown">
-						<a class="nav-link dropdown-toggle"
-							data-bs-toggle="dropdown"
-							role="button" 
-							aria-expanded="false"
-							href="#">
-							<i class="fas fa-user-circle me-lg-0 fa-lg"></i>
+						<!-- Leather Care Dropdown -->
+						<li class="nav-item dropdown">
+							<!-- Leather Care Toggle -->
+							<a class="nav-link dropdown-toggle" 
+								href="#" role="button" 
+								id="dropdownMenuLink"
+								data-bs-toggle="dropdown" aria-expanded="false">Leather Care
+							</a>
+			
+							<!-- Leather Care Menu -->
+							<ul class="dropdown-menu border-dark border-2" 			aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Products</a></li>
+								<li><a class="dropdown-item" href="#">FAQ</a></li>
+							</ul>
+						</li>
+					</ul>
+
+					<!-- Nav 2 -->
+					<ul class="navbar-nav nav-divided blue-black fw-bold text-uppercase align-self-end">
+
+						<!-- Product Management -->	
+						{% if request.user.is_superuser %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" 
+									href="#" role="button" 
+									id="dropdownMenuLink" 
+									data-bs-toggle="dropdown" aria-expanded="false">Product Management
+								</a>
+								<!-- Product Management Menu -->
+								<ul class="dropdown-menu border-dark border-2"		aria-labelledby="dropdownMenuLink">
+									<li><a class="dropdown-item" href="{% url 'add_product' %}">Add a Product</a></li>
+								</ul>
+							</li>
+						{% endif %}
+					</ul>
+
+					<!-- Nav With Icons -->	
+					<ul class="navbar-nav flex-row nav-icons justify-content-between mt-sm-4">
+						<!-- User -->
+						<li class="nav-item ml-lg-n4 dropdown">
+							<a class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								role="button" 
+								aria-expanded="false"
+								href="#">
+								<i class="fas fa-user-circle me-lg-0 fa-lg"></i>
+							</a>
+							<ul class="dropdown-menu text-uppercase">
+								{% if request.user.is_authenticated %}
+									<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+									<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
+								{% else %}
+									<li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
+									<li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+								{% endif %}
+							</ul>
+						</li>
+						<!-- Heart -->
+						<li class="nav-item ml-lg-n4">
+							<a id="wishlist" 
+							class="nav-link nav-icons heart"
+							href="{% url 'wishlist' %}"
+							data-bs-toggle="tooltip" data-bs-placement="bottom" 
+							title="View Wishlist">
+							<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
 						</a>
-						<ul class="dropdown-menu text-uppercase">
-							{% if request.user.is_authenticated %}
-								<li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-								<li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
-							{% else %}
-								<li><a class="dropdown-item" href="{% url 'account_login' %}">Log In</a></li>
-								<li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-							{% endif %}
-						</ul>
-					</li>
-					<!-- Heart -->
-					<li class="nav-item ml-lg-n4">
-						<a id="wishlist" 
-						class="nav-link nav-icons heart"
-						href="{% url 'wishlist' %}"
-						data-bs-toggle="tooltip" data-bs-placement="bottom" 
-						title="View Wishlist">
-						<i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-					</a>
-					</li>
-					<!-- Cart with Modal Trigger -->
-					<li class="nav-item ml-lg-n4 pe-auto">
-					<a	href="#"
-						class="nav-link" 
-						data-bs-toggle="modal"
-						data-bs-target="#cartModal">
-						<span>
-						<i class="fas fa-shopping-cart fa-lg"></i>
-						</span>
-						<span>
-							{% if cart_items %}
-								{{ product_count }}
-							{% endif %}
-						</span>
-					</a>
-					</li>
-					<!-- Search with Modal Trigger -->
-					<li class="nav-item pe-auto">
-						<a 
-							href="#"
-							class="nav-link"
-							data-bs-toggle="modal" data-bs-target="#searchModal">
-							<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
+						</li>
+						<!-- Cart with Modal Trigger -->
+						<li class="nav-item ml-lg-n4 pe-auto">
+						<a	href="#"
+							class="nav-link" 
+							data-bs-toggle="modal"
+							data-bs-target="#cartModal">
+							<span>
+							<i class="fas fa-shopping-cart fa-lg"></i>
+							</span>
+							<span>
+								{% if cart_items %}
+									{{ product_count }}
+								{% endif %}
+							</span>
 						</a>
-					</li>
-				</ul>
+						</li>
+						<!-- Search with Modal Trigger -->
+						<li class="nav-item pe-auto">
+							<a 
+								href="#"
+								class="nav-link"
+								data-bs-toggle="modal" data-bs-target="#searchModal">
+								<i class="fas fa-search fa-lg me-lg-0 me-3"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-{% if messages %}
-	<div class="message-container">
-		{% for message in messages %}
-			{% with message.level as level %}
-				{% if level == 40 %}
-					{% include 'includes/toasts/error_toast.html' %}
-				{% elif level == 30 %}
-					{% include 'includes/toasts/warning_toast.html' %}
-				{% elif level == 25 %}
-					{% include 'includes/toasts/success_toast.html' %}
-				{% else %}
-					{% include 'includes/toasts/info_toast.html' %}
-				{% endif %}
-			{% endwith %}
-		{% endfor %}
-	</div>
-{% endif %}
+	{% if messages %}
+		<div class="message-container">
+			{% for message in messages %}
+				{% with message.level as level %}
+					{% if level == 40 %}
+						{% include 'includes/toasts/error_toast.html' %}
+					{% elif level == 30 %}
+						{% include 'includes/toasts/warning_toast.html' %}
+					{% elif level == 25 %}
+						{% include 'includes/toasts/success_toast.html' %}
+					{% else %}
+						{% include 'includes/toasts/info_toast.html' %}
+					{% endif %}
+				{% endwith %}
+			{% endfor %}
+		</div>
+	{% endif %}
 
-{% block page_header %}
-{% endblock %}
+	{% block page_header %}
+	{% endblock %}
 
 
-{% block content %}
-{% endblock %}
+	{% block content %}
+	{% endblock %}
 
-<!-- Footer -->
-<div id="footer-container" class="container-fluid fixed-bottom d-none d-sm-block">
-	<footer class="py-2 mx-5 platinum-text">
-		<div class="row">
+	<!-- Footer -->
+	<div id="footer-container" class="container-fluid fixed-bottom d-none d-sm-block">
+		<footer class="py-2 mx-5 platinum-text">
+			<div class="row">
 
-			<div class="col-12 my-auto">
-				<ul class="nav flex-row justify-content-center">
-				<li class=""><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
-				<li class=""><a href="{% url 'products' %}" class="nav-link ">Shop All</a></li>
+				<div class="col-12 my-auto">
+					<ul class="nav flex-row justify-content-center">
+					<li class=""><a href="{% url 'home' %}" class="nav-link ">Home</a></li>
+					<li class=""><a href="{% url 'products' %}" class="nav-link ">Shop All</a></li>
 
-				{% if user is authenticated %}
-					<li class=""><a href="{% url 'profile' %}" class="nav-link ">My Profile</a></li>
-					<li class="nav-item "><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a></li>
-				{% else %}
-					<li class="nav-item "><a href="{% url 'account_login' %}" class="nav-link ">Log In</a></li>
-					<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
-				{% endif %}
-	
-				<li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
-				</ul>
-			</div>
+					{% if user is authenticated %}
+						<li class=""><a href="{% url 'profile' %}" class="nav-link ">My Profile</a></li>
+						<li class="nav-item "><a href="{% url 'account_logout' %}" class="nav-link ">Log Out</a></li>
+					{% else %}
+						<li class="nav-item "><a href="{% url 'account_login' %}" class="nav-link ">Log In</a></li>
+						<li class="nav-item mb-2"><a href="{% url 'account_signup' %}" class="nav-link ">Register</a></li>
+					{% endif %}
+		
+					<li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal">Cart</a></li>
+					</ul>
+				</div>
 
-			<div class="col-sm text-center">
-				<p>&copy; <span class="copyright"></span><span class="logo-font px-1">Hide & Chic</span>, Inc.</p>
-			</div>
+				<div class="col-sm text-center">
+					<p>&copy; <span class="copyright"></span><span class="logo-font px-1">Hide & Chic</span>, Inc.</p>
+				</div>
 
-			<div class="col-sm socials">
-				<ul class="nav flex-row justify-content-center">
-					<li class="px-1">
-						<a class="link-light" 
-							href="https://www.facebook.com/" 
-							aria-hidden="true"
-							target="_blank"
-							rel="noopener noreferrer">
-						<i class="fab fa-facebook fa-lg"></i>
-						</a>
-					</li>
-					<li class="px-1">
-						<a 
-							class="link-light" 
-							href="https://www.instagram.com/"
-							aria-hidden="true"
-							target="_blank"
-							rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i>
-						</a>
-					</li>
-					<li class="px-1">
-						<a 
-							class="link-light" 
-							href="https://www.youtube.com/"
-							aria-hidden="true"
-							target="_blank"
-							rel="noopener noreferrer"><i class="fab fa-youtube-square fa-lg"></i>
-						</a>
-					</li>
-				</ul>
-			</div>
-	
-			<div class="col-sm my-auto d-none d-sm-block d-sm-none d-md-block justify-content-start">
-				<form method="GET" action="{% url 'products' %}">
-					<div class="input-group w-100 mb-0">
-						<input class="form-control form-control-sm border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
-						<div class="">
-							<button class=" btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
-								<span class="icon">
-									<i class="fas fa-search"></i>
-								</span>
-							</button>
+				<div class="col-sm socials">
+					<ul class="nav flex-row justify-content-center">
+						<li class="px-1">
+							<a class="link-light" 
+								href="https://www.facebook.com/" 
+								aria-hidden="true"
+								target="_blank"
+								rel="noopener noreferrer">
+							<i class="fab fa-facebook fa-lg"></i>
+							</a>
+						</li>
+						<li class="px-1">
+							<a 
+								class="link-light" 
+								href="https://www.instagram.com/"
+								aria-hidden="true"
+								target="_blank"
+								rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i>
+							</a>
+						</li>
+						<li class="px-1">
+							<a 
+								class="link-light" 
+								href="https://www.youtube.com/"
+								aria-hidden="true"
+								target="_blank"
+								rel="noopener noreferrer"><i class="fab fa-youtube-square fa-lg"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+		
+				<div class="col-sm my-auto d-none d-sm-block d-sm-none d-md-block justify-content-start">
+					<form method="GET" action="{% url 'products' %}">
+						<div class="input-group w-100 mb-0">
+							<input class="form-control form-control-sm border-black rounded-3" type="text" name="q" placeholder="Search for a product...">
+							<div class="">
+								<button class=" btn-yes orange-soda platinum-text rounded-3 border-2 border-light ms-2" type="submit">
+									<span class="icon">
+										<i class="fas fa-search"></i>
+									</span>
+								</button>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
-	</footer>
-</div>
+		</footer>
+	</div>
 
-{% block postloadjs %}
-	{{ block.super }}
-	<!-- Code Snippet for bootstrap banner above fixed-top nav --> 
-	<!-- https://stackoverflow.com/questions/44526926/show-bootstrap-banner-at-the-top-before-navbar/44530320  -->
-	<script type="text/javascript">
-		$(window).scroll(function(){
-			if ($(window).scrollTop() == 0) {
-				$("#navbar").removeClass("fixed-top");
-			} else {
-				$("#navbar").addClass("fixed-top");
-			}
+	{% block postloadjs %}
+		{{ block.super }}
+		<!-- Code Snippet for bootstrap banner above fixed-top nav --> 
+		<!-- https://stackoverflow.com/questions/44526926/show-bootstrap-banner-at-the-top-before-navbar/44530320  -->
+		<script>
+			$(window).scroll(function(){
+				if ($(window).scrollTop() == 0) {
+					$("#navbar").removeClass("fixed-top");
+				} else {
+					$("#navbar").addClass("fixed-top");
+				}
+				});
+		</script>
+		<!-- Toasts -->
+		<script>
+			$(document).ready(function(){
+				$('.toast').toast('show');
 			});
-	</script>
-	<!-- Toasts -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.toast').toast('show');
-		});
-	</script>
-	<!-- Tooltips -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('[data-bs-toggle="tooltip"]').tooltip();
-		});       
-	</script>
-	<!-- Render Current Date Function - code snippet from Code Institute Flask Framework Walkthrough Project -->
-	<script type="text/javascript">
-		$(".copyright").text(new Date().getFullYear());
-	</script>
-{% endblock %}
-</body>
+		</script>
+		<!-- Tooltips -->
+		<script>
+			$(document).ready(function(){
+				$('[data-bs-toggle="tooltip"]').tooltip();
+			});       
+		</script>
+		<!-- Render Current Date Function - code snippet from Code Institute Flask Framework Walkthrough Project -->
+		<script>
+			$(".copyright").text(new Date().getFullYear());
+		</script>
+	{% endblock %}
+	</body>
 </html>
