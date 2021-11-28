@@ -14,6 +14,7 @@
 
 
 <div class="overlay"></div>
+
 <div id="fix-height-wrapper" class="container-fluid">
     <div class="row">
         <div class="col text-center">
@@ -48,20 +49,18 @@
         <div class="col-10">
             <div class="row mb-2">
                 <div class="col">
-                    <div>
-                        <p class="text-muted mt-3 text-center">
-                        {{ products|length }} Products 
-                        {% if search_term %} found for 
-                            <strong>"{{ search_term }}" </strong>
-                        {% endif %}
-                        {% if search_term or current_categories or current_sorting != 'None_None' %}
-                            <span class="small"> |
-                                <a class="return-product-link text-decoration-none text-uppercase coral-text" href="{% url 'products' %}">Return to All Products
-                                </a>
-                            </span>
-                        {% endif %}
-                        </p>
-                    </div>
+                    <p class="text-muted mt-3 text-center">
+                    {{ products|length }} Products 
+                    {% if search_term %} found for 
+                        <strong>"{{ search_term }}" </strong>
+                    {% endif %}
+                    {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"> |
+                            <a class="return-product-link text-decoration-none text-uppercase coral-text" href="{% url 'products' %}">Return to All Products
+                            </a>
+                        </span>
+                    {% endif %}
+                    </p>
                 </div>
             </div>
             <div class="row">
@@ -69,92 +68,92 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 g-4">
                     <!-- Card Top - product image -->
                     <div class="card h-100 border-light position-relative shadow-sm">
-                    <!-- If product on sale render badge -->
-                    {% if product.on_sale %}
-                        <span
-                            class="position-absolute top-0 end-0 py-2 px-1 m-3 rosso platinum-text rounded-circle">Sale
-                        </span>
-                    {% endif %}
-                    <!-- If image exists render img url -->
-                    {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top product-img img-fluid" src="{{ product.image.url }}" alt="{{ item.product.name }}">
-                        </a>
-                    <!-- Otherwise, render default img from media folder -->
-                    {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top product-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                        </a>
-                    {% endif %}
-                    <!-- Card Body - product name -->
-                    <div class="card-body pb-0">
-                        <!-- Add / remove wishlist item -->
-                        <div class="position-relative">
-                            <small class="position-absolute top-100 start-100 translate-middle-x">
-                                {% if request.user.is_authenticated %}
-                                    {% if in_wishlist %}
-                                    <a 
-                                        class="blue-black-text nav-icons heart" 
-                                        href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                        data-bs-placement="right" 
-                                        title="Remove from Wishlist">
-                                        <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                    </a>
+                        <!-- If product on sale render badge -->
+                        {% if product.on_sale %}
+                            <span
+                                class="position-absolute top-0 end-0 py-2 px-1 m-3 rosso platinum-text rounded-circle">Sale
+                            </span>
+                        {% endif %}
+                        <!-- If image exists render img url -->
+                        {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top product-img img-fluid" src="{{ product.image.url }}" alt="{{ item.product.name }}">
+                            </a>
+                        <!-- Otherwise, render default img from media folder -->
+                        {% else %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top product-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            </a>
+                        {% endif %}
+                        <!-- Card Body - product name -->
+                        <div class="card-body pb-0">
+                            <!-- Add / remove wishlist item -->
+                            <div class="position-relative">
+                                <small class="position-absolute top-100 start-100 translate-middle-x">
+                                    {% if request.user.is_authenticated %}
+                                        {% if in_wishlist %}
+                                        <a 
+                                            class="blue-black-text nav-icons heart" 
+                                            href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                            data-bs-placement="right" 
+                                            title="Remove from Wishlist">
+                                            <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                        </a>
+                                        {% else %}
+                                            <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
+                                            data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                            <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                            </a>
+                                        {% endif %}
                                     {% else %}
-                                        <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
-                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
-                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                        </a>
+                                            <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
+                                            <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                            </a>
                                     {% endif %}
-                                {% else %}
-                                        <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
-                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                        </a>
-                                {% endif %}
-                            </small>
-                        </div>
-                        <div class="row">
-                            <div class="col text-center">
-                                <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>
-                                <!-- Rating -->
-                                {% if product.rating %}
-                                    <small class="blue-black-text"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
-                                {% else %}
-                                    <small class="blue-black-text">No Rating</small>
-                                {% endif %}                          
+                                </small>
                             </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            {% if product.on_sale %}
-                                <div class="col-6 text-center mt-2">
-                                    <p class="fw-bold fs-6 text-decoration-line-through mb-0">
-                                    ${{ product.price }}</p>
-                                    <p class="rosso-text fw-bold fs-5">${{ product.sale_price }}</p>  
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h6 class="fw-bold text-uppercase mb-2">{{ product.name }}</h6>
+                                    <!-- Rating -->
+                                    {% if product.rating %}
+                                        <small class="blue-black-text"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
+                                    {% else %}
+                                        <small class="blue-black-text">No Rating</small>
+                                    {% endif %}                          
                                 </div>
-                            {% else %}
-                                <div class="col-6 text-center mt-2 mb-0">
-                                    <p class="fw-bold fs-5">
+                            </div>
+                            <div class="row justify-content-center">
+                                {% if product.on_sale %}
+                                    <div class="col-6 text-center mt-2">
+                                        <p class="fw-bold fs-6 text-decoration-line-through mb-0">
                                         ${{ product.price }}</p>
-                                </div>
-                            {% endif %}
-                        </div>                   
-                    </div>
-                    <!-- Card Footer - add to cart -->
-                    <div class="card-footer border-0 bg-transparent mt-0">
-                        <div class="row"> 
-                            <div class="col text-end">
-                                {% if request.user.is_superuser %}
-                                    <!-- Admin edit -->
-                                    <p class="mb-0">
-                                    <a class="btn btn-sm cyan text-decoration-none blue-black-text link-light shadow" href="{% url 'edit_product' product.id %}">Edit</a>
-                                    </p>
+                                        <p class="rosso-text fw-bold fs-5">${{ product.sale_price }}</p>  
+                                    </div>
+                                {% else %}
+                                    <div class="col-6 text-center mt-2 mb-0">
+                                        <p class="fw-bold fs-5">
+                                            ${{ product.price }}</p>
+                                    </div>
                                 {% endif %}
+                            </div>                   
+                        </div>
+                        <!-- Card Footer - add to cart -->
+                        <div class="card-footer border-0 bg-transparent mt-0">
+                            <div class="row"> 
+                                <div class="col text-end">
+                                    {% if request.user.is_superuser %}
+                                        <!-- Admin edit -->
+                                        <p class="mb-0">
+                                        <a class="btn btn-sm cyan text-decoration-none blue-black-text link-light shadow" href="{% url 'edit_product' product.id %}">Edit</a>
+                                        </p>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                    </div>
-                {% endfor %}
+                </div>
+            {% endfor %}
             </div>
         </div>
         <!-- Load More Button -->

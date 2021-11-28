@@ -16,7 +16,8 @@
 {% include 'products/includes/confirm_product_delete.html' %}
 
 <div class="overlay"></div>
-<div class="container" id="fix-height-wrapper">
+
+<div id="fix-height-wrapper" class="container">
     <div class="row d-flex justify-content-center">
         <!-- Product Image -->
         <div class="col-sm-4 align-self-center">
@@ -46,126 +47,124 @@
         <!-- Product Details -->
         <div class="col-sm-6 align-self-center">
             <div>
-                <div>
-                    <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
-                    <!-- Add / remove wishlist item -->
-                        <small>
-                            {% if request.user.is_authenticated %}
-                                {% if in_wishlist %}
-                                    <a 
-                                        class="blue-black-text nav-icons heart" 
-                                        href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
-                                        data-bs-placement="right" 
-                                        title="Remove from Wishlist">
-                                        <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                    </a>
-                                    {% else %}
-                                        <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
-                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
-                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                        </a>
-                                    {% endif %}
+                <p class="lead mb-1 text-uppercase fw-bolder">{{ product.name }}</p>
+                <!-- Add / remove wishlist item -->
+                    <small>
+                        {% if request.user.is_authenticated %}
+                            {% if in_wishlist %}
+                                <a 
+                                    class="blue-black-text nav-icons heart" 
+                                    href="{% url 'wishlist_toggle' product.id 1 %}" data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    title="Remove from Wishlist">
+                                    <i class="fa fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                </a>
                                 {% else %}
-                                        <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
-                                        <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
-                                        </a>
+                                    <a href="{% url 'wishlist_toggle' product.id 1 %}" class="blue-black-text nav-icons heart"
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Add to Wishlist">
+                                    <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                    </a>
                                 {% endif %}
-                                </small>
+                            {% else %}
+                                    <a href="{% url 'account_login' %}" class="blue-black-text nav-icons heart" data-bs-toggle="tooltip" data-bs-placement="right" title="Sign in to save to your wishlist!">
+                                    <i class="fas fa-heart fa-lg heart me-lg-0 me-3"></i>
+                                    </a>
+                            {% endif %}
+                            </small>
 
-                    {% if product.on_sale %}
-                        <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
-                        <p class="lead mb-0 fw-bold rosso-text">${{ product.sale_price }}</p>  
-                    {% else %}
-                        <p class="lead mb-0 fw-bold">${{ product.price }}</p>
-                    {% endif %}
+                {% if product.on_sale %}
+                    <p class="lead mb-0 fw-bold text-decoration-line-through">${{ product.price }}</p>
+                    <p class="lead mb-0 fw-bold rosso-text">${{ product.sale_price }}</p>  
+                {% else %}
+                    <p class="lead mb-0 fw-bold">${{ product.price }}</p>
+                {% endif %}
 
-                    {% if product.category %}
-                    <a 
-                        class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <p class="small mt-3 text-muted">  
-                        {{ product.category.friendly_name }}   
-                        </p>
-                    </a>
-                    {% endif %}
+                {% if product.category %}
+                <a 
+                    class="text-uppercase text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
+                    <p class="small mt-3 text-muted">  
+                    {{ product.category.friendly_name }}   
+                    </p>
+                </a>
+                {% endif %}
 
-                    <hr class="w-25">
+                <hr class="w-25">
 
-                    {% if product.rating %}
-                        <small class="blue-black-text"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="blue-black-text">No Rating</small>
-                    {% endif %}
+                {% if product.rating %}
+                    <small class="blue-black-text"><i class="material-icons m-0 cyan-text">star_rate</i>{{ product.rating }} / 5</small>
+                {% else %}
+                    <small class="blue-black-text">No Rating</small>
+                {% endif %}
 
-                    {% if product.reviews.all %}
-                        <p class="fw-bold ms-1 my-1">
-                            <a class="coral-text text-decoration-none" href="#reviews-container">{{ product.reviews.all | length }} review{{ product.reviews.all | length | pluralize }}</a>
-                        </p>
-                    {% else %}
-                        <p class="blue-black-text fw-bold ms-1 my-1">No reviews at this stage</p>
-                    {% endif %}
+                {% if product.reviews.all %}
+                    <p class="fw-bold ms-1 my-1">
+                        <a class="coral-text text-decoration-none" href="#reviews-container">{{ product.reviews.all | length }} review{{ product.reviews.all | length | pluralize }}</a>
+                    </p>
+                {% else %}
+                    <p class="blue-black-text fw-bold ms-1 my-1">No reviews at this stage</p>
+                {% endif %}
 
-                    <hr class="w-25">
+                <hr class="w-25">
 
-                    <p class="mt-3"><strong class="fw-bold">Colour:</strong> {{ product.color }}</p>
-                    <p class="mt-3 blue-black-text w-75">{{ product.description }}</p>
-                </div>
-                <!-- Add to Cart Form -->
-                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div>
-                        {% with product.has_sizes as s %}
-                        {% if s %}
-                            <div>
-                                <p><strong class="fw-bold">Size:</strong></p>
-                                <select class="form-select w-50" name="product_size" id='id_product_size'>
-                                    <option value="xs">XS</option>
-                                    <option value="s">S</option>
-                                    <option value="m" selected>M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                </select>
-                            </div>
-                        {% endif %}
+                <p class="mt-3"><strong class="fw-bold">Colour:</strong> {{ product.color }}</p>
+                <p class="mt-3 blue-black-text w-75">{{ product.description }}</p>
+            </div>
+            <!-- Add to Cart Form -->
+            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    {% with product.has_sizes as s %}
+                    {% if s %}
                         <div>
-                            <p class="mt-3"><strong class="fw-bold">Quantity:</strong></p>
-                            <div class="w-50 d-flex justify-content-center">
-                                <!-- Increment / Decrement Product Quantity -->
-                                <div class="input-group input-group-qty">
-                                    <button 
-                                        class="input-group-text decrement-qty"
-                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                        <i class="material-icons">remove</i>
-                                    </button>
-                                    <input 
-                                        class="form-control qty_input"   type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    <button 
-                                        class="input-group-text increment-qty"
-                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}"> 
-                                        <i class="material-icons">add</i>
-                                    </button>
-                                </div>
+                            <p><strong class="fw-bold">Size:</strong></p>
+                            <select class="form-select w-50" name="product_size" id='id_product_size'>
+                                <option value="xs">XS</option>
+                                <option value="s">S</option>
+                                <option value="m" selected>M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                            </select>
+                        </div>
+                    {% endif %}
+                    <div>
+                        <p class="mt-3"><strong class="fw-bold">Quantity:</strong></p>
+                        <div class="w-50 d-flex justify-content-center">
+                            <!-- Increment / Decrement Product Quantity -->
+                            <div class="input-group input-group-qty">
+                                <button 
+                                    class="input-group-text decrement-qty"
+                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                    <i class="material-icons">remove</i>
+                                </button>
+                                <input 
+                                    class="form-control qty_input"   type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                <button 
+                                    class="input-group-text increment-qty"
+                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}"> 
+                                    <i class="material-icons">add</i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Add to Cart / Continue Shopping Buttons -->
-                    <div class="vstack gap-4 my-5">
-                        <button
-                            name="redirect_url" value="{{ request.path }}"      
-                            class="btn btn-act text-uppercase coral"
-                            >Add to Cart
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                        <a
-                            href="{% url 'products' %}" 
-                            class="btn btn-go text-uppercase granny-smith">Continue Shopping
-                            <i class="icon material-icons">
-                            store
-                            </i>
-                        </a>
-                        {% endwith %}
-                    </div>
-                </form>
-            </div>
+                </div>
+                <!-- Add to Cart / Continue Shopping Buttons -->
+                <div class="vstack gap-4 my-5">
+                    <button
+                        name="redirect_url" value="{{ request.path }}"      
+                        class="btn btn-act text-uppercase coral"
+                        >Add to Cart
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <a
+                        href="{% url 'products' %}" 
+                        class="btn btn-go text-uppercase granny-smith">Continue Shopping
+                        <i class="icon material-icons">
+                        store
+                        </i>
+                    </a>
+                    {% endwith %}
+                </div>
+            </form>
         </div>
         <div class="col-sm-2 align-self-center d-grid gap-5">
         <!-- Review Modal Trigger -->
@@ -216,25 +215,25 @@
 
                     <!-- Edit Review Action -->
                     <div class="d-grid gap-1">
-                    {% if review.user == request.user or request.user.is_superuser %}
-                    <a 
-                        href="{% url 'edit_review' review.id %}#reviews-container"
-                        data-bs-toggle="modal" 
-                        data-bs-target="#reviewModal"
-                        aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-light">Edit
-                    </a>
-                    {% endif %}
+                        {% if review.user == request.user or request.user.is_superuser %}
+                        <a 
+                            href="{% url 'edit_review' review.id %}#reviews-container"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#reviewModal"
+                            aria-label="Review edit for {{ review.user }}" class="btn btn-sm btn-light">Edit
+                        </a>
+                        {% endif %}
 
-                    <!-- Delete Review Modal Trigger --> 
-                    <!-- Visible only admin -->
-                    {% if request.user.is_superuser %}
-                    <a  
-                        data-bs-toggle="modal"
-                        data-bs-target="#reviewDeleteModal"
-                        aria-label="Delete review for {{ review.user }}"
-                        class="btn btn-sm btn-danger">Delete
-                    </a>
-                    {% endif %}
+                        <!-- Delete Review Modal Trigger --> 
+                        <!-- Visible only admin -->
+                        {% if request.user.is_superuser %}
+                        <a  
+                            data-bs-toggle="modal"
+                            data-bs-target="#reviewDeleteModal"
+                            aria-label="Delete review for {{ review.user }}"
+                            class="btn btn-sm btn-danger">Delete
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="card-body">
@@ -249,42 +248,39 @@
             </div>
         </div>
         <!-- Delete Review Modal -->
-        <div 
-        class="modal fade" 
-        id="reviewDeleteModal"
-        tabindex="-1"
-        aria-labelledby="reviewDeleteModal" 
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border border-danger">
-                <div class="modal-header blue-black platinum-text text-uppercase">
-                    <h5 
-                        class="modal-title">Just to clarify...
-                    </h5>
-                    <button 
-                        type="button" 
-                        class="btn-close btn-close-white"
-                        data-bs-target="#reviewDeleteModal"
-                        data-bs-dismiss="modal"
-                        aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete {{ review.user }}'s review on {{ product.name }}?
-                </div>
-                <div class="modal-footer blue-black">
-                    <button 
-                        type="button" 
-                        class="btn btn-light text-decoration-none"
-                        data-bs-dismiss="modal">Cancel
-                    </button>
-                    <a 
-                        class="btn btn-danger text-decoration-none" 
-                        href="{% url 'delete_review' review.id %}">Delete
-                    </a>
+        <div class="modal fade" 
+            id="reviewDeleteModal"
+            tabindex="-1"
+            aria-labelledby="reviewDeleteModal" 
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border border-danger">
+                    <div class="modal-header blue-black platinum-text text-uppercase">
+                        <h5 class="modal-title">Just to clarify...</h5>
+                        <button 
+                            type="button" 
+                            class="btn-close btn-close-white"
+                            data-bs-target="#reviewDeleteModal"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete {{ review.user }}'s review on {{ product.name }}?
+                    </div>
+                    <div class="modal-footer blue-black">
+                        <button 
+                            type="button" 
+                            class="btn btn-light text-decoration-none"
+                            data-bs-dismiss="modal">Cancel
+                        </button>
+                        <a 
+                            class="btn btn-danger text-decoration-none" 
+                            href="{% url 'delete_review' review.id %}">Delete
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
         {% endfor %}
     </div>
