@@ -48,13 +48,21 @@
                                     {% include "cart/product_info.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.product.price }}</p>
+                                    {% if item.product.on_sale %}
+                                        <p class="my-0 rosso-text">${{ item.product.sale_price }}</p>
+                                    {% else %}
+                                        <p class="my-0">${{ item.product.price }}</p>
+                                    {% endif %}
                                 </td>
                                 <td class="py-3 w-25">
                                     {% include "cart/quantity_form.html" %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    {% if item.product.on_sale %}
+                                        <p class="my-0">${{ item.product.sale_price | calc_subtotal:item.quantity }}</p>
+                                    {% else %}
+                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -81,7 +89,9 @@
                         </tr>
                     </thead>
                     <tr>
-                        <th scope="row" class="py-3"><p class="h6"><strong>Cart Total:</strong></p></th>
+                        <th scope="row" class="py-3">
+                            <p class="h6"><strong>Cart Subtotal:</strong></p>
+                        </th>
                         <td></td>
                         <td class="text-end">${{ total|floatformat:2 }}</td>
                     </tr>
