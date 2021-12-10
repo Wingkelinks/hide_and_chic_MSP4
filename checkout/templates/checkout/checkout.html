@@ -34,11 +34,7 @@
                 <table class="table table-sm">
                     <thead class="blue-black platinum-text h4">
                         <tr>
-                            <th colspan="2" scope="col">Order Summary ({{ product_count }})</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th colspan="3">Order Summary ({{ product_count }})</th>
                         </tr>
                     </thead>
 
@@ -66,26 +62,22 @@
                                     SKU: {{ item.product.sku|upper }}</p>
                                 <p class="my-0 small text-muted">
                                     Qty: {{ item.quantity }}</p>
-                            </td>
-                            <!-- Item Price -->
-                            <td class="py-3">
-                                <p class="my-0 text-end">
+                                <!-- Item Price -->
+                                <p class="my-0">
                                     ${{ item.product.price }}</p>
                             </td>
-                            <!-- Total -->
-                            <td class="py-3 w-25">
-                                <td class="py-3">
-                                    <p class="my-0">
-                                        ${{ item.product.price | calc_subtotal:item.quantity}}
-                                    </p>
-                                </td>
+                            <!-- Subtotal -->
+                            <td class="py-3 w-25 text-end"> 
+                                <p class="my-0">
+                                    ${{ item.product.price | calc_subtotal:item.quantity}}
+                                </p>
                             </td> 
                         </tr>
                     {% endfor %}
                     <tr>
-                        <th scope="row" class="py-3"><p class="h6"><strong>Cart Total:</strong></p></th>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" class="py-3">
+                            <p class="h6"><strong>Cart Total:</strong></p>
+                        </th>
                         <td></td>
                         <td class="text-end align-middle">
                             ${{ total|floatformat:2 }}
@@ -93,9 +85,9 @@
                     </tr>
                     <!-- Delivery -->
                     <tr>
-                        <th scope="row" class="py-3"><p class="h6"><strong>Delivery:</strong></p></th>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" class="py-3">
+                            <p class="h6"><strong>Delivery:</strong></p>
+                        </th>
                         <td></td>
                         <td class="text-end align-middle">
                             ${{ delivery|floatformat:2 }}
@@ -104,9 +96,9 @@
                     <!-- Savings/coupon -->
                     {% if not coupon == None %}
                     <tr>
-                        <th scope="row" class="py-3"><p class="h6"><strong>Savings:</strong></p></th>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" class="py-3">
+                            <p class="h6"><strong>Savings:</strong></p>
+                        </th>
                         <td></td>
                         <td class="text-end align-middle rosso-text">
                             ${{ savings|floatformat:2 }} - {{ coupon_amount }}% off!
@@ -115,9 +107,9 @@
                     {% endif %}
                     <!-- Grand Total -->
                     <tr>
-                        <th scope="row" class="py-3"><p class="h5"><strong class="fw-bold">Grand Total:</strong></p></th>
-                        <td></td>
-                        <td></td>
+                        <th scope="row" class="py-3">
+                            <p class="h5"><strong class="fw-bold">Grand Total:</strong></p>
+                        </th>
                         <td></td>
                         <td class="text-end align-middle">
                             ${{ grand_total|floatformat:2 }}
@@ -125,10 +117,10 @@
                     </tr>
                     {% if free_delivery_delta > 0 %}
                         <tr>
-                            <td colspan="5" class="py-3">
+                            <td colspan="3" class="py-3">
                                 <p class="mb-1 text-danger">
                                     Spend <strong>${{ free_delivery_delta }}</strong> more to qualify for free delivery!
-                                </p>  
+                                </p>
                             </td>
                         </tr>
                     {% endif %}
@@ -210,11 +202,11 @@
 </div>
 
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
+    <p class="h1 text-light logo-font loading-spinner">
         <span class="icon">
             <i class="fas fa-spinner fa-3x fa-spin"></i>
         </span>
-    </h1>
+    </p>
 </div>
 
 {% endblock %}
