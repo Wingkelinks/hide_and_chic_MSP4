@@ -439,10 +439,10 @@ footer .socials ul li a:active {
 	}
 
 	.call-to-action-btns {
-		width: 40%;
+		width: 50%;
 		height: auto;
 		font-size: 1rem !important;
-		margin-top: 60px;
+		margin: 5px;
 	}
 
 	.card-img-top {
@@ -452,7 +452,8 @@ footer .socials ul li a:active {
 	}
 
 	.slogan {
-		font-size: 1.6rem;
+		font-size: 1.8rem;
+		margin-left: 5px;
 	}
 
 	/* https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
