@@ -86,17 +86,25 @@
 									<p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
 								</td>
 								<td class="py-3">
+								{% if item.product.on_sale %}
+									<p class="my-0 rosso-text">${{ item.product.sale_price }}</p>
+								{% else %}
 									<p class="my-0">${{ item.product.price }}</p>
+								{% endif %}
 								</td>
 								<td class="py-3">
-									<p class="my-0 text-end">${{ item.product.price | calc_subtotal:item.quantity}}</p>
+									{% if item.product.on_sale %}
+                                        <p class="my-0 text-end">${{ item.product.sale_price | calc_subtotal:item.quantity }}</p>
+                                    {% else %}
+										<p class="my-0 text-end">${{ item.product.price | calc_subtotal:item.quantity}}</p>
+                                    {% endif %}
 								</td>
 							</tr>
 							{% endfor %}
 							<tr>
 								<td colspan="3" class="py-2"><p><strong>Cart Total:</strong></p>
 								</td>
-								<td class="py-2">${{ total|floatformat:2 }}</td>
+								<td class="py-2 text-end">${{ total|floatformat:2 }}</td>
 							</tr>
 						</table>
 					</div>

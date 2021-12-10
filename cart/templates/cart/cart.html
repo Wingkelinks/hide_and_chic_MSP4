@@ -170,9 +170,9 @@
 
     // Refresh quantity on click
 
-    let refreshForm = $('.refresh-form');
 
     $('.refresh-link').click(function(e) {
+        let refreshForm = $(this).parent().prev();
         refreshForm.submit();
     })
 
