@@ -32,7 +32,7 @@ class CouponApplyForm(forms.ModelForm):
         self.fields['code'].label = False
         self.fields['amount'].label = False
 
-    # Credit for adapted check amount value - see README.md for more details
+
     def clean_amount(self):
         amount = self.cleaned_data['amount']
         if amount < 1:

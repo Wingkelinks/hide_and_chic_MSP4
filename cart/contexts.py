@@ -3,7 +3,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 from .models import Coupon
-import math
 
 
 def cart_contents(request):
@@ -56,7 +55,7 @@ def cart_contents(request):
 
     if coupon is not None:
         coupon_amount = coupon.amount
-        savings = cart_total*(coupon_amount/Decimal('100'))
+        savings = cart_total * (coupon_amount/Decimal('100'))
         total = cart_total - savings
     else:
         total = cart_total

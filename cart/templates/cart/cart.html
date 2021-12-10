@@ -35,7 +35,6 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
 
@@ -52,20 +51,19 @@
                                 </td>
                                 <td class="py-3 w-25">
                                     {% include "cart/quantity_form.html" %}
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity}}</p>
-                                    </td>
-                                </td> 
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </td>
                             </tr>
                         {% endfor %}
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="py-3"><h6><strong>Cart Total:</strong></h6>
+                            <td class="py-3"><h6><strong>Cart Subtotal:</strong></h6>
                             </td>
                             <td class="py-3">${{ total|floatformat:2 }}</td>
-                            <td></td>
                         </tr>
                     </table>
                 </div>

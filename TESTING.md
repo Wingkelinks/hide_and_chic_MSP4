@@ -295,15 +295,17 @@ Manual testing was performed throughout the building process. The following is a
   - *unused CSS* - a Bootstrap related issue
   - *unused JavaScript* - caused by Stripe & JQuery
 
-#### [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+#### [W3C HTML Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
  - No Errors
  - 253 Warnings
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
- - 17 Errors
- - 5 Warnings
+ - NO Errors
+ - 253 Warnings
+
+<img src="/testing/images/CSS_validation.png" width="400">
 
 #### [Python Validator](http://pep8online.com/)
 
