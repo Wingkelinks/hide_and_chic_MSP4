@@ -19,7 +19,7 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div id="fix-height-wrapper" class="container mb-5">
+<div id="fix-height-wrapper" class="container mb-5 pb-5">
     <div class="row mb-lg-5">
         <div class="col text-center">
             <h1 class="logo-font mb-4">Checkout</h1>
@@ -27,11 +27,11 @@
         </div> 
     </div>
 
-    <div class="row">
+    <div class="row mb-5 pb-5" id="fix-height-wrapper">
         <!-- Order Summary -->
         <div class="col-12 col-lg-4 mt-lg-5">
             <div class="table-responsive rounded">
-                <table class="table table-sm">
+                <table class="table table-sm mb-5 pb-5">
                     <thead class="blue-black platinum-text h4">
                         <tr>
                             <th colspan="3">Order Summary ({{ product_count }})</th>
@@ -42,6 +42,7 @@
                         <tr>
                             <!-- Product Image -->
                             <td class="align-middle">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
                                         <img class="rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -51,8 +52,7 @@
                                 </a>
                             </td>
                             <!-- Product Info -->
-                            <td class="py-3">
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <td class="py-1">
                                 <p class="my-0"><strong>Size: </strong>
                                     {% if item.product.has_sizes %}
                                     {{ item.size|upper }}{% else %}N/A
@@ -67,7 +67,7 @@
                                     ${{ item.product.price }}</p>
                             </td>
                             <!-- Subtotal -->
-                            <td class="py-3 w-25 text-end"> 
+                            <td class="py-1 w-25 text-end"> 
                                 <p class="my-0">
                                     ${{ item.product.price | calc_subtotal:item.quantity}}
                                 </p>

@@ -17,7 +17,7 @@
 
 <div class="overlay"></div>
 
-<div id="fix-height-wrapper" class="container">
+<div id="fix-height-wrapper" class="container mb-5 pb-5">
     <div class="row">
       <div class="col text-center">
         <h1 class="logo-font mb-4 mt-2">Your Cart</h1>
@@ -26,58 +26,65 @@
     </div>
 
     {% if cart_items %}
-    <div class="row">
-        <div class="col-lg">
-                <div class="table-responsive rounded">
-                    <table class="table table-sm">
-                        <thead class="blue-black platinum-text text-center">
-                            <tr>
-                                <th scope="col">Product Info</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Subtotal</th>
-
-                            </tr>
-                        </thead>
-
-                        {% for item in cart_items %}
-                            <tr>
-                                <td class="align-middle">
-                                    {% include "cart/product_img.html" %}
-                                </td>
-                                <td class="py-3">
-                                    {% include "cart/product_info.html" %}
-                                </td>
-                                <td class="py-3">
-                                    {% if item.product.on_sale %}
-                                        <p class="my-0 rosso-text">${{ item.product.sale_price }}</p>
-                                    {% else %}
-                                        <p class="my-0">${{ item.product.price }}</p>
-                                    {% endif %}
-                                </td>
-                                <td class="py-3 w-25">
-                                    {% include "cart/quantity_form.html" %}
-                                </td>
-                                <td class="py-3">
-                                    {% if item.product.on_sale %}
-                                        <p class="my-0">${{ item.product.sale_price | calc_subtotal:item.quantity }}</p>
-                                    {% else %}
-                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        {% endfor %}
+    <div class="row pb-5 mb-5" id="fix-height-wrapper">
+        <div class="col-lg mb-5 pb-5">
+            <div class="table-responsive rounded">
+                <table class="table table-sm">
+                    <thead class="blue-black platinum-text text-center">
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="py-3"><h6><strong>Cart Subtotal:</strong></h6>
-                            </td>
-                            <td class="py-3">${{ total|floatformat:2 }}</td>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+
                         </tr>
-                    </table>
-                </div>
+                    </thead>
+
+                    {% for item in cart_items %}
+                        <tr>
+                            <td class="align-middle">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    {% if item.product.image %}
+                                        <img class="rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img class="rounded product-img-cart" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    {% endif %}
+                                </a>
+                            </td>
+                            <td class="py-3">
+                                {% include "cart/product_info.html" %}
+                            </td>
+                            <td class="py-3">
+                                {% if item.product.on_sale %}
+                                    <p class="my-0 rosso-text">${{ item.product.sale_price }}</p>
+                                {% else %}
+                                    <p class="my-0">${{ item.product.price }}</p>
+                                {% endif %}
+                            </td>
+                            <td class="py-3 w-25">
+                                {% include "cart/quantity_form.html" %}
+                            </td>
+                            <td class="py-3">
+                                {% if item.product.on_sale %}
+                                    <p class="my-0">${{ item.product.sale_price | calc_subtotal:item.quantity }}</p>
+                                {% else %}
+                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="py-3"><h6><strong>Cart Subtotal:</strong></h6>
+                        </td>
+                        <td class="py-3">${{ total|floatformat:2 }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <!-- Order Summary -->
         <div class="col-lg">

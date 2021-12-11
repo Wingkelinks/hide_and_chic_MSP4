@@ -311,9 +311,9 @@ footer .socials ul li a:active {
 }
 
 .product-img-cart {
-	max-width: 100%;
+	max-width: 50%;
 	height: auto;
-	object-fit: contain;
+	object-fit: scale-down;
 }
 
 /* ------------------------------- PRODUCTS PAGE END*/
