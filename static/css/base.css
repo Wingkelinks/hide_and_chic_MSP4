@@ -311,8 +311,8 @@ footer .socials ul li a:active {
 }
 
 .product-img-cart {
-	width: 50%;
-	height: 50%;
+	max-width: 100%;
+	height: auto;
 	object-fit: contain;
 }
 
@@ -448,7 +448,7 @@ footer .socials ul li a:active {
 	}
 
 	.call-to-action-btns {
-		width: 50%;
+		width: 80%;
 		height: auto;
 		font-size: 1rem !important;
 		margin: 5px;
