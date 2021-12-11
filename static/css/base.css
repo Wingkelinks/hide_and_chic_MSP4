@@ -25,13 +25,13 @@
 html {
 	height: 100%;
 	scroll-behavior: smooth;
-	overflow-x: hidden;
 }
 
 body {
 	height: calc(100vh - 164px);
 	font-family: var(--body-font);
 	overflow-x: hidden;
+	position: relative;
 }
 
 #fix-height-wrapper {
@@ -265,6 +265,10 @@ body {
 	color: #ffffff !important;
 }
 
+#reviews-carousel {
+	height: 50%;
+}
+
 /* Footer */
 #footer-container {
 	background-color: var(--color-blue-black);
@@ -461,6 +465,10 @@ footer .socials ul li a:active {
 		margin-top: -35px;
 		margin-left: -100px;
 		z-index: 99999999999;
+	}
+
+	#reviews-carousel {
+		height: 30%;
 	}
 
 	#reviews-carousel blockquote {
