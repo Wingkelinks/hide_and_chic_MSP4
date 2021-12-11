@@ -24,11 +24,11 @@
             <div class="image-container px-3 position-relative">
                 {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
-                        <img class="img-fluid w-100 rounded-3" src="{{ product.image.url }}" alt="{{ item.product.name }}">
+                        <img class="img-fluid rounded-3" src="{{ product.image.url }}" alt="{{ item.product.name }}">
                     </a>
                     {% else %}
                     <a href="" class="text-decoration-none">
-                        <img class="img-fluid h-25 rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                        <img class="img-fluid rounded-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                     </a>
                 {% endif %}
                 <!-- Admin edit/delete actions -->

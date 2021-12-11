@@ -41,12 +41,12 @@
                     {% for item in cart_items %}
                         <tr>
                             <!-- Product Image -->
-                            <td class="p-3 w-25 align-middle">
+                            <td class="align-middle">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
-                                        <img class="img-fluid rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                        <img class="rounded product-img-cart" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                     {% else %}
-                                        <img class="img-fluid rounded product-img-cart" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        <img class="rounded product-img-cart" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     {% endif %}
                                 </a>
                             </td>
