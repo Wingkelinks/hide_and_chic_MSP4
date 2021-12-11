@@ -2,7 +2,7 @@
 <div 
 	class="modal fade" 
 	id="reviewModal"
-	tabindex="-1" 	
+	tabindex="-1"
 	aria-labelledby="reviewModal" 
     aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
@@ -21,7 +21,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="{% url 'edit_review' review.id %}#reviews-container" class="form">
+				<form method="POST" action="{% url 'edit_review' product.id %}#reviews-container" class="form">
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right mt-3">

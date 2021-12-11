@@ -25,7 +25,7 @@ def cart_contents(request):
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+            cart_total += item_data * product.price
             product_count += item_data
             cart_items.append({
                 'item_id': item_id,
@@ -35,7 +35,7 @@ def cart_contents(request):
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
+                cart_total += quantity * product.price
                 product_count += quantity
                 cart_items.append({
                     'item_id': item_id,
@@ -44,14 +44,14 @@ def cart_contents(request):
                     'size': size,
                 })
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+    if cart_total < settings.FREE_DELIVERY_THRESHOLD:
+        delivery = cart_total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - cart_total
     else:
         delivery = 0
         free_delivery_delta = 0
 
-    grand_total = delivery + total
+    grand_total = delivery + cart_total
 
     if coupon is not None:
         coupon_amount = coupon.amount
@@ -63,6 +63,7 @@ def cart_contents(request):
     context = {
         'cart_items': cart_items,
         'total': total,
+        'cart_total': cart_total,
         'coupon': coupon,
         'coupon_amount': coupon_amount,
         'savings': savings,
