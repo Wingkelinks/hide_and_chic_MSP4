@@ -200,10 +200,6 @@ body {
 	object-fit: cover;
 }
 
-#featured-collections .feature-col {
-	background-color: var(--color-blue-black) !important;
-}
-#featured-collections > div > div.card.my-5.border-0 > div
 /* Centering Material Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
 .icon,

@@ -25,7 +25,10 @@ def cart_contents(request):
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            cart_total += item_data * product.price
+            if product.on_sale:
+                cart_total += item_data * product.sale_price
+            else:
+                cart_total += item_data * product.price
             product_count += item_data
             cart_items.append({
                 'item_id': item_id,
@@ -35,7 +38,10 @@ def cart_contents(request):
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                cart_total += quantity * product.price
+                if product.on_sale:
+                    cart_total += quantity * product.sale_price
+                else:
+                    cart_total += quantity * product.price
                 product_count += quantity
                 cart_items.append({
                     'item_id': item_id,
@@ -45,7 +51,8 @@ def cart_contents(request):
                 })
 
     if cart_total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = cart_total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        delivery = cart_total * Decimal(
+            settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - cart_total
     else:
         delivery = 0
