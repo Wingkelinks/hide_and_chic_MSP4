@@ -399,7 +399,14 @@ Chrome DevTools used to test:
 - Image URL issue - resolved 
    <img src="/testing/images/image_url_issue.png" width="400">
 
+
+- Overflow issues resolved - assisted by [Unicorn Revealer](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB)
+
+<img src="/testing/images/overflow.png" width="400">
+
 <span id="testing-unresolved"></span>
+
+
 
 > # **UNRESOLVED ISSUES**
 
