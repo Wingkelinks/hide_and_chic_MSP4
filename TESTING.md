@@ -433,7 +433,7 @@ Chrome DevTools used to test:
 
 - I am aware that cart and checkout images appear to be stretched when viewed on IOS devices - this is not the case when checked against breakpoints on the pc. Tried various attempts to fix it. 
 
-  <img src="/testing/images/image_stretch.png" width="400">
+  <img src="/testing/images/image_stretch.jpeg" width="400">
 
 <br><hr>
 
