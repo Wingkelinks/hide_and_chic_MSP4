@@ -18,11 +18,11 @@
               {% if redirect_field_value %}
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
-                <a href="{% url 'account_login' %}" class="btn coral rounded-3 btn btn-yes mb-1">
+                <a href="{% url 'account_login' %}" class="btn coral rounded-3 btn btn-yes mb-5">
                 <i class="material-icons">arrow_back_ios_new</i>
                 <span class="text-uppercase">Back to Login</span>
                 </a>
-              <button class="btn cyan rounded-3 btn btn-hmm text-uppercase mb-4" type="submit">{% trans "Sign Up" %}</button>
+              <button class="btn cyan rounded-3 btn btn-hmm text-uppercase mb-5" type="submit">{% trans "Sign Up" %}</button>
             </form>
         </div>
     </div>

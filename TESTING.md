@@ -297,7 +297,7 @@ Manual testing was performed throughout the building process. The following is a
 
 #### [W3C HTML Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
- - No Errors
+ - NO Errors
  - 253 Warnings
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
@@ -309,12 +309,12 @@ Manual testing was performed throughout the building process. The following is a
 
 #### [Python Validator](http://pep8online.com/)
 
-- Initial Pep8 tests showed some refactoring was required, mainly removing whitespace and fixing some indenting issues.
+- Code refactoring done and all tests passed PEP8 requirements since initial submission.
 
 #### [JavaScript Validator](https://jshint.com/)
 
   -  2 warnings
-  -  No Errors
+  -  NO Errors
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -355,7 +355,7 @@ Chrome DevTools used to test:
 - iPhone SE
 - MacBook Pro
 - MacBook Air
-- iPad 
+- iPad
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
 
@@ -421,5 +421,27 @@ Chrome DevTools used to test:
 
 
 <div align="right"><a style="text-align:right" href="#top">Back to index	:point_up_2:</a></div>
+
+<br><hr>
+
+- I am aware that cart and checkout images appear to be stretched when viewed on IOS devices - this is not the case when checked against breakpoints on the pc. Tried various attempts to fix it. 
+
+  <img src="/testing/images/coupon_issue.png" width="400">
+
+<br><hr>
+
+- I am also aware that the reviews model does not direct a user to the correct view when selecting to edit a review. I made several attempts at trying to fix this and other CRUD functionality took precendence in the end.
+
+<br><hr>
+
+- The issue of emails not being sent to the users email address has also not been resolved despite confirmation of payments being recorded through Stripe, Heroku Logs and in the admin panel. I have worked extensively on this with student support and not been able to debug it.
+
+- Please see screenshots below as proof of payments being successful. 
+
+<img src="/testing/images/payment_success1.png" width="400">
+
+<img src="/testing/images/payment_success2.png" width="400">
+
+<img src="/testing/images/payment_success3.png" width="400">
 
 <br><hr>
