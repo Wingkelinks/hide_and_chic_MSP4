@@ -85,20 +85,20 @@
 <section id="featured-collections" class="coral py-5">
   <div class="container">
     <div class="card my-5 border-0">
-      <div class="row g-0">
-        <div class="col-md-7">
+      <div class="row g-0 feature-col">
+        <div class="col-md-7 my-auto">
           <a href="{% url 'products' %}">
             <img src="{{ MEDIA_URL }}shirt_shoes.jpg" class="img-fluid rounded-start" alt="Shirt and Shoes">
           </a>
         </div>
-        <div class="col-md-5 d-flex flex-row align-items-end">
+        <div class="col-md-5 d-flex flex-row align-items-end platinum-text">
           <div class="card-body">
             <h5 class="card-subtitle">Our Latest Collection</h5>
             <h4 class="card-title text-uppercase mt-3">Autunno</h4>
-            <hr class="text-secondary w-25 pt-1">
+            <hr class="text-light w-25 pt-1">
             <p class="card-text mt-5 lh-lg">The new collection has finally landed... An Italian Autumn is the seasonal inspiration for this gorgeous collection of warm rusts, earthy ochres and tans, complemented by hints of sky blue and cool jade.</p>
             <a 
-            href="{% url 'products' %}" class="btn btn-sml btn-yes rounded-3 blue-black platinum-text fw-bold border-1 border-light text-uppercase fs-5 me-2">Shop Now
+            href="{% url 'products' %}" class="btn btn-sml btn-act rounded-3 blue-black platinum-text fw-bold border-1 border-light text-uppercase fs-5 me-2">Shop Now
             </a>
           </div>
         </div>

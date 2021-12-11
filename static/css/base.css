@@ -150,6 +150,10 @@ body {
 			rgba(7, 79, 97, 1) 100%
 		);
 	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	object-fit: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -196,6 +200,10 @@ body {
 	object-fit: cover;
 }
 
+#featured-collections .feature-col {
+	background-color: var(--color-blue-black) !important;
+}
+#featured-collections > div > div.card.my-5.border-0 > div
 /* Centering Material Icon in div: */
 /* https://newbedev.com/mat-icon-does-not-center-in-its-div */
 .icon,
@@ -305,7 +313,7 @@ footer .socials ul li a:active {
 .product-img-cart {
 	width: 50%;
 	height: 50%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 /* ------------------------------- PRODUCTS PAGE END*/
