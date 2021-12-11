@@ -268,6 +268,8 @@ body {
 	color: #ffffff !important;
 }
 
+
+
 /* Footer */
 #footer-container {
 	background-color: var(--color-blue-black);
@@ -411,6 +413,10 @@ footer .socials ul li a:active {
 	.container {
 		max-width: 80%;
 	}
+
+	#reviews-carousel {
+		height: 350px;
+	}
 }
 
 /* Medium and up */
@@ -421,6 +427,10 @@ footer .socials ul li a:active {
 
 	body {
 		height: calc(100vh - 164px);
+	}
+
+	#reviews-carousel {
+		height: 350px;
 	}
 }
 
@@ -464,5 +474,9 @@ footer .socials ul li a:active {
 		margin-top: -35px;
 		margin-left: -100px;
 		z-index: 99999999999;
+	}
+
+	#reviews-carousel blockquote {
+		font-size: 1rem;
 	}
 }
